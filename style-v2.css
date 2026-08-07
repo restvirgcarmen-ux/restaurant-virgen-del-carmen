@@ -1084,9 +1084,13 @@ GALERÍA
 
 .contenedor-slider{
 
-    overflow:hidden;
-    max-width:1100px;
     width:100%;
+
+    max-width:380px;
+
+    overflow:hidden;
+
+    margin:auto;
 
 }
 
@@ -1099,17 +1103,22 @@ GALERÍA
 
 .slider img{
 
-    width:340px;
-    height:260px;
+    width:100%;
+    max-width:360px;
+
+    height:280px;
+
     object-fit:cover;
 
-    border-radius:20px;
+    border-radius:18px;
 
-    box-shadow:0 12px 30px rgba(0,0,0,.18);
+    flex-shrink:0;
 
-    transition:.35s;
+    box-shadow:0 12px 25px rgba(0,0,0,.18);
 
     cursor:pointer;
+
+    transition:.35s;
 
 }
 
@@ -1122,8 +1131,9 @@ GALERÍA
 .prev,
 .next{
 
-    width:50px;
-    height:50px;
+    width:45px;
+
+    height:45px;
 
     border:none;
 
@@ -1133,11 +1143,11 @@ GALERÍA
 
     color:#fff;
 
-    font-size:28px;
+    font-size:24px;
 
     cursor:pointer;
 
-    transition:.3s;
+    flex-shrink:0;
 
 }
 
