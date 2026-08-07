@@ -1044,6 +1044,110 @@ GALERÍA
 
 }
 
+/* ===========================
+   CLIENTES
+=========================== */
+
+.clientes{
+
+    padding:90px 8%;
+    background:#f8f5ef;
+
+}
+
+.clientes h2{
+
+    text-align:center;
+    font-size:42px;
+    color:#b71c1c;
+    margin-bottom:15px;
+
+}
+
+.subtitulo-clientes{
+
+    text-align:center;
+    color:#666;
+    font-size:18px;
+    margin-bottom:45px;
+
+}
+
+.slider-clientes{
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
+
+}
+
+.contenedor-slider{
+
+    overflow:hidden;
+    max-width:1100px;
+    width:100%;
+
+}
+
+.slider{
+
+    display:flex;
+    gap:25px;
+
+}
+
+.slider img{
+
+    width:340px;
+    height:260px;
+    object-fit:cover;
+
+    border-radius:20px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.18);
+
+    transition:.35s;
+
+    cursor:pointer;
+
+}
+
+.slider img:hover{
+
+    transform:translateY(-8px) scale(1.03);
+
+}
+
+.prev,
+.next{
+
+    width:50px;
+    height:50px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#b71c1c;
+
+    color:#fff;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.prev:hover,
+.next:hover{
+
+    background:#8e1414;
+
+}
+
  /*====================================
 LIGHTBOX GALERÍA
 ====================================*/
