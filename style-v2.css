@@ -266,7 +266,7 @@ a{
     height:340px;
 
     object-fit:cover;
-    object-position:center -10%;
+    object-position:center 0%;
 
     border-radius:50%;
 
