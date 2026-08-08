@@ -1049,64 +1049,65 @@ GALERÍA
 =========================== */
 
 .clientes{
-
     padding:90px 8%;
     background:#f8f5ef;
-
 }
 
 .clientes h2{
-
     text-align:center;
     font-size:42px;
     color:#b71c1c;
     margin-bottom:15px;
-
 }
 
 .subtitulo-clientes{
-
     text-align:center;
     color:#666;
     font-size:18px;
     margin-bottom:45px;
-
 }
 
-.slider-clientes{
 
+/* ===========================
+   CONTENEDOR DEL SLIDER
+=========================== */
+
+.slider-clientes{
+    position:relative;
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:20px;
-
 }
 
 .contenedor-slider{
-
     width:100%;
-
     max-width:380px;
-
     overflow:hidden;
-
     margin:auto;
-
 }
 
-.slider{
 
+/* ===========================
+   SLIDER
+=========================== */
+
+.slider{
     display:flex;
     gap:25px;
     margin-top:20px;
 
+    width:max-content;
+
+    transition:transform .5s ease;
 }
 
+
+/* ===========================
+   FOTOS
+=========================== */
+
 .slider img{
-
-    width:100%;
-    max-width:360px;
-
+    width:360px;
     height:240px;
 
     object-fit:cover;
@@ -1119,67 +1120,29 @@ GALERÍA
 
     cursor:pointer;
 
-    transition:.35s;
-
+    transition:transform .35s ease;
 }
 
 .slider img:hover{
-
-    transform:translateY(-8px) scale(1.03);
-
+    transform:scale(1.03);
 }
+
+
+/* ===========================
+   FLECHAS
+=========================== */
 
 .prev,
 .next{
-
-    width:45px;
-
-    height:45px;
-
-    border:none;
-
-    border-radius:50%;
-
-    background:#b71c1c;
-
-    color:#fff;
-
-    font-size:24px;
-
-    cursor:pointer;
-
-    flex-shrink:0;
-
-}
-
-.prev:hover,
-.next:hover{
-
-    background:#8e1414;
-
-}
-
-.slider-clientes{
-
-    position:relative;
-
-}
-
-.prev,
-.next{
-
     position:absolute;
 
     top:50%;
-
     transform:translateY(-50%);
 
     width:46px;
-
     height:46px;
 
     border:none;
-
     border-radius:50%;
 
     background:rgba(0,0,0,.55);
@@ -1193,30 +1156,27 @@ GALERÍA
     z-index:20;
 
     transition:.3s;
-
 }
 
 .prev{
-
     left:15px;
-
 }
 
 .next{
-
     right:15px;
-
 }
 
 .prev:hover,
 .next:hover{
-
     background:#b71c1c;
-
 }
 
-.indicadores{
 
+/* ===========================
+   INDICADORES
+=========================== */
+
+.indicadores{
     display:flex;
 
     justify-content:center;
@@ -1224,24 +1184,64 @@ GALERÍA
     gap:10px;
 
     margin-top:25px;
-
 }
 
 .indicadores span{
-
     width:12px;
-
     height:12px;
 
     border-radius:50%;
 
     background:#cfcfcf;
 
+    cursor:pointer;
+
+    transition:.3s;
 }
 
 .indicadores .activo{
-
     background:#b71c1c;
+
+    transform:scale(1.15);
+}
+
+
+/* ===========================
+   CELULAR
+=========================== */
+
+@media (max-width:600px){
+
+    .clientes{
+        padding:70px 5%;
+    }
+
+    .clientes h2{
+        font-size:32px;
+    }
+
+    .subtitulo-clientes{
+        font-size:16px;
+        margin-bottom:30px;
+    }
+
+    .contenedor-slider{
+        max-width:100%;
+    }
+
+    .slider img{
+        width:100vw;
+        max-width:360px;
+        height:240px;
+    }
+
+    .prev{
+        left:8px;
+    }
+
+    .next{
+        right:8px;
+    }
 
 }
 
