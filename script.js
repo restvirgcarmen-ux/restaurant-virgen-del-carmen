@@ -40,9 +40,12 @@ lightbox.addEventListener("click", (e) => {
 // ================================
 
 const slider = document.querySelector(".slider");
+const contenedorSlider = document.querySelector(".contenedor-slider");
 const fotosClientes = document.querySelectorAll(".slider img");
+
 const botonAnterior = document.querySelector(".prev");
 const botonSiguiente = document.querySelector(".next");
+
 const indicadores = document.querySelectorAll(".indicadores span");
 
 let indiceActual = 0;
@@ -55,16 +58,15 @@ let intervaloSlider;
 
 function actualizarSlider() {
 
-    if (!slider || fotosClientes.length === 0) return;
+    if (!slider || !contenedorSlider || fotosClientes.length === 0) {
+        return;
+    }
 
-    const anchoFoto = fotosClientes[0].offsetWidth;
-    const espacio = 25;
+    const ancho = contenedorSlider.clientWidth;
 
     slider.style.transform =
-        `translateX(-${indiceActual * (anchoFoto + espacio)}px)`;
+        `translateX(-${indiceActual * ancho}px)`;
 
-
-    // Actualizar indicadores
 
     indicadores.forEach((indicador, indice) => {
 
@@ -87,9 +89,7 @@ function siguienteFoto() {
     indiceActual++;
 
     if (indiceActual >= fotosClientes.length) {
-
         indiceActual = 0;
-
     }
 
     actualizarSlider();
@@ -106,9 +106,7 @@ function anteriorFoto() {
     indiceActual--;
 
     if (indiceActual < 0) {
-
         indiceActual = fotosClientes.length - 1;
-
     }
 
     actualizarSlider();
@@ -117,22 +115,24 @@ function anteriorFoto() {
 
 
 // ================================
-// BOTONES
+// BOTÓN SIGUIENTE
 // ================================
 
 botonSiguiente.addEventListener("click", () => {
 
     siguienteFoto();
-
     reiniciarAutomatico();
 
 });
 
 
+// ================================
+// BOTÓN ANTERIOR
+// ================================
+
 botonAnterior.addEventListener("click", () => {
 
     anteriorFoto();
-
     reiniciarAutomatico();
 
 });
@@ -149,7 +149,6 @@ indicadores.forEach((indicador, indice) => {
         indiceActual = indice;
 
         actualizarSlider();
-
         reiniciarAutomatico();
 
     });
@@ -219,7 +218,7 @@ slider.addEventListener("touchend", (e) => {
 
     }
 
-});
+}, { passive: true });
 
 
 // ================================
@@ -239,7 +238,7 @@ fotosClientes.forEach(img => {
 
 
 // ================================
-// INICIAR SLIDER
+// INICIAR
 // ================================
 
 actualizarSlider();
