@@ -541,32 +541,57 @@ Conoce algunos de nuestros platos y nuestro restaurante.
 
     <!-- CEVICHES -->
 
-    <div class="categoria-menu">
+   <div class="categoria-menu">
 
-        <h3>🐟 Ceviches</h3>
+    <h3>🐟 Ceviches</h3>
 
-        <div class="platos-menu">
+    <div class="platos-menu">
 
-            <article class="plato-menu">
+        <!-- BOTÓN DEL PLATO -->
 
-                <img src="imagenes/ceviche.png" alt="Ceviche">
+        <button class="boton-plato" data-plato="ceviche">
+            🐟 Ceviche
+        </button>
 
-                <div class="info-plato">
+    </div>
 
-                    <h4>Ceviche</h4>
+</div>
 
-                    <p>
-                        Fresco y delicioso, preparado con nuestro estilo tradicional.
-                    </p>
 
-                </div>
+<!-- ===========================
+     VENTANA DEL CEVICHE
+=========================== -->
 
-            </article>
+<div id="modal-ceviche" class="modal-plato">
+
+    <div class="contenido-modal-plato">
+
+        <button class="cerrar-modal-plato">
+            &times;
+        </button>
+
+        <img
+            src="imagenes/ceviche.png"
+            alt="Ceviche"
+        >
+
+        <div class="info-modal-plato">
+
+            <h3>Ceviche</h3>
+
+            <p>
+                Fresco y delicioso, preparado con nuestro estilo tradicional.
+            </p>
+
+            <button class="agregar-pedido">
+                🛒 Agregar al pedido
+            </button>
 
         </div>
 
     </div>
 
+</div>
 
     <!-- CHICHARRONES -->
 
