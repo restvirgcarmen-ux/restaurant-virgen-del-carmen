@@ -255,3 +255,54 @@ window.addEventListener("resize", () => {
     actualizarSlider();
 
 });
+
+// ================================
+// MODAL DEL CEVICHE
+// ================================
+
+const botonCeviche = document.querySelector(".boton-plato");
+const modalCeviche = document.getElementById("modal-ceviche");
+const cerrarModalCeviche = document.querySelector(".cerrar-modal-plato");
+
+
+// ABRIR MODAL
+
+if (botonCeviche && modalCeviche) {
+
+    botonCeviche.addEventListener("click", () => {
+
+        modalCeviche.style.display = "flex";
+
+    });
+
+}
+
+
+// CERRAR MODAL
+
+if (cerrarModalCeviche && modalCeviche) {
+
+    cerrarModalCeviche.addEventListener("click", () => {
+
+        modalCeviche.style.display = "none";
+
+    });
+
+}
+
+
+// CERRAR AL TOCAR FUERA DE LA VENTANA
+
+if (modalCeviche) {
+
+    modalCeviche.addEventListener("click", (e) => {
+
+        if (e.target === modalCeviche) {
+
+            modalCeviche.style.display = "none";
+
+        }
+
+    });
+
+}
