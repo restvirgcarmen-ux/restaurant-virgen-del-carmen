@@ -306,3 +306,56 @@ if (modalCeviche) {
     });
 
 }
+
+// ================================
+// AGREGAR CEVICHE AL PEDIDO
+// ================================
+
+const botonAgregarCeviche = document.querySelector(".agregar-pedido");
+
+if (botonAgregarCeviche) {
+
+    botonAgregarCeviche.addEventListener("click", () => {
+
+        // Guardar el Ceviche en el carrito
+        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+        carrito.push({
+            nombre: "Ceviche",
+            cantidad: 1
+        });
+
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+
+        // Actualizar contador
+        actualizarContadorPedido();
+
+        // Cerrar ventana
+        modalCeviche.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// ACTUALIZAR CONTADOR DEL PEDIDO
+// ================================
+
+function actualizarContadorPedido() {
+
+    const carrito =
+        JSON.parse(localStorage.getItem("carrito")) || [];
+
+    const contador =
+        document.querySelector(".contador-pedido");
+
+    if (contador) {
+
+        contador.textContent = carrito.length;
+
+    }
+
+}
+
+actualizarContadorPedido();
