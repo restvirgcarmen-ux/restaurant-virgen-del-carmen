@@ -701,6 +701,148 @@ Conoce algunos de nuestros platos y nuestro restaurante.
     </div>
 
 </section>
+
+<!-- ===========================
+     CARRITO DE PEDIDO
+=========================== -->
+
+<div id="carrito-pedido" class="carrito-pedido">
+
+    <button id="abrir-carrito" class="boton-carrito">
+        🛒 Mi pedido
+        <span id="contador-carrito">0</span>
+    </button>
+
+    <div id="panel-carrito" class="panel-carrito">
+
+        <div class="cabecera-carrito">
+
+            <h3>Mi pedido</h3>
+
+            <button id="cerrar-carrito" class="cerrar-carrito">
+                &times;
+            </button>
+
+        </div>
+
+        <div id="lista-carrito" class="lista-carrito">
+
+            <p class="carrito-vacio">
+                Tu pedido está vacío.
+            </p>
+
+        </div>
+
+        <div class="total-carrito">
+
+            <strong>Total:</strong>
+
+            <span id="total-carrito">
+                S/ 0.00
+            </span>
+
+        </div>
+
+        <div class="tipo-pedido">
+
+            <h4>¿Cómo deseas recibir tu pedido?</h4>
+
+            <label>
+                <input type="radio" name="tipo-pedido" value="delivery">
+                🛵 Delivery gratis
+            </label>
+
+            <label>
+                <input type="radio" name="tipo-pedido" value="local">
+                🍽️ Para comer en el local
+            </label>
+
+            <label>
+                <input type="radio" name="tipo-pedido" value="recoger">
+                📦 Para recoger
+            </label>
+
+        </div>
+
+        <div id="datos-delivery" class="datos-pedido">
+
+            <h4>Datos de entrega</h4>
+
+            <input
+                type="text"
+                id="nombre-delivery"
+                placeholder="Nombre de quien recibe"
+            >
+
+            <input
+                type="tel"
+                id="telefono-delivery"
+                placeholder="Número de celular"
+            >
+
+            <input
+                type="text"
+                id="direccion-delivery"
+                placeholder="Dirección de entrega"
+            >
+
+            <input
+                type="text"
+                id="referencia-delivery"
+                placeholder="Referencia"
+            >
+
+        </div>
+
+        <div id="datos-local" class="datos-pedido">
+
+            <h4>Datos para el local</h4>
+
+            <input
+                type="text"
+                id="nombre-local"
+                placeholder="Nombre"
+            >
+
+            <input
+                type="number"
+                id="personas-local"
+                placeholder="Número de personas"
+                min="1"
+            >
+
+        </div>
+
+        <div id="datos-recoger" class="datos-pedido">
+
+            <h4>Datos para recoger</h4>
+
+            <input
+                type="text"
+                id="nombre-recoger"
+                placeholder="Nombre"
+            >
+
+            <input
+                type="tel"
+                id="telefono-recoger"
+                placeholder="Número de celular"
+            >
+
+            <input
+                type="time"
+                id="hora-recoger"
+            >
+
+        </div>
+
+        <button id="realizar-pedido" class="boton-realizar-pedido">
+            🟢 Realizar pedido
+        </button>
+
+    </div>
+
+</div>
     
 <footer>
 
