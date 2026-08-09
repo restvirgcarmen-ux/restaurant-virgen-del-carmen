@@ -1422,3 +1422,365 @@ LIGHTBOX GALERÍA
     }
 
 }
+
+/* ===========================
+   CARRITO DE PEDIDO
+=========================== */
+
+.carrito-pedido{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    z-index:5000;
+}
+
+
+/* ===========================
+   BOTÓN DEL CARRITO
+=========================== */
+
+.boton-carrito{
+    border:none;
+    background:#b71c1c;
+    color:#fff;
+
+    padding:15px 22px;
+
+    border-radius:50px;
+
+    font-size:16px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
+
+    transition:.3s;
+}
+
+.boton-carrito:hover{
+    background:#8e1414;
+    transform:translateY(-3px);
+}
+
+
+/* ===========================
+   CONTADOR
+=========================== */
+
+#contador-carrito{
+    display:inline-flex;
+
+    justify-content:center;
+    align-items:center;
+
+    width:24px;
+    height:24px;
+
+    margin-left:6px;
+
+    border-radius:50%;
+
+    background:#fff;
+    color:#b71c1c;
+
+    font-size:13px;
+}
+
+
+/* ===========================
+   PANEL
+=========================== */
+
+.panel-carrito{
+    position:absolute;
+
+    right:0;
+    bottom:65px;
+
+    width:360px;
+    max-height:80vh;
+
+    overflow-y:auto;
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:0 15px 45px rgba(0,0,0,.25);
+
+    display:none;
+}
+
+
+/* ===========================
+   CABECERA
+=========================== */
+
+.cabecera-carrito{
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:20px;
+}
+
+.cabecera-carrito h3{
+    margin:0;
+
+    color:#333;
+
+    font-size:24px;
+}
+
+.cerrar-carrito{
+    border:none;
+
+    background:none;
+
+    font-size:30px;
+
+    color:#777;
+
+    cursor:pointer;
+}
+
+
+/* ===========================
+   LISTA
+=========================== */
+
+.carrito-vacio{
+    text-align:center;
+
+    color:#777;
+
+    padding:20px 0;
+}
+
+.item-carrito{
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    gap:10px;
+
+    padding:12px 0;
+
+    border-bottom:1px solid #eee;
+}
+
+.item-carrito-info{
+    flex:1;
+}
+
+.item-carrito-info strong{
+    display:block;
+
+    color:#333;
+
+    margin-bottom:4px;
+}
+
+.item-carrito-info span{
+    color:#777;
+
+    font-size:14px;
+}
+
+
+/* ===========================
+   CANTIDADES
+=========================== */
+
+.controles-cantidad{
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+}
+
+.controles-cantidad button{
+    width:28px;
+    height:28px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#b71c1c;
+
+    color:#fff;
+
+    cursor:pointer;
+}
+
+
+/* ===========================
+   TOTAL
+=========================== */
+
+.total-carrito{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 0;
+
+    margin-top:10px;
+
+    border-top:2px solid #eee;
+
+    font-size:20px;
+}
+
+#total-carrito{
+    color:#b71c1c;
+
+    font-weight:bold;
+}
+
+
+/* ===========================
+   TIPO DE PEDIDO
+=========================== */
+
+.tipo-pedido{
+    margin-top:10px;
+}
+
+.tipo-pedido h4{
+    margin-bottom:15px;
+
+    color:#333;
+}
+
+.tipo-pedido label{
+    display:block;
+
+    padding:10px;
+
+    margin-bottom:8px;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    cursor:pointer;
+}
+
+.tipo-pedido label:hover{
+    border-color:#b71c1c;
+}
+
+
+/* ===========================
+   DATOS DEL PEDIDO
+=========================== */
+
+.datos-pedido{
+    display:none;
+
+    margin-top:20px;
+}
+
+.datos-pedido h4{
+    margin-bottom:12px;
+
+    color:#333;
+}
+
+.datos-pedido input{
+    width:100%;
+
+    box-sizing:border-box;
+
+    padding:12px;
+
+    margin-bottom:10px;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    outline:none;
+}
+
+.datos-pedido input:focus{
+    border-color:#b71c1c;
+}
+
+
+/* ===========================
+   BOTÓN REALIZAR PEDIDO
+=========================== */
+
+.boton-realizar-pedido{
+    width:100%;
+
+    margin-top:20px;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#25D366;
+
+    color:#fff;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.boton-realizar-pedido:hover{
+    background:#1da851;
+}
+
+
+/* ===========================
+   CELULAR
+=========================== */
+
+@media (max-width:600px){
+
+    .carrito-pedido{
+        right:15px;
+        bottom:15px;
+    }
+
+    .panel-carrito{
+        position:fixed;
+
+        left:10px;
+        right:10px;
+
+        bottom:10px;
+
+        width:auto;
+
+        max-height:85vh;
+
+        border-radius:20px;
+    }
+
+    .boton-carrito{
+        padding:14px 18px;
+    }
+
+}
