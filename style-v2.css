@@ -1799,3 +1799,6 @@ LIGHTBOX GALERÍA
     }
 
 }
+.carrito-pedido{
+    transform: translateY(-100px) !important;
+}
