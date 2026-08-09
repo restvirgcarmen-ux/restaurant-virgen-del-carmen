@@ -1784,3 +1784,18 @@ LIGHTBOX GALERÍA
     }
 
 }
+
+/* ===========================
+   POSICIÓN CARRITO EN CELULAR
+=========================== */
+
+@media (max-width:600px){
+
+    .carrito-pedido{
+        position:fixed !important;
+        right:15px !important;
+        bottom:90px !important;
+        z-index:5000 !important;
+    }
+
+}
