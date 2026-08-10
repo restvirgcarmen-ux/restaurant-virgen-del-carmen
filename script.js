@@ -359,3 +359,54 @@ function actualizarContadorPedido() {
 }
 
 actualizarContadorPedido();
+
+// ================================
+// MODAL CHICHARRÓN DE CALAMAR
+// ================================
+
+const botonChicharron = document.querySelector(".boton-chicharron");
+const modalChicharron = document.getElementById("modal-chicharron-calamar");
+const cerrarModalChicharron = document.querySelector(".cerrar-modal-chicharron");
+
+
+// ABRIR MODAL
+
+if (botonChicharron && modalChicharron) {
+
+    botonChicharron.addEventListener("click", () => {
+
+        modalChicharron.style.display = "flex";
+
+    });
+
+}
+
+
+// CERRAR CON LA X
+
+if (cerrarModalChicharron && modalChicharron) {
+
+    cerrarModalChicharron.addEventListener("click", () => {
+
+        modalChicharron.style.display = "none";
+
+    });
+
+}
+
+
+// CERRAR TOCANDO FUERA
+
+if (modalChicharron) {
+
+    modalChicharron.addEventListener("click", (e) => {
+
+        if (e.target === modalChicharron) {
+
+            modalChicharron.style.display = "none";
+
+        }
+
+    });
+
+}
