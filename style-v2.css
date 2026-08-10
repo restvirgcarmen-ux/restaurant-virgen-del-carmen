@@ -2054,3 +2054,43 @@ LIGHTBOX GALERÍA
     }
 
 }
+
+/* ================================
+   OPCIONES DE PRECIO
+================================ */
+
+.precios-ceviche{
+    display:flex;
+    gap:10px;
+    margin:15px 0;
+}
+
+.precio-ceviche{
+    flex:1;
+
+    padding:12px;
+
+    border:2px solid #ddd;
+    border-radius:10px;
+
+    background:#fff;
+
+    color:#333;
+
+    font-size:16px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.precio-ceviche:hover{
+    border-color:#b71c1c;
+}
+
+.precio-ceviche.seleccionado{
+    background:#b71c1c;
+    border-color:#b71c1c;
+    color:#fff;
+}
