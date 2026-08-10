@@ -348,7 +348,7 @@ function actualizarContadorPedido() {
         JSON.parse(localStorage.getItem("carrito")) || [];
 
     const contador =
-        document.querySelector(".contador-pedido");
+    document.getElementById("contador-carrito");
 
     if (contador) {
 
