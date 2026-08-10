@@ -1933,11 +1933,13 @@ LIGHTBOX GALERÍA
 }
 
 
-/* ===========================
-   CERRAR
-=========================== */
+/* ================================
+   BOTÓN X DE LOS MODALES
+================================ */
 
+.cerrar-modal-plato,
 .cerrar-modal-chicharron{
+
     position:absolute;
 
     top:15px;
@@ -1965,9 +1967,14 @@ LIGHTBOX GALERÍA
     transition:.3s;
 }
 
+
+.cerrar-modal-plato:hover,
 .cerrar-modal-chicharron:hover{
+
     background:#b71c1c;
+
     transform:scale(1.05);
+
 }
 
 /* ===========================
