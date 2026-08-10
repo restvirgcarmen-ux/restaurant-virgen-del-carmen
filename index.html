@@ -607,32 +607,78 @@ Conoce algunos de nuestros platos y nuestro restaurante.
 
     <!-- CHICHARRONES -->
 
-    <div class="categoria-menu">
+   <div class="categoria-menu">
 
-        <h3>🦑 Chicharrones</h3>
+    <h3>🦑 Chicharrones</h3>
 
-        <div class="platos-menu">
+    <div class="platos-menu">
 
-            <article class="plato-menu">
+        <!-- BOTÓN DEL PLATO -->
 
-                <img src="imagenes/chicharrón.png" alt="Chicharrón de Calamar">
+        <button class="boton-plato boton-chicharron">
+            🦑 Chicharrón de Calamar
+        </button>
 
-                <div class="info-plato">
+    </div>
 
-                    <h4>Chicharrón de Calamar</h4>
+</div>
 
-                    <p>
-                        Crocante y sabroso, preparado para disfrutar en familia.
-                    </p>
 
-                </div>
+<!-- ===========================
+     VENTANA DEL CHICHARRÓN
+=========================== -->
 
-            </article>
+<div id="modal-chicharron-calamar" class="modal-plato">
+
+    <div class="contenido-modal-plato">
+
+        <button class="cerrar-modal-chicharron">
+            &times;
+        </button>
+
+        <img
+            src="imagenes/chicharrón.png"
+            alt="Chicharrón de Calamar"
+        >
+
+        <div class="info-modal-plato">
+
+            <h3>Chicharrón de Calamar</h3>
+
+            <p>
+                Calamar fresco en trozos crocantes.
+            </p>
+
+            <div class="precios-chicharron">
+
+                <button
+                    class="precio-chicharron"
+                    data-precio="45"
+                >
+                    S/ 45.00
+                </button>
+
+                <button
+                    class="precio-chicharron"
+                    data-precio="50"
+                >
+                    S/ 50.00
+                </button>
+
+            </div>
+
+            <button
+                class="agregar-pedido"
+                id="agregar-chicharron"
+            >
+                🛒 Agregar al pedido
+            </button>
 
         </div>
 
     </div>
 
+</div>
 
     <!-- ARROCES -->
 
