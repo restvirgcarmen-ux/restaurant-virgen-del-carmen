@@ -308,30 +308,95 @@ if (modalCeviche) {
 }
 
 // ================================
+// SELECCIONAR PRECIO DEL CEVICHE
+// ================================
+
+const preciosCeviche =
+    document.querySelectorAll(".precio-ceviche");
+
+let precioCevicheSeleccionado = null;
+
+
+preciosCeviche.forEach(boton => {
+
+    boton.addEventListener("click", () => {
+
+        // Quitar selección anterior
+        preciosCeviche.forEach(btn => {
+            btn.classList.remove("seleccionado");
+        });
+
+        // Seleccionar este precio
+        boton.classList.add("seleccionado");
+
+        precioCevicheSeleccionado =
+            Number(boton.dataset.precio);
+
+    });
+
+});
+
+
+// ================================
 // AGREGAR CEVICHE AL PEDIDO
 // ================================
 
-const botonAgregarCeviche = document.querySelector(".agregar-pedido");
+const botonAgregarCeviche =
+    document.getElementById("agregar-ceviche");
+
 
 if (botonAgregarCeviche) {
 
     botonAgregarCeviche.addEventListener("click", () => {
 
-        // Guardar el Ceviche en el carrito
-        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+        // Comprobar que eligió un precio
+        if (precioCevicheSeleccionado === null) {
 
+            alert("Por favor, selecciona una opción de precio.");
+
+            return;
+
+        }
+
+
+        // Obtener carrito
+        let carrito =
+            JSON.parse(localStorage.getItem("carrito")) || [];
+
+
+        // Agregar producto
         carrito.push({
-            nombre: "Ceviche",
+
+            nombre: "Ceviche Mixto del Carmen",
+
+            precio: precioCevicheSeleccionado,
+
             cantidad: 1
+
         });
 
-        localStorage.setItem("carrito", JSON.stringify(carrito));
+
+        // Guardar carrito
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
 
         // Actualizar contador
         actualizarContadorPedido();
 
-        // Cerrar ventana
+
+        // Cerrar modal
         modalCeviche.style.display = "none";
+
+
+        // Limpiar selección
+        preciosCeviche.forEach(btn => {
+            btn.classList.remove("seleccionado");
+        });
+
+        precioCevicheSeleccionado = null;
 
     });
 
