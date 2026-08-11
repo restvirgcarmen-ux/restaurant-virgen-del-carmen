@@ -1081,7 +1081,7 @@ if (botonRealizarPedido) {
         // ================================
 
         const numeroWhatsApp =
-            "XXXXXXXXXXX";
+            "51952392317";
 
 
         const url =
