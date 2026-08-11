@@ -1381,13 +1381,9 @@ if (botonRealizarPedido) {
             mensajeDatos;
 
 
-        // ================================
+// ================================
 // MOSTRAR QR DE YAPE
 // ================================
-
-const modalYape =
-    document.getElementById("modal-yape");
-
 
 // Guardamos el mensaje para enviarlo
 // después de confirmar el pago
