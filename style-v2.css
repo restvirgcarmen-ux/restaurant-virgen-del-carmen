@@ -1514,6 +1514,9 @@ LIGHTBOX GALERÍA
     display:none;
 }
 
+.panel-carrito.activo{
+    display:block;
+}
 
 /* ===========================
    CABECERA
