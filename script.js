@@ -633,12 +633,14 @@ function mostrarCarrito() {
 
 // ================================
 // BOTONES DEL CARRITO
+// PRODUCTOS AGRUPADOS
 // ================================
 
 function activarBotonesCarrito() {
 
-
+    // ================================
     // AUMENTAR CANTIDAD
+    // ================================
 
     document.querySelectorAll(".mas-cantidad")
         .forEach(boton => {
@@ -648,20 +650,97 @@ function activarBotonesCarrito() {
                 const indice =
                     Number(boton.dataset.indice);
 
-
                 let carrito =
                     JSON.parse(
                         localStorage.getItem("carrito")
                     ) || [];
 
 
-                carrito[indice].cantidad =
-                    (Number(carrito[indice].cantidad) || 1) + 1;
+                // Obtener los productos agrupados
+                const productosAgrupados = [];
+
+
+                carrito.forEach(producto => {
+
+                    const precio =
+                        Number(producto.precio) || 0;
+
+                    const cantidad =
+                        Number(producto.cantidad) || 1;
+
+
+                    const existente =
+                        productosAgrupados.find(item =>
+                            item.nombre === producto.nombre &&
+                            Number(item.precio) === precio
+                        );
+
+
+                    if (existente) {
+
+                        existente.cantidad += cantidad;
+
+                    } else {
+
+                        productosAgrupados.push({
+
+                            nombre: producto.nombre,
+
+                            precio: precio,
+
+                            cantidad: cantidad
+
+                        });
+
+                    }
+
+                });
+
+
+                // Producto seleccionado
+                const productoSeleccionado =
+                    productosAgrupados[indice];
+
+
+                if (!productoSeleccionado) {
+                    return;
+                }
+
+
+                // Aumentar cantidad
+                productoSeleccionado.cantidad++;
+
+
+                // Reconstruir carrito
+                const nuevoCarrito = [];
+
+
+                productosAgrupados.forEach(producto => {
+
+                    for (
+                        let i = 0;
+                        i < producto.cantidad;
+                        i++
+                    ) {
+
+                        nuevoCarrito.push({
+
+                            nombre: producto.nombre,
+
+                            precio: producto.precio,
+
+                            cantidad: 1
+
+                        });
+
+                    }
+
+                });
 
 
                 localStorage.setItem(
                     "carrito",
-                    JSON.stringify(carrito)
+                    JSON.stringify(nuevoCarrito)
                 );
 
 
@@ -674,7 +753,9 @@ function activarBotonesCarrito() {
         });
 
 
+    // ================================
     // DISMINUIR CANTIDAD
+    // ================================
 
     document.querySelectorAll(".menos-cantidad")
         .forEach(boton => {
@@ -684,29 +765,99 @@ function activarBotonesCarrito() {
                 const indice =
                     Number(boton.dataset.indice);
 
-
                 let carrito =
                     JSON.parse(
                         localStorage.getItem("carrito")
                     ) || [];
 
 
-                carrito[indice].cantidad =
-                    (Number(carrito[indice].cantidad) || 1) - 1;
+                const productosAgrupados = [];
 
 
-                // Si llega a cero, eliminar
+                carrito.forEach(producto => {
 
-                if (carrito[indice].cantidad <= 0) {
+                    const precio =
+                        Number(producto.precio) || 0;
 
-                    carrito.splice(indice, 1);
+                    const cantidad =
+                        Number(producto.cantidad) || 1;
 
+
+                    const existente =
+                        productosAgrupados.find(item =>
+                            item.nombre === producto.nombre &&
+                            Number(item.precio) === precio
+                        );
+
+
+                    if (existente) {
+
+                        existente.cantidad += cantidad;
+
+                    } else {
+
+                        productosAgrupados.push({
+
+                            nombre: producto.nombre,
+
+                            precio: precio,
+
+                            cantidad: cantidad
+
+                        });
+
+                    }
+
+                });
+
+
+                const productoSeleccionado =
+                    productosAgrupados[indice];
+
+
+                if (!productoSeleccionado) {
+                    return;
                 }
+
+
+                productoSeleccionado.cantidad--;
+
+
+                // Reconstruir carrito
+                const nuevoCarrito = [];
+
+
+                productosAgrupados.forEach(producto => {
+
+                    if (producto.cantidad <= 0) {
+                        return;
+                    }
+
+
+                    for (
+                        let i = 0;
+                        i < producto.cantidad;
+                        i++
+                    ) {
+
+                        nuevoCarrito.push({
+
+                            nombre: producto.nombre,
+
+                            precio: producto.precio,
+
+                            cantidad: 1
+
+                        });
+
+                    }
+
+                });
 
 
                 localStorage.setItem(
                     "carrito",
-                    JSON.stringify(carrito)
+                    JSON.stringify(nuevoCarrito)
                 );
 
 
@@ -719,7 +870,9 @@ function activarBotonesCarrito() {
         });
 
 
+    // ================================
     // ELIMINAR PRODUCTO
+    // ================================
 
     document.querySelectorAll(".eliminar-item")
         .forEach(boton => {
@@ -729,19 +882,86 @@ function activarBotonesCarrito() {
                 const indice =
                     Number(boton.dataset.indice);
 
-
                 let carrito =
                     JSON.parse(
                         localStorage.getItem("carrito")
                     ) || [];
 
 
-                carrito.splice(indice, 1);
+                const productosAgrupados = [];
+
+
+                carrito.forEach(producto => {
+
+                    const precio =
+                        Number(producto.precio) || 0;
+
+                    const cantidad =
+                        Number(producto.cantidad) || 1;
+
+
+                    const existente =
+                        productosAgrupados.find(item =>
+                            item.nombre === producto.nombre &&
+                            Number(item.precio) === precio
+                        );
+
+
+                    if (existente) {
+
+                        existente.cantidad += cantidad;
+
+                    } else {
+
+                        productosAgrupados.push({
+
+                            nombre: producto.nombre,
+
+                            precio: precio,
+
+                            cantidad: cantidad
+
+                        });
+
+                    }
+
+                });
+
+
+                // Eliminar el producto completo
+                productosAgrupados.splice(indice, 1);
+
+
+                // Reconstruir carrito
+                const nuevoCarrito = [];
+
+
+                productosAgrupados.forEach(producto => {
+
+                    for (
+                        let i = 0;
+                        i < producto.cantidad;
+                        i++
+                    ) {
+
+                        nuevoCarrito.push({
+
+                            nombre: producto.nombre,
+
+                            precio: producto.precio,
+
+                            cantidad: 1
+
+                        });
+
+                    }
+
+                });
 
 
                 localStorage.setItem(
                     "carrito",
-                    JSON.stringify(carrito)
+                    JSON.stringify(nuevoCarrito)
                 );
 
 
@@ -753,7 +973,7 @@ function activarBotonesCarrito() {
 
         });
 
-}
+                        }
 
 // ================================
 // ACTUALIZAR CONTADOR DEL PEDIDO
