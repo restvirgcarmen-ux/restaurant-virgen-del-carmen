@@ -402,6 +402,294 @@ if (botonAgregarCeviche) {
 
 }
 
+// ================================
+// CARRITO DE PEDIDO
+// ================================
+
+const abrirCarrito = document.getElementById("abrir-carrito");
+const cerrarCarrito = document.getElementById("cerrar-carrito");
+const panelCarrito = document.getElementById("panel-carrito");
+const listaCarrito = document.getElementById("lista-carrito");
+const totalCarrito = document.getElementById("total-carrito");
+
+
+// ================================
+// ABRIR CARRITO
+// ================================
+
+if (abrirCarrito && panelCarrito) {
+
+    abrirCarrito.addEventListener("click", () => {
+
+        panelCarrito.classList.add("activo");
+
+        mostrarCarrito();
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CARRITO
+// ================================
+
+if (cerrarCarrito && panelCarrito) {
+
+    cerrarCarrito.addEventListener("click", () => {
+
+        panelCarrito.classList.remove("activo");
+
+    });
+
+}
+
+
+// ================================
+// MOSTRAR CARRITO
+// ================================
+
+function mostrarCarrito() {
+
+    const carrito =
+        JSON.parse(localStorage.getItem("carrito")) || [];
+
+
+    // Carrito vacío
+
+    if (carrito.length === 0) {
+
+        listaCarrito.innerHTML = `
+            <p class="carrito-vacio">
+                Tu pedido está vacío.
+            </p>
+        `;
+
+        totalCarrito.textContent = "S/ 0.00";
+
+        return;
+
+    }
+
+
+    listaCarrito.innerHTML = "";
+
+    let total = 0;
+
+
+    // Mostrar productos
+
+    carrito.forEach((producto, indice) => {
+
+        const precio = Number(producto.precio) || 0;
+        const cantidad = Number(producto.cantidad) || 1;
+
+        const subtotal = precio * cantidad;
+
+        total += subtotal;
+
+
+        const item = document.createElement("div");
+
+        item.className = "item-carrito";
+
+
+        item.innerHTML = `
+
+            <div class="info-item-carrito">
+
+                <strong>
+                    ${producto.nombre}
+                </strong>
+
+                <span>
+                    S/ ${precio.toFixed(2)}
+                </span>
+
+            </div>
+
+
+            <div class="controles-cantidad">
+
+                <button
+                    class="menos-cantidad"
+                    data-indice="${indice}"
+                >
+                    −
+                </button>
+
+
+                <span>
+                    ${cantidad}
+                </span>
+
+
+                <button
+                    class="mas-cantidad"
+                    data-indice="${indice}"
+                >
+                    +
+                </button>
+
+            </div>
+
+
+            <div class="subtotal-item">
+
+                S/ ${subtotal.toFixed(2)}
+
+            </div>
+
+
+            <button
+                class="eliminar-item"
+                data-indice="${indice}"
+            >
+                🗑️
+            </button>
+
+        `;
+
+
+        listaCarrito.appendChild(item);
+
+    });
+
+
+    // Mostrar total
+
+    totalCarrito.textContent =
+        `S/ ${total.toFixed(2)}`;
+
+
+    activarBotonesCarrito();
+
+}
+
+
+// ================================
+// BOTONES DEL CARRITO
+// ================================
+
+function activarBotonesCarrito() {
+
+
+    // AUMENTAR CANTIDAD
+
+    document.querySelectorAll(".mas-cantidad")
+        .forEach(boton => {
+
+            boton.addEventListener("click", () => {
+
+                const indice =
+                    Number(boton.dataset.indice);
+
+
+                let carrito =
+                    JSON.parse(
+                        localStorage.getItem("carrito")
+                    ) || [];
+
+
+                carrito[indice].cantidad =
+                    (Number(carrito[indice].cantidad) || 1) + 1;
+
+
+                localStorage.setItem(
+                    "carrito",
+                    JSON.stringify(carrito)
+                );
+
+
+                actualizarContadorPedido();
+
+                mostrarCarrito();
+
+            });
+
+        });
+
+
+    // DISMINUIR CANTIDAD
+
+    document.querySelectorAll(".menos-cantidad")
+        .forEach(boton => {
+
+            boton.addEventListener("click", () => {
+
+                const indice =
+                    Number(boton.dataset.indice);
+
+
+                let carrito =
+                    JSON.parse(
+                        localStorage.getItem("carrito")
+                    ) || [];
+
+
+                carrito[indice].cantidad =
+                    (Number(carrito[indice].cantidad) || 1) - 1;
+
+
+                // Si llega a cero, eliminar
+
+                if (carrito[indice].cantidad <= 0) {
+
+                    carrito.splice(indice, 1);
+
+                }
+
+
+                localStorage.setItem(
+                    "carrito",
+                    JSON.stringify(carrito)
+                );
+
+
+                actualizarContadorPedido();
+
+                mostrarCarrito();
+
+            });
+
+        });
+
+
+    // ELIMINAR PRODUCTO
+
+    document.querySelectorAll(".eliminar-item")
+        .forEach(boton => {
+
+            boton.addEventListener("click", () => {
+
+                const indice =
+                    Number(boton.dataset.indice);
+
+
+                let carrito =
+                    JSON.parse(
+                        localStorage.getItem("carrito")
+                    ) || [];
+
+
+                carrito.splice(indice, 1);
+
+
+                localStorage.setItem(
+                    "carrito",
+                    JSON.stringify(carrito)
+                );
+
+
+                actualizarContadorPedido();
+
+                mostrarCarrito();
+
+            });
+
+        });
+
+                        }
 
 // ================================
 // ACTUALIZAR CONTADOR DEL PEDIDO
