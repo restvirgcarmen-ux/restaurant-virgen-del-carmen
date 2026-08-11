@@ -455,7 +455,9 @@ function mostrarCarrito() {
         JSON.parse(localStorage.getItem("carrito")) || [];
 
 
-    // Carrito vacío
+    // ================================
+    // CARRITO VACÍO
+    // ================================
 
     if (carrito.length === 0) {
 
@@ -472,26 +474,82 @@ function mostrarCarrito() {
     }
 
 
+    // ================================
+    // AGRUPAR PRODUCTOS
+    // POR NOMBRE + PRECIO
+    // ================================
+
+    const productosAgrupados = [];
+
+
+    carrito.forEach(producto => {
+
+        const precio =
+            Number(producto.precio) || 0;
+
+        const cantidad =
+            Number(producto.cantidad) || 1;
+
+
+        const existente =
+            productosAgrupados.find(item =>
+                item.nombre === producto.nombre &&
+                Number(item.precio) === precio
+            );
+
+
+        if (existente) {
+
+            existente.cantidad += cantidad;
+
+        } else {
+
+            productosAgrupados.push({
+
+                nombre: producto.nombre,
+
+                precio: precio,
+
+                cantidad: cantidad
+
+            });
+
+        }
+
+    });
+
+
+    // ================================
+    // MOSTRAR PRODUCTOS
+    // ================================
+
     listaCarrito.innerHTML = "";
 
     let total = 0;
 
 
-    // Mostrar productos
+    productosAgrupados.forEach((producto, indice) => {
 
-    carrito.forEach((producto, indice) => {
+        const precio =
+            Number(producto.precio) || 0;
 
-        const precio = Number(producto.precio) || 0;
-        const cantidad = Number(producto.cantidad) || 1;
+        const cantidad =
+            Number(producto.cantidad) || 1;
 
-        const subtotal = precio * cantidad;
+
+        const subtotal =
+            precio * cantidad;
+
 
         total += subtotal;
 
 
-        const item = document.createElement("div");
+        const item =
+            document.createElement("div");
 
-        item.className = "item-carrito";
+
+        item.className =
+            "item-carrito";
 
 
         item.innerHTML = `
@@ -556,11 +614,17 @@ function mostrarCarrito() {
     });
 
 
-    // Mostrar total
+    // ================================
+    // TOTAL
+    // ================================
 
     totalCarrito.textContent =
         `S/ ${total.toFixed(2)}`;
 
+
+    // ================================
+    // ACTIVAR BOTONES
+    // ================================
 
     activarBotonesCarrito();
 
