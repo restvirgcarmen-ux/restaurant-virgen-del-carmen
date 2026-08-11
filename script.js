@@ -1094,3 +1094,61 @@ if (botonRealizarPedido) {
     });
 
 }
+
+// ================================
+// MODAL DE PAGO YAPE
+// ================================
+
+const modalYape = document.getElementById("modal-yape");
+
+const cerrarYape =
+    document.getElementById("cerrar-yape");
+
+const confirmarPagoYape =
+    document.getElementById("confirmar-pago-yape");
+
+
+// CERRAR CON X
+
+if (cerrarYape) {
+
+    cerrarYape.addEventListener("click", () => {
+
+        modalYape.style.display = "none";
+
+    });
+
+}
+
+
+// CERRAR TOCANDO FUERA
+
+if (modalYape) {
+
+    modalYape.addEventListener("click", (e) => {
+
+        if (e.target === modalYape) {
+
+            modalYape.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// CONFIRMAR PAGO
+
+if (confirmarPagoYape) {
+
+    confirmarPagoYape.addEventListener("click", () => {
+
+        modalYape.style.display = "none";
+
+        // Aquí conectaremos después
+        // el envío final por WhatsApp.
+
+    });
+
+}
