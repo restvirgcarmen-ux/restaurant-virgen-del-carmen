@@ -837,3 +837,260 @@ opcionesTipoPedido.forEach(opcion => {
 // Al cargar la página, ocultar formularios
 
 ocultarDatosPedido();
+
+// ================================
+// REALIZAR PEDIDO POR WHATSAPP
+// ================================
+
+const botonRealizarPedido =
+    document.getElementById("realizar-pedido");
+
+
+if (botonRealizarPedido) {
+
+    botonRealizarPedido.addEventListener("click", () => {
+
+        // ================================
+        // OBTENER CARRITO
+        // ================================
+
+        const carrito =
+            JSON.parse(localStorage.getItem("carrito")) || [];
+
+
+        // Verificar que haya productos
+
+        if (carrito.length === 0) {
+
+            alert("Tu pedido está vacío.");
+
+            return;
+
+        }
+
+
+        // ================================
+        // TIPO DE PEDIDO
+        // ================================
+
+        const tipoPedido =
+            document.querySelector(
+                'input[name="tipo-pedido"]:checked'
+            );
+
+
+        if (!tipoPedido) {
+
+            alert(
+                "Por favor, selecciona cómo deseas recibir tu pedido."
+            );
+
+            return;
+
+        }
+
+
+        // ================================
+        // CALCULAR TOTAL
+        // ================================
+
+        let total = 0;
+
+        let mensajeProductos = "";
+
+
+        carrito.forEach(producto => {
+
+            const precio =
+                Number(producto.precio) || 0;
+
+            const cantidad =
+                Number(producto.cantidad) || 1;
+
+            const subtotal =
+                precio * cantidad;
+
+
+            total += subtotal;
+
+
+            mensajeProductos +=
+                `🍽️ ${producto.nombre}\n` +
+                `   Cantidad: ${cantidad}\n` +
+                `   Precio: S/ ${precio.toFixed(2)}\n` +
+                `   Subtotal: S/ ${subtotal.toFixed(2)}\n\n`;
+
+        });
+
+
+        // ================================
+        // INFORMACIÓN DEL CLIENTE
+        // ================================
+
+        let mensajeDatos = "";
+
+
+        // DELIVERY
+
+        if (tipoPedido.value === "delivery") {
+
+            const nombre =
+                document.getElementById(
+                    "nombre-delivery"
+                ).value.trim();
+
+            const telefono =
+                document.getElementById(
+                    "telefono-delivery"
+                ).value.trim();
+
+            const direccion =
+                document.getElementById(
+                    "direccion-delivery"
+                ).value.trim();
+
+            const referencia =
+                document.getElementById(
+                    "referencia-delivery"
+                ).value.trim();
+
+
+            if (!nombre ||
+                !telefono ||
+                !direccion ||
+                !referencia) {
+
+                alert(
+                    "Por favor, completa todos los datos de delivery."
+                );
+
+                return;
+
+            }
+
+
+            mensajeDatos =
+                `🛵 *DELIVERY GRATIS*\n\n` +
+                `👤 Nombre: ${nombre}\n` +
+                `📱 Celular: ${telefono}\n` +
+                `📍 Dirección: ${direccion}\n` +
+                `📌 Referencia: ${referencia}\n`;
+
+        }
+
+
+        // PARA COMER EN EL LOCAL
+
+        if (tipoPedido.value === "local") {
+
+            const nombre =
+                document.getElementById(
+                    "nombre-local"
+                ).value.trim();
+
+            const personas =
+                document.getElementById(
+                    "personas-local"
+                ).value.trim();
+
+
+            if (!nombre || !personas) {
+
+                alert(
+                    "Por favor, completa los datos para el local."
+                );
+
+                return;
+
+            }
+
+
+            mensajeDatos =
+                `🍽️ *PARA COMER EN EL LOCAL*\n\n` +
+                `👤 Nombre: ${nombre}\n` +
+                `👥 Personas: ${personas}\n`;
+
+        }
+
+
+        // PARA RECOGER
+
+        if (tipoPedido.value === "recoger") {
+
+            const nombre =
+                document.getElementById(
+                    "nombre-recoger"
+                ).value.trim();
+
+            const telefono =
+                document.getElementById(
+                    "telefono-recoger"
+                ).value.trim();
+
+            const hora =
+                document.getElementById(
+                    "hora-recoger"
+                ).value;
+
+
+            if (!nombre || !telefono || !hora) {
+
+                alert(
+                    "Por favor, completa los datos para recoger."
+                );
+
+                return;
+
+            }
+
+
+            mensajeDatos =
+                `📦 *PARA RECOGER*\n\n` +
+                `👤 Nombre: ${nombre}\n` +
+                `📱 Celular: ${telefono}\n` +
+                `🕐 Hora de recojo: ${hora}\n`;
+
+        }
+
+
+        // ================================
+        // CREAR MENSAJE
+        // ================================
+
+        const mensaje =
+
+            `🍽️ *NUEVO PEDIDO*\n\n` +
+
+            `━━━━━━━━━━━━━━━━━━\n` +
+
+            `*DETALLE DEL PEDIDO*\n\n` +
+
+            mensajeProductos +
+
+            `━━━━━━━━━━━━━━━━━━\n` +
+
+            `💰 *TOTAL: S/ ${total.toFixed(2)}*\n\n` +
+
+            `━━━━━━━━━━━━━━━━━━\n\n` +
+
+            mensajeDatos;
+
+
+        // ================================
+        // WHATSAPP
+        // ================================
+
+        const numeroWhatsApp =
+            "XXXXXXXXXXX";
+
+
+        const url =
+            `https://wa.me/${numeroWhatsApp}?text=` +
+            encodeURIComponent(mensaje);
+
+
+        window.open(url, "_blank");
+
+    });
+
+}
