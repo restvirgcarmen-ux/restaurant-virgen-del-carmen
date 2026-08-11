@@ -689,7 +689,7 @@ function activarBotonesCarrito() {
 
         });
 
-                        }
+}
 
 // ================================
 // ACTUALIZAR CONTADOR DEL PEDIDO
