@@ -747,7 +747,15 @@ function activarBotonesCarrito() {
                 actualizarContadorPedido();
 
                 mostrarCarrito();
+                
+                // Cerrar carrito
+const panelCarrito =
+    document.getElementById("panel-carrito");
 
+if (panelCarrito) {
+    panelCarrito.style.display = "none";
+}
+                
             });
 
         });
