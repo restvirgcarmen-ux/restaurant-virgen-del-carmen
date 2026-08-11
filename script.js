@@ -749,12 +749,12 @@ function activarBotonesCarrito() {
                 mostrarCarrito();
                 
                 // Cerrar carrito
-const panelCarrito =
-    document.getElementById("panel-carrito");
+                const panelCarrito =
+                document.getElementById("panel-carrito");
 
-if (panelCarrito) {
-    panelCarrito.style.display = "none";
-}
+                if (panelCarrito) {
+                panelCarrito.style.display = "none";
+                }
                 
             });
 
