@@ -1077,20 +1077,27 @@ if (botonRealizarPedido) {
 
 
         // ================================
-        // WHATSAPP
-        // ================================
+// MOSTRAR QR DE YAPE
+// ================================
 
-        const numeroWhatsApp =
-            "51952392317";
-
-
-        const url =
-            `https://wa.me/${numeroWhatsApp}?text=` +
-            encodeURIComponent(mensaje);
+const modalYape =
+    document.getElementById("modal-yape");
 
 
-        window.open(url, "_blank");
+// Guardamos el mensaje para enviarlo
+// después de confirmar el pago
 
+window.mensajePedidoWhatsApp = mensaje;
+
+
+// Mostrar el modal
+
+if (modalYape) {
+
+    modalYape.style.display = "flex";
+
+} 
+        
     });
 
 }
@@ -1144,11 +1151,29 @@ if (confirmarPagoYape) {
 
     confirmarPagoYape.addEventListener("click", () => {
 
+        // Cerrar QR
+
         modalYape.style.display = "none";
 
-        // Aquí conectaremos después
-        // el envío final por WhatsApp.
+
+        // ================================
+        // ENVIAR PEDIDO A WHATSAPP
+        // ================================
+
+        const numeroWhatsApp =
+            "51952392317";
+
+
+        const url =
+            `https://wa.me/${numeroWhatsApp}?text=` +
+            encodeURIComponent(
+                window.mensajePedidoWhatsApp
+            );
+
+
+        window.open(url, "_blank");
 
     });
 
 }
+
