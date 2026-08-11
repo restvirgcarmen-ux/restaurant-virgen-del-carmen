@@ -1488,30 +1488,30 @@ if (confirmarPagoYape) {
 
 document.addEventListener("click", (e) => {
 
-    const carritoPedido =
-        document.getElementById("carrito-pedido");
-
     const panelCarrito =
         document.getElementById("panel-carrito");
 
     const abrirCarrito =
         document.getElementById("abrir-carrito");
 
-    if (!carritoPedido || !panelCarrito) {
+    if (!panelCarrito || !abrirCarrito) {
         return;
     }
 
-    // Si el carrito está abierto
-    if (panelCarrito.style.display === "block") {
+
+    // Comprobar si el carrito está abierto
+    if (panelCarrito.classList.contains("activo")) {
+
 
         // Si tocamos fuera del carrito
-        // y no fue el botón "Mi pedido"
+        // y no tocamos el botón "Mi pedido"
+
         if (
             !panelCarrito.contains(e.target) &&
             !abrirCarrito.contains(e.target)
         ) {
 
-            panelCarrito.style.display = "none";
+            panelCarrito.classList.remove("activo");
 
         }
 
