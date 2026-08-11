@@ -763,3 +763,77 @@ if (modalChicharron) {
     });
 
 }
+
+// ================================
+// TIPO DE PEDIDO
+// ================================
+
+const opcionesTipoPedido =
+    document.querySelectorAll('input[name="tipo-pedido"]');
+
+const datosDelivery =
+    document.getElementById("datos-delivery");
+
+const datosLocal =
+    document.getElementById("datos-local");
+
+const datosRecoger =
+    document.getElementById("datos-recoger");
+
+
+// Ocultar todos los formularios
+
+function ocultarDatosPedido() {
+
+    if (datosDelivery) {
+        datosDelivery.style.display = "none";
+    }
+
+    if (datosLocal) {
+        datosLocal.style.display = "none";
+    }
+
+    if (datosRecoger) {
+        datosRecoger.style.display = "none";
+    }
+
+}
+
+
+// Cambiar según la opción seleccionada
+
+opcionesTipoPedido.forEach(opcion => {
+
+    opcion.addEventListener("change", () => {
+
+        ocultarDatosPedido();
+
+
+        if (opcion.value === "delivery") {
+
+            datosDelivery.style.display = "block";
+
+        }
+
+
+        if (opcion.value === "local") {
+
+            datosLocal.style.display = "block";
+
+        }
+
+
+        if (opcion.value === "recoger") {
+
+            datosRecoger.style.display = "block";
+
+        }
+
+    });
+
+});
+
+
+// Al cargar la página, ocultar formularios
+
+ocultarDatosPedido();
