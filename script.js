@@ -984,12 +984,25 @@ function actualizarContadorPedido() {
     const carrito =
         JSON.parse(localStorage.getItem("carrito")) || [];
 
+
+    // Sumar todas las unidades
+
+    const totalUnidades =
+        carrito.reduce((total, producto) => {
+
+            return total +
+                (Number(producto.cantidad) || 1);
+
+        }, 0);
+
+
     const contador =
-    document.getElementById("contador-carrito");
+        document.getElementById("contador-carrito");
+
 
     if (contador) {
 
-        contador.textContent = carrito.length;
+        contador.textContent = totalUnidades;
 
     }
 
