@@ -990,11 +990,16 @@ function activarBotonesCarrito() {
     // AUMENTAR CANTIDAD
     // ================================
 
-    document.querySelectorAll(".mas-cantidad")
-        .forEach(boton => {
+    document.querySelectorAll(".menos-cantidad")
+    .forEach(boton => {
 
-            boton.addEventListener("click", () => {
+        boton.addEventListener("click", (e) => {
 
+            e.stopPropagation();
+
+            const indice =
+                Number(boton.dataset.indice);
+            
                 const indice =
                     Number(boton.dataset.indice);
 
@@ -1108,7 +1113,9 @@ function activarBotonesCarrito() {
     document.querySelectorAll(".menos-cantidad")
         .forEach(boton => {
 
-            boton.addEventListener("click", () => {
+            boton.addEventListener("click", (e) => {
+
+                e.stopPropagation();
 
                 const indice =
                     Number(boton.dataset.indice);
@@ -1223,9 +1230,11 @@ function activarBotonesCarrito() {
     // ================================
 
     document.querySelectorAll(".eliminar-item")
-        .forEach(boton => {
+    .forEach(boton => {
 
-            boton.addEventListener("click", () => {
+        boton.addEventListener("click", (e) => {
+
+            e.stopPropagation();
 
                 const indice =
                     Number(boton.dataset.indice);
