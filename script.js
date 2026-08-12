@@ -1095,15 +1095,7 @@ function activarBotonesCarrito() {
                 actualizarContadorPedido();
 
                 mostrarCarrito();
-                
-                // Cerrar carrito
-                const panelCarrito =
-                document.getElementById("panel-carrito");
-
-                if (panelCarrito) {
-                panelCarrito.style.display = "none";
-                }
-                
+                                               
             });
 
         });
@@ -1832,33 +1824,53 @@ if (confirmarPagoYape) {
 
 document.addEventListener("click", (e) => {
 
+    const carritoPedido =
+        document.getElementById("carrito-pedido");
+
     const panelCarrito =
         document.getElementById("panel-carrito");
 
     const abrirCarrito =
         document.getElementById("abrir-carrito");
 
-    if (!panelCarrito || !abrirCarrito) {
+    if (!carritoPedido || !panelCarrito || !abrirCarrito) {
         return;
     }
 
 
     // Comprobar si el carrito está abierto
-    if (panelCarrito.classList.contains("activo")) {
+
+    const carritoAbierto =
+        panelCarrito.classList.contains("activo") ||
+        panelCarrito.style.display === "block";
 
 
-        // Si tocamos fuera del carrito
-        // y no tocamos el botón "Mi pedido"
-
-        if (
-            !panelCarrito.contains(e.target) &&
-            !abrirCarrito.contains(e.target)
-        ) {
-
-            panelCarrito.classList.remove("activo");
-
-        }
-
+    if (!carritoAbierto) {
+        return;
     }
+
+
+    // Si tocamos dentro del carrito,
+    // NO hacer nada
+
+    if (panelCarrito.contains(e.target)) {
+        return;
+    }
+
+
+    // Si tocamos el botón "Mi pedido",
+    // NO cerrar aquí
+
+    if (abrirCarrito.contains(e.target)) {
+        return;
+    }
+
+
+    // Cualquier otro lugar de la pantalla:
+    // cerrar carrito
+
+    panelCarrito.classList.remove("activo");
+
+    panelCarrito.style.display = "none";
 
 });
