@@ -402,6 +402,348 @@ if (botonAgregarCeviche) {
 
 }
 
+// ========================================
+// MODALES DE LOS NUEVOS CEVICHES
+// ========================================
+
+
+// ========================================
+// FUNCIÓN GENERAL PARA LOS NUEVOS CEVICHES
+// ========================================
+
+function configurarModalCeviche(
+    botonPlato,
+    modal,
+    botonCerrar,
+    botonesPrecio,
+    botonAgregar,
+    nombreProducto
+) {
+
+    let precioSeleccionado = null;
+
+
+    // ================================
+    // ABRIR MODAL
+    // ================================
+
+    if (botonPlato && modal) {
+
+        botonPlato.addEventListener("click", () => {
+
+            modal.style.display = "flex";
+
+        });
+
+    }
+
+
+    // ================================
+    // CERRAR CON X
+    // ================================
+
+    if (botonCerrar && modal) {
+
+        botonCerrar.addEventListener("click", () => {
+
+            modal.style.display = "none";
+
+        });
+
+    }
+
+
+    // ================================
+    // CERRAR TOCANDO FUERA
+    // ================================
+
+    if (modal) {
+
+        modal.addEventListener("click", (e) => {
+
+            if (e.target === modal) {
+
+                modal.style.display = "none";
+
+            }
+
+        });
+
+    }
+
+
+    // ================================
+    // SELECCIONAR PRECIO
+    // ================================
+
+    botonesPrecio.forEach(boton => {
+
+        boton.addEventListener("click", () => {
+
+            botonesPrecio.forEach(btn => {
+
+                btn.classList.remove("seleccionado");
+
+            });
+
+
+            boton.classList.add("seleccionado");
+
+
+            precioSeleccionado =
+                Number(boton.dataset.precio);
+
+        });
+
+    });
+
+
+    // ================================
+    // AGREGAR AL PEDIDO
+    // ================================
+
+    if (botonAgregar) {
+
+        botonAgregar.addEventListener("click", () => {
+
+            // Verificar precio
+
+            if (precioSeleccionado === null) {
+
+                alert(
+                    "Por favor, selecciona una opción de precio."
+                );
+
+                return;
+
+            }
+
+
+            // Obtener carrito
+
+            let carrito =
+                JSON.parse(
+                    localStorage.getItem("carrito")
+                ) || [];
+
+
+            // Agregar producto
+
+            carrito.push({
+
+                nombre: nombreProducto,
+
+                precio: precioSeleccionado,
+
+                cantidad: 1
+
+            });
+
+
+            // Guardar carrito
+
+            localStorage.setItem(
+                "carrito",
+                JSON.stringify(carrito)
+            );
+
+
+            // Actualizar contador
+
+            actualizarContadorPedido();
+
+
+            // Cerrar ventana
+
+            modal.style.display = "none";
+
+
+            // Limpiar selección
+
+            botonesPrecio.forEach(btn => {
+
+                btn.classList.remove("seleccionado");
+
+            });
+
+
+            precioSeleccionado = null;
+
+
+            // Asegurar que el carrito quede cerrado
+
+            const panelCarrito =
+                document.getElementById("panel-carrito");
+
+            if (panelCarrito) {
+
+                panelCarrito.style.display = "none";
+
+                panelCarrito.classList.remove("activo");
+
+            }
+
+        });
+
+    }
+
+}
+
+
+// ========================================
+// CEVICHE DE PESCADO
+// ========================================
+
+configurarModalCeviche(
+
+    document.querySelector(
+        '[data-plato="ceviche-pescado"]'
+    ),
+
+    document.getElementById(
+        "modal-ceviche-pescado"
+    ),
+
+    document.querySelector(
+        ".cerrar-modal-pescado"
+    ),
+
+    document.querySelectorAll(
+        "#modal-ceviche-pescado .precio-ceviche"
+    ),
+
+    document.getElementById(
+        "agregar-ceviche-pescado"
+    ),
+
+    "Ceviche de Pescado"
+
+);
+
+
+// ========================================
+// CEVICHE DE MARISCOS
+// ========================================
+
+configurarModalCeviche(
+
+    document.querySelector(
+        '[data-plato="ceviche-mariscos"]'
+    ),
+
+    document.getElementById(
+        "modal-ceviche-mariscos"
+    ),
+
+    document.querySelector(
+        ".cerrar-modal-mariscos"
+    ),
+
+    document.querySelectorAll(
+        "#modal-ceviche-mariscos .precio-ceviche"
+    ),
+
+    document.getElementById(
+        "agregar-ceviche-mariscos"
+    ),
+
+    "Ceviche de Mariscos"
+
+);
+
+
+// ========================================
+// CEVICHE DE CABALLA
+// ========================================
+
+configurarModalCeviche(
+
+    document.querySelector(
+        '[data-plato="ceviche-caballa"]'
+    ),
+
+    document.getElementById(
+        "modal-ceviche-caballa"
+    ),
+
+    document.querySelector(
+        ".cerrar-modal-caballa"
+    ),
+
+    document.querySelectorAll(
+        "#modal-ceviche-caballa .precio-ceviche"
+    ),
+
+    document.getElementById(
+        "agregar-ceviche-caballa"
+    ),
+
+    "Ceviche de Caballa"
+
+);
+
+
+// ========================================
+// CEVICHE DE CABRILLÓN
+// ========================================
+
+configurarModalCeviche(
+
+    document.querySelector(
+        '[data-plato="ceviche-cabrillon"]'
+    ),
+
+    document.getElementById(
+        "modal-ceviche-cabrillon"
+    ),
+
+    document.querySelector(
+        ".cerrar-modal-cabrillon"
+    ),
+
+    document.querySelectorAll(
+        "#modal-ceviche-cabrillon .precio-ceviche"
+    ),
+
+    document.getElementById(
+        "agregar-ceviche-cabrillon"
+    ),
+
+    "Ceviche de Cabrillón"
+
+);
+
+
+// ========================================
+// CEVICHE PERUANO
+// ========================================
+
+configurarModalCeviche(
+
+    document.querySelector(
+        '[data-plato="ceviche-peruano"]'
+    ),
+
+    document.getElementById(
+        "modal-ceviche-peruano"
+    ),
+
+    document.querySelector(
+        ".cerrar-modal-peruano"
+    ),
+
+    document.querySelectorAll(
+        "#modal-ceviche-peruano .precio-ceviche"
+    ),
+
+    document.getElementById(
+        "agregar-ceviche-peruano"
+    ),
+
+    "Ceviche Peruano"
+
+);
+
 // ================================
 // CARRITO DE PEDIDO
 // ================================
