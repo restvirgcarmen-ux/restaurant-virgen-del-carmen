@@ -990,16 +990,13 @@ function activarBotonesCarrito() {
     // AUMENTAR CANTIDAD
     // ================================
 
-    document.querySelectorAll(".menos-cantidad")
-    .forEach(boton => {
+    document.querySelectorAll(".mas-cantidad")
+        .forEach(boton => {
 
-        boton.addEventListener("click", (e) => {
+            boton.addEventListener("click", (e) => {
 
-            e.stopPropagation();
+                e.stopPropagation();
 
-            const indice =
-                Number(boton.dataset.indice);
-            
                 const indice =
                     Number(boton.dataset.indice);
 
@@ -1009,7 +1006,7 @@ function activarBotonesCarrito() {
                     ) || [];
 
 
-                // Obtener los productos agrupados
+                // Agrupar productos
                 const productosAgrupados = [];
 
 
@@ -1050,7 +1047,6 @@ function activarBotonesCarrito() {
                 });
 
 
-                // Producto seleccionado
                 const productoSeleccionado =
                     productosAgrupados[indice];
 
@@ -1100,7 +1096,7 @@ function activarBotonesCarrito() {
                 actualizarContadorPedido();
 
                 mostrarCarrito();
-                                               
+
             });
 
         });
@@ -1126,6 +1122,7 @@ function activarBotonesCarrito() {
                     ) || [];
 
 
+                // Agrupar productos
                 const productosAgrupados = [];
 
 
@@ -1175,6 +1172,7 @@ function activarBotonesCarrito() {
                 }
 
 
+                // Disminuir cantidad
                 productoSeleccionado.cantidad--;
 
 
@@ -1230,11 +1228,11 @@ function activarBotonesCarrito() {
     // ================================
 
     document.querySelectorAll(".eliminar-item")
-    .forEach(boton => {
+        .forEach(boton => {
 
-        boton.addEventListener("click", (e) => {
+            boton.addEventListener("click", (e) => {
 
-            e.stopPropagation();
+                e.stopPropagation();
 
                 const indice =
                     Number(boton.dataset.indice);
@@ -1245,6 +1243,7 @@ function activarBotonesCarrito() {
                     ) || [];
 
 
+                // Agrupar productos
                 const productosAgrupados = [];
 
 
@@ -1285,7 +1284,7 @@ function activarBotonesCarrito() {
                 });
 
 
-                // Eliminar el producto completo
+                // Eliminar producto completo
                 productosAgrupados.splice(indice, 1);
 
 
@@ -1330,7 +1329,7 @@ function activarBotonesCarrito() {
 
         });
 
-                        }
+}
 
 // ================================
 // ACTUALIZAR CONTADOR DEL PEDIDO
