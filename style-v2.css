@@ -1847,12 +1847,13 @@ LIGHTBOX GALERÍA
 
 /* ================================
    BOTONES DE CHICHARRONES
+   MISMO TAMAÑO QUE CEVICHES
 ================================ */
 
 .boton-chicharron {
     display: block;
     width: 100%;
-    max-width: 520px;
+    max-width: 404px;
 
     margin: 0 auto 24px auto;
 
@@ -1877,9 +1878,6 @@ LIGHTBOX GALERÍA
         background 0.2s ease;
 }
 
-
-/* AL TOCAR / PASAR EL DEDO */
-
 .boton-chicharron:hover {
     background: #1fc95d;
     transform: translateY(-2px);
@@ -1887,9 +1885,6 @@ LIGHTBOX GALERÍA
     box-shadow:
         0 10px 22px rgba(0, 0, 0, 0.16);
 }
-
-
-/* AL PRESIONAR */
 
 .boton-chicharron:active {
     transform: scale(0.98);
