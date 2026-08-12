@@ -1845,6 +1845,56 @@ LIGHTBOX GALERÍA
     transform: scale(.98);
 }
 
+/* ================================
+   BOTONES DE CHICHARRONES
+================================ */
+
+.boton-chicharron {
+    display: block;
+    width: 100%;
+    max-width: 520px;
+
+    margin: 0 auto 24px auto;
+
+    padding: 16px 20px;
+
+    border: none;
+    border-radius: 14px;
+
+    background: #20d463;
+    color: white;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+/* AL TOCAR / PASAR EL DEDO */
+
+.boton-chicharron:hover {
+    background: #1fc95d;
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 22px rgba(0, 0, 0, 0.16);
+}
+
+
+/* AL PRESIONAR */
+
+.boton-chicharron:active {
+    transform: scale(0.98);
+}
+
 /* ===========================
    VENTANA DEL PLATO
 =========================== */
