@@ -1367,49 +1367,109 @@ function actualizarContadorPedido() {
 actualizarContadorPedido();
 
 // ================================
-// MODAL CHICHARRÓN DE CALAMAR
+// MODALES DE CHICHARRONES
 // ================================
 
-const botonChicharron = document.querySelector(".boton-chicharron");
-const modalChicharron = document.getElementById("modal-chicharron-calamar");
-const cerrarModalChicharron = document.querySelector(".cerrar-modal-chicharron");
+// ========================================
+// CHICHARRÓN DE CALAMAR
+// ========================================
+
+const botonChicharronCalamar =
+    document.querySelector('[data-plato="chicharron-calamar"]');
+
+const modalChicharronCalamar =
+    document.getElementById("modal-chicharron-calamar");
+
+const cerrarChicharronCalamar =
+    document.querySelector(".cerrar-modal-chicharron");
 
 
-// ABRIR MODAL
+// ========================================
+// CHICHARRÓN DE PESCADO
+// ========================================
 
-if (botonChicharron && modalChicharron) {
+const botonChicharronPescado =
+    document.querySelector('[data-plato="chicharron-pescado"]');
 
-    botonChicharron.addEventListener("click", () => {
+const modalChicharronPescado =
+    document.getElementById("modal-chicharron-pescado");
 
-        modalChicharron.style.display = "flex";
+const cerrarChicharronPescado =
+    document.querySelector(".cerrar-modal-chicharron-pescado");
+
+
+// ========================================
+// CHICHARRÓN MIXTO
+// ========================================
+
+const botonChicharronMixto =
+    document.querySelector('[data-plato="chicharron-mixto"]');
+
+const modalChicharronMixto =
+    document.getElementById("modal-chicharron-mixto");
+
+const cerrarChicharronMixto =
+    document.querySelector(".cerrar-modal-chicharron-mixto");
+
+
+// ========================================
+// CHICHARRÓN DE POLLO
+// ========================================
+
+const botonChicharronPollo =
+    document.querySelector('[data-plato="chicharron-pollo"]');
+
+const modalChicharronPollo =
+    document.getElementById("modal-chicharron-pollo");
+
+const cerrarChicharronPollo =
+    document.querySelector(".cerrar-modal-chicharron-pollo");
+
+
+// ========================================
+// FUNCIÓN PARA ABRIR Y CERRAR MODALES
+// ========================================
+
+function configurarModalChicharron(
+    boton,
+    modal,
+    botonCerrar
+) {
+
+    if (!boton || !modal) {
+        return;
+    }
+
+
+    // ABRIR
+
+    boton.addEventListener("click", () => {
+
+        modal.style.display = "flex";
 
     });
 
-}
+
+    // CERRAR CON X
+
+    if (botonCerrar) {
+
+        botonCerrar.addEventListener("click", () => {
+
+            modal.style.display = "none";
+
+        });
+
+    }
 
 
-// CERRAR CON LA X
+    // CERRAR TOCANDO FUERA
 
-if (cerrarModalChicharron && modalChicharron) {
+    modal.addEventListener("click", (e) => {
 
-    cerrarModalChicharron.addEventListener("click", () => {
+        if (e.target === modal) {
 
-        modalChicharron.style.display = "none";
-
-    });
-
-}
-
-
-// CERRAR TOCANDO FUERA
-
-if (modalChicharron) {
-
-    modalChicharron.addEventListener("click", (e) => {
-
-        if (e.target === modalChicharron) {
-
-            modalChicharron.style.display = "none";
+            modal.style.display = "none";
 
         }
 
@@ -1417,6 +1477,204 @@ if (modalChicharron) {
 
 }
 
+
+// ========================================
+// ACTIVAR LOS 4 MODALES
+// ========================================
+
+configurarModalChicharron(
+    botonChicharronCalamar,
+    modalChicharronCalamar,
+    cerrarChicharronCalamar
+);
+
+configurarModalChicharron(
+    botonChicharronPescado,
+    modalChicharronPescado,
+    cerrarChicharronPescado
+);
+
+configurarModalChicharron(
+    botonChicharronMixto,
+    modalChicharronMixto,
+    cerrarChicharronMixto
+);
+
+configurarModalChicharron(
+    botonChicharronPollo,
+    modalChicharronPollo,
+    cerrarChicharronPollo
+);
+
+
+// ========================================
+// SELECCIÓN DE PRECIOS
+// ========================================
+
+document.querySelectorAll(".modal-plato")
+    .forEach(modal => {
+
+        const precios =
+            modal.querySelectorAll(".precio-chicharron");
+
+        precios.forEach(boton => {
+
+            boton.addEventListener("click", () => {
+
+                // Quitar selección anterior
+                precios.forEach(btn => {
+
+                    btn.classList.remove("seleccionado");
+
+                });
+
+
+                // Seleccionar precio
+                boton.classList.add("seleccionado");
+
+
+                // Guardar precio seleccionado
+                modal.dataset.precioSeleccionado =
+                    boton.dataset.precio;
+
+            });
+
+        });
+
+    });
+
+
+// ========================================
+// AGREGAR CHICHARRONES AL PEDIDO
+// ========================================
+
+function configurarAgregarChicharron(
+    idBoton,
+    modal,
+    nombreProducto
+) {
+
+    const botonAgregar =
+        document.getElementById(idBoton);
+
+
+    if (!botonAgregar || !modal) {
+        return;
+    }
+
+
+    botonAgregar.addEventListener("click", () => {
+
+        // Obtener precio seleccionado
+
+        const precio =
+            Number(modal.dataset.precioSeleccionado);
+
+
+        // Verificar selección
+
+        if (!precio) {
+
+            alert(
+                "Por favor, selecciona una opción de precio."
+            );
+
+            return;
+
+        }
+
+
+        // Obtener carrito
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        // Agregar producto
+
+        carrito.push({
+
+            nombre: nombreProducto,
+
+            precio: precio,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar modal
+
+        modal.style.display = "none";
+
+
+        // Limpiar selección
+
+        const precios =
+            modal.querySelectorAll(".precio-chicharron");
+
+
+        precios.forEach(btn => {
+
+            btn.classList.remove("seleccionado");
+
+        });
+
+
+        modal.dataset.precioSeleccionado = "";
+
+
+        // IMPORTANTE:
+        // El carrito NO se abre automáticamente.
+        // Solo aumenta el contador.
+
+    });
+
+}
+
+
+// ========================================
+// CONFIGURAR LOS 4 BOTONES AGREGAR
+// ========================================
+
+configurarAgregarChicharron(
+    "agregar-chicharron",
+    modalChicharronCalamar,
+    "Chicharrón de Calamar"
+);
+
+configurarAgregarChicharron(
+    "agregar-chicharron-pescado",
+    modalChicharronPescado,
+    "Chicharrón de Pescado"
+);
+
+configurarAgregarChicharron(
+    "agregar-chicharron-mixto",
+    modalChicharronMixto,
+    "Chicharrón Mixto"
+);
+
+configurarAgregarChicharron(
+    "agregar-chicharron-pollo",
+    modalChicharronPollo,
+    "Chicharrón de Pollo"
+);
 // ================================
 // TIPO DE PEDIDO
 // ================================
