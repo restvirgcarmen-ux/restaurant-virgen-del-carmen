@@ -260,7 +260,7 @@ window.addEventListener("resize", () => {
 // MODAL DEL CEVICHE
 // ================================
 
-const botonCeviche = document.querySelector(".boton-plato");
+const botonCeviche = document.querySelector('[data-plato="ceviche-mixto"]');
 const modalCeviche = document.getElementById("modal-ceviche");
 const cerrarModalCeviche = document.querySelector(".cerrar-modal-plato");
 
@@ -761,9 +761,13 @@ const totalCarrito = document.getElementById("total-carrito");
 
 if (abrirCarrito && panelCarrito) {
 
-    abrirCarrito.addEventListener("click", () => {
+    abrirCarrito.addEventListener("click", (e) => {
+
+        e.stopPropagation();
 
         panelCarrito.classList.add("activo");
+
+        panelCarrito.style.display = "block";
 
         mostrarCarrito();
 
@@ -771,21 +775,23 @@ if (abrirCarrito && panelCarrito) {
 
 }
 
-
 // ================================
 // CERRAR CARRITO
 // ================================
 
 if (cerrarCarrito && panelCarrito) {
 
-    cerrarCarrito.addEventListener("click", () => {
+    cerrarCarrito.addEventListener("click", (e) => {
+
+        e.stopPropagation();
 
         panelCarrito.classList.remove("activo");
+
+        panelCarrito.style.display = "none";
 
     });
 
 }
-
 
 // ================================
 // MOSTRAR CARRITO
