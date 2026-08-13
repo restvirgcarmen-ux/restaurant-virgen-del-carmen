@@ -2340,6 +2340,186 @@ if (botonAgregarDuoVirgen) {
 
 }
 
+// ================================
+// DÚO PERUANO
+// ================================
+
+const botonDuoPeruano =
+    document.querySelector(
+        '[data-plato="duo-peruano"]'
+    );
+
+const modalDuoPeruano =
+    document.getElementById(
+        "modal-duo-peruano"
+    );
+
+const cerrarModalDuoPeruano =
+    document.querySelector(
+        ".cerrar-modal-duo-peruano"
+    );
+
+const opcionesDuoPeruano =
+    document.querySelectorAll(
+        ".opcion-duo-peruano"
+    );
+
+const botonAgregarDuoPeruano =
+    document.getElementById(
+        "agregar-duo-peruano"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonDuoPeruano && modalDuoPeruano) {
+
+    botonDuoPeruano.addEventListener("click", () => {
+
+        modalDuoPeruano.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (cerrarModalDuoPeruano && modalDuoPeruano) {
+
+    cerrarModalDuoPeruano.addEventListener("click", () => {
+
+        modalDuoPeruano.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalDuoPeruano) {
+
+    modalDuoPeruano.addEventListener("click", (e) => {
+
+        if (e.target === modalDuoPeruano) {
+
+            modalDuoPeruano.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// SELECCIONAR COMBINACIÓN
+// ================================
+
+let opcionDuoPeruanoSeleccionada = null;
+
+
+opcionesDuoPeruano.forEach(opcion => {
+
+    opcion.addEventListener("click", () => {
+
+        opcionesDuoPeruano.forEach(btn => {
+
+            btn.classList.remove("seleccionado");
+
+        });
+
+        opcion.classList.add("seleccionado");
+
+        opcionDuoPeruanoSeleccionada =
+            opcion.dataset.opcion;
+
+    });
+
+});
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarDuoPeruano) {
+
+    botonAgregarDuoPeruano.addEventListener("click", () => {
+
+        if (!opcionDuoPeruanoSeleccionada) {
+
+            alert(
+                "Por favor, selecciona una combinación."
+            );
+
+            return;
+
+        }
+
+
+        // Obtener carrito
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        // Agregar Dúo Peruano
+
+        carrito.push({
+
+            nombre:
+                `Dúo Peruano - ${opcionDuoPeruanoSeleccionada}`,
+
+            precio: 55,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar modal
+
+        modalDuoPeruano.style.display = "none";
+
+
+        // Limpiar selección
+
+        opcionesDuoPeruano.forEach(btn => {
+
+            btn.classList.remove("seleccionado");
+
+        });
+
+
+        opcionDuoPeruanoSeleccionada = null;
+
+    });
+
+}
+
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
