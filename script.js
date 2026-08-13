@@ -2760,6 +2760,126 @@ if (botonAgregarTrioPeruano) {
 
 }
 
+// ================================
+// RONDA MARINA
+// ================================
+
+const botonRondaMarina =
+    document.querySelector(
+        '[data-plato="ronda-marina"]'
+    );
+
+const modalRondaMarina =
+    document.getElementById(
+        "modal-ronda-marina"
+    );
+
+const cerrarModalRondaMarina =
+    document.querySelector(
+        ".cerrar-modal-ronda-marina"
+    );
+
+const botonAgregarRondaMarina =
+    document.getElementById(
+        "agregar-ronda-marina"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonRondaMarina && modalRondaMarina) {
+
+    botonRondaMarina.addEventListener("click", () => {
+
+        modalRondaMarina.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (cerrarModalRondaMarina && modalRondaMarina) {
+
+    cerrarModalRondaMarina.addEventListener("click", () => {
+
+        modalRondaMarina.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalRondaMarina) {
+
+    modalRondaMarina.addEventListener("click", (e) => {
+
+        if (e.target === modalRondaMarina) {
+
+            modalRondaMarina.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarRondaMarina) {
+
+    botonAgregarRondaMarina.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Ronda Marina",
+
+            precio: 85,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalRondaMarina.style.display = "none";
+
+    });
+
+}
+
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
