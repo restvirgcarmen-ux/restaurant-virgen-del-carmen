@@ -1912,6 +1912,129 @@ if (botonAgregarCachemasEncebolladas) {
 
 }
 
+// ================================
+// MODAL PATACONES ACEVICHADOS
+// ================================
+
+const botonPataconesAcevichados =
+    document.querySelector(
+        ".boton-especial[data-plato='patacones-acevichados']"
+    );
+
+const modalPataconesAcevichados =
+    document.getElementById(
+        "modal-patacones-acevichados"
+    );
+
+const cerrarPataconesAcevichados =
+    document.querySelector(
+        ".cerrar-modal-patacones-acevichados"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (
+    botonPataconesAcevichados &&
+    modalPataconesAcevichados
+) {
+
+    botonPataconesAcevichados.addEventListener("click", () => {
+
+        modalPataconesAcevichados.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarPataconesAcevichados &&
+    modalPataconesAcevichados
+) {
+
+    cerrarPataconesAcevichados.addEventListener("click", () => {
+
+        modalPataconesAcevichados.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalPataconesAcevichados) {
+
+    modalPataconesAcevichados.addEventListener("click", (e) => {
+
+        if (e.target === modalPataconesAcevichados) {
+
+            modalPataconesAcevichados.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+const botonAgregarPataconesAcevichados =
+    document.getElementById(
+        "agregar-patacones-acevichados"
+    );
+
+
+if (botonAgregarPataconesAcevichados) {
+
+    botonAgregarPataconesAcevichados.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Patacones Acevichados",
+
+            precio: 45,
+
+            cantidad: 1
+
+        });
+
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalPataconesAcevichados.style.display = "none";
+
+    });
+
+}
+
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
