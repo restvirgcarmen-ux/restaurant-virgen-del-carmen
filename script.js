@@ -1534,6 +1534,143 @@ if (botonAgregarCabrillonAgua) {
 
 }
 
+// ================================
+// MODAL PARIHUELA CON CABRILLÓN
+// ================================
+
+const botonParihuelaCabrillon =
+    document.querySelector(
+        ".boton-especial[data-plato='parihuela-cabrillon']"
+    );
+
+const modalParihuelaCabrillon =
+    document.getElementById(
+        "modal-parihuela-cabrillon"
+    );
+
+const cerrarParihuelaCabrillon =
+    document.querySelector(
+        ".cerrar-modal-parihuela-cabrillon"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (
+    botonParihuelaCabrillon &&
+    modalParihuelaCabrillon
+) {
+
+    botonParihuelaCabrillon.addEventListener(
+        "click",
+        () => {
+
+            modalParihuelaCabrillon.style.display =
+                "flex";
+
+        }
+    );
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarParihuelaCabrillon &&
+    modalParihuelaCabrillon
+) {
+
+    cerrarParihuelaCabrillon.addEventListener(
+        "click",
+        () => {
+
+            modalParihuelaCabrillon.style.display =
+                "none";
+
+        }
+    );
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalParihuelaCabrillon) {
+
+    modalParihuelaCabrillon.addEventListener(
+        "click",
+        (e) => {
+
+            if (e.target === modalParihuelaCabrillon) {
+
+                modalParihuelaCabrillon.style.display =
+                    "none";
+
+            }
+
+        }
+    );
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+const botonAgregarParihuelaCabrillon =
+    document.getElementById(
+        "agregar-parihuela-cabrillon"
+    );
+
+
+if (botonAgregarParihuelaCabrillon) {
+
+    botonAgregarParihuelaCabrillon.addEventListener(
+        "click",
+        () => {
+
+            let carrito =
+                JSON.parse(
+                    localStorage.getItem("carrito")
+                ) || [];
+
+
+            carrito.push({
+
+                nombre:
+                    "Parihuela con Cabrillón",
+
+                precio: 75,
+
+                cantidad: 1
+
+            });
+
+
+            localStorage.setItem(
+                "carrito",
+                JSON.stringify(carrito)
+            );
+
+
+            actualizarContadorPedido();
+
+
+            modalParihuelaCabrillon.style.display =
+                "none";
+
+        }
+    );
+
+}
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
