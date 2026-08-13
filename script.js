@@ -3114,6 +3114,129 @@ if (botonAgregarRondaAlinada) {
 
 }
 
+// ================================
+// JALEA A LA NORTEÑA
+// ================================
+
+const botonJaleaNortena =
+    document.querySelector(
+        '[data-plato="jalea-nortena"]'
+    );
+
+const modalJaleaNortena =
+    document.getElementById(
+        "modal-jalea-nortena"
+    );
+
+const cerrarModalJaleaNortena =
+    document.querySelector(
+        ".cerrar-modal-jalea-nortena"
+    );
+
+const botonAgregarJaleaNortena =
+    document.getElementById(
+        "agregar-jalea-nortena"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonJaleaNortena && modalJaleaNortena) {
+
+    botonJaleaNortena.addEventListener("click", () => {
+
+        modalJaleaNortena.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalJaleaNortena &&
+    modalJaleaNortena
+) {
+
+    cerrarModalJaleaNortena.addEventListener("click", () => {
+
+        modalJaleaNortena.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalJaleaNortena) {
+
+    modalJaleaNortena.addEventListener("click", (e) => {
+
+        if (e.target === modalJaleaNortena) {
+
+            modalJaleaNortena.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarJaleaNortena) {
+
+    botonAgregarJaleaNortena.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Jalea a la Norteña",
+
+            precio: 75,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalJaleaNortena.style.display = "none";
+
+    });
+
+}
+
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
