@@ -1425,6 +1425,114 @@ const modalChicharronPollo =
 const cerrarChicharronPollo =
     document.querySelector(".cerrar-modal-chicharron-pollo");
 
+// ================================
+// MODAL CABRILLÓN PASADO POR AGUA
+// ================================
+
+const botonCabrillonAgua =
+    document.querySelector(".boton-especial[data-plato='cabrillon-agua']");
+
+const modalCabrillonAgua =
+    document.getElementById("modal-cabrillon-agua");
+
+const cerrarCabrillonAgua =
+    document.querySelector(".cerrar-modal-cabrillon-agua");
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonCabrillonAgua && modalCabrillonAgua) {
+
+    botonCabrillonAgua.addEventListener("click", () => {
+
+        modalCabrillonAgua.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (cerrarCabrillonAgua && modalCabrillonAgua) {
+
+    cerrarCabrillonAgua.addEventListener("click", () => {
+
+        modalCabrillonAgua.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalCabrillonAgua) {
+
+    modalCabrillonAgua.addEventListener("click", (e) => {
+
+        if (e.target === modalCabrillonAgua) {
+
+            modalCabrillonAgua.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+const botonAgregarCabrillonAgua =
+    document.getElementById("agregar-cabrillon-agua");
+
+
+if (botonAgregarCabrillonAgua) {
+
+    botonAgregarCabrillonAgua.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(localStorage.getItem("carrito")) || [];
+
+
+        carrito.push({
+
+            nombre: "Cabrillón Pasado por Agua",
+
+            precio: 65,
+
+            cantidad: 1
+
+        });
+
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalCabrillonAgua.style.display = "none";
+
+    });
+
+}
 
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
