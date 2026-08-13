@@ -1789,6 +1789,129 @@ if (botonAgregarSecoChavelo) {
 
 }
 
+// ================================
+// MODAL CACHEMAS ENCEBOLLADAS
+// ================================
+
+const botonCachemasEncebolladas =
+    document.querySelector(
+        ".boton-especial[data-plato='cachemas-encebolladas']"
+    );
+
+const modalCachemasEncebolladas =
+    document.getElementById(
+        "modal-cachemas-encebolladas"
+    );
+
+const cerrarCachemasEncebolladas =
+    document.querySelector(
+        ".cerrar-modal-cachemas-encebolladas"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (
+    botonCachemasEncebolladas &&
+    modalCachemasEncebolladas
+) {
+
+    botonCachemasEncebolladas.addEventListener("click", () => {
+
+        modalCachemasEncebolladas.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarCachemasEncebolladas &&
+    modalCachemasEncebolladas
+) {
+
+    cerrarCachemasEncebolladas.addEventListener("click", () => {
+
+        modalCachemasEncebolladas.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalCachemasEncebolladas) {
+
+    modalCachemasEncebolladas.addEventListener("click", (e) => {
+
+        if (e.target === modalCachemasEncebolladas) {
+
+            modalCachemasEncebolladas.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+const botonAgregarCachemasEncebolladas =
+    document.getElementById(
+        "agregar-cachemas-encebolladas"
+    );
+
+
+if (botonAgregarCachemasEncebolladas) {
+
+    botonAgregarCachemasEncebolladas.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Cachemas Encebolladas",
+
+            precio: 45,
+
+            cantidad: 1
+
+        });
+
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalCachemasEncebolladas.style.display = "none";
+
+    });
+
+}
+
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
