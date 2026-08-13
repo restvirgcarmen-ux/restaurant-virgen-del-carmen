@@ -2880,6 +2880,126 @@ if (botonAgregarRondaMarina) {
 
 }
 
+// ================================
+// RONDA CRIOLLA
+// ================================
+
+const botonRondaCriolla =
+    document.querySelector(
+        '[data-plato="ronda-criolla"]'
+    );
+
+const modalRondaCriolla =
+    document.getElementById(
+        "modal-ronda-criolla"
+    );
+
+const cerrarModalRondaCriolla =
+    document.querySelector(
+        ".cerrar-modal-ronda-criolla"
+    );
+
+const botonAgregarRondaCriolla =
+    document.getElementById(
+        "agregar-ronda-criolla"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonRondaCriolla && modalRondaCriolla) {
+
+    botonRondaCriolla.addEventListener("click", () => {
+
+        modalRondaCriolla.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (cerrarModalRondaCriolla && modalRondaCriolla) {
+
+    cerrarModalRondaCriolla.addEventListener("click", () => {
+
+        modalRondaCriolla.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalRondaCriolla) {
+
+    modalRondaCriolla.addEventListener("click", (e) => {
+
+        if (e.target === modalRondaCriolla) {
+
+            modalRondaCriolla.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarRondaCriolla) {
+
+    botonAgregarRondaCriolla.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Ronda Criolla",
+
+            precio: 85,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalRondaCriolla.style.display = "none";
+
+    });
+
+}
+
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
