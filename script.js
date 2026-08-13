@@ -1671,6 +1671,124 @@ if (botonAgregarParihuelaCabrillon) {
     );
 
 }
+
+// ================================
+// MODAL SECO DE CHAVELO
+// ================================
+
+const botonSecoChavelo =
+    document.querySelector(
+        ".boton-especial[data-plato='seco-chavelo']"
+    );
+
+const modalSecoChavelo =
+    document.getElementById(
+        "modal-seco-chavelo"
+    );
+
+const cerrarSecoChavelo =
+    document.querySelector(
+        ".cerrar-modal-seco-chavelo"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonSecoChavelo && modalSecoChavelo) {
+
+    botonSecoChavelo.addEventListener("click", () => {
+
+        modalSecoChavelo.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (cerrarSecoChavelo && modalSecoChavelo) {
+
+    cerrarSecoChavelo.addEventListener("click", () => {
+
+        modalSecoChavelo.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalSecoChavelo) {
+
+    modalSecoChavelo.addEventListener("click", (e) => {
+
+        if (e.target === modalSecoChavelo) {
+
+            modalSecoChavelo.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+const botonAgregarSecoChavelo =
+    document.getElementById(
+        "agregar-seco-chavelo"
+    );
+
+
+if (botonAgregarSecoChavelo) {
+
+    botonAgregarSecoChavelo.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Seco de Chavelo",
+
+            precio: 45,
+
+            cantidad: 1
+
+        });
+
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalSecoChavelo.style.display = "none";
+
+    });
+
+}
+
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
