@@ -3237,6 +3237,129 @@ if (botonAgregarJaleaNortena) {
 
 }
 
+// ================================
+// JALEA PIURANA
+// ================================
+
+const botonJaleaPiurana =
+    document.querySelector(
+        '[data-plato="jalea-piurana"]'
+    );
+
+const modalJaleaPiurana =
+    document.getElementById(
+        "modal-jalea-piurana"
+    );
+
+const cerrarModalJaleaPiurana =
+    document.querySelector(
+        ".cerrar-modal-jalea-piurana"
+    );
+
+const botonAgregarJaleaPiurana =
+    document.getElementById(
+        "agregar-jalea-piurana"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonJaleaPiurana && modalJaleaPiurana) {
+
+    botonJaleaPiurana.addEventListener("click", () => {
+
+        modalJaleaPiurana.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalJaleaPiurana &&
+    modalJaleaPiurana
+) {
+
+    cerrarModalJaleaPiurana.addEventListener("click", () => {
+
+        modalJaleaPiurana.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalJaleaPiurana) {
+
+    modalJaleaPiurana.addEventListener("click", (e) => {
+
+        if (e.target === modalJaleaPiurana) {
+
+            modalJaleaPiurana.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarJaleaPiurana) {
+
+    botonAgregarJaleaPiurana.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Jalea Piurana",
+
+            precio: 75,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalJaleaPiurana.style.display = "none";
+
+    });
+
+}
+
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
