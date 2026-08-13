@@ -3000,6 +3000,120 @@ if (botonAgregarRondaCriolla) {
 
 }
 
+// ================================
+// RONDA ALIÑADA
+// ================================
+
+const botonRondaAlinada =
+    document.querySelector(
+        '[data-plato="ronda-alinada"]'
+    );
+
+const modalRondaAlinada =
+    document.getElementById(
+        "modal-ronda-alinada"
+    );
+
+const cerrarModalRondaAlinada =
+    document.querySelector(
+        ".cerrar-modal-ronda-alinada"
+    );
+
+const botonAgregarRondaAlinada =
+    document.getElementById(
+        "agregar-ronda-alinada"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonRondaAlinada && modalRondaAlinada) {
+
+    botonRondaAlinada.addEventListener("click", () => {
+
+        modalRondaAlinada.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (cerrarModalRondaAlinada && modalRondaAlinada) {
+
+    cerrarModalRondaAlinada.addEventListener("click", () => {
+
+        modalRondaAlinada.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalRondaAlinada) {
+
+    modalRondaAlinada.addEventListener("click", (e) => {
+
+        if (e.target === modalRondaAlinada) {
+
+            modalRondaAlinada.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarRondaAlinada) {
+
+    botonAgregarRondaAlinada.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Ronda Aliñada",
+
+            precio: 85,
+
+            cantidad: 1
+
+        });
+
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        actualizarContadorPedido();
+
+
+        modalRondaAlinada.style.display = "none";
+
+    });
+
+}
+
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
