@@ -2640,6 +2640,126 @@ if (botonAgregarTrioVirgen) {
 
 }
 
+// ================================
+// TRÍO PERUANO
+// ================================
+
+const botonTrioPeruano =
+    document.querySelector(
+        '[data-plato="trio-peruano"]'
+    );
+
+const modalTrioPeruano =
+    document.getElementById(
+        "modal-trio-peruano"
+    );
+
+const cerrarModalTrioPeruano =
+    document.querySelector(
+        ".cerrar-modal-trio-peruano"
+    );
+
+const botonAgregarTrioPeruano =
+    document.getElementById(
+        "agregar-trio-peruano"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonTrioPeruano && modalTrioPeruano) {
+
+    botonTrioPeruano.addEventListener("click", () => {
+
+        modalTrioPeruano.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (cerrarModalTrioPeruano && modalTrioPeruano) {
+
+    cerrarModalTrioPeruano.addEventListener("click", () => {
+
+        modalTrioPeruano.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalTrioPeruano) {
+
+    modalTrioPeruano.addEventListener("click", (e) => {
+
+        if (e.target === modalTrioPeruano) {
+
+            modalTrioPeruano.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarTrioPeruano) {
+
+    botonAgregarTrioPeruano.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Trío Peruano",
+
+            precio: 70,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalTrioPeruano.style.display = "none";
+
+    });
+
+}
+
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
