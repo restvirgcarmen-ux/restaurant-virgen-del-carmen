@@ -2158,6 +2158,188 @@ if (botonAgregarTortillaLangostinos) {
 
 }
 
+// ================================
+// DÚO VIRGEN DEL CARMEN
+// ================================
+
+const botonDuoVirgen =
+    document.querySelector(
+        '[data-plato="duo-virgen"]'
+    );
+
+const modalDuoVirgen =
+    document.getElementById(
+        "modal-duo-virgen"
+    );
+
+const cerrarModalDuoVirgen =
+    document.querySelector(
+        ".cerrar-modal-duo-virgen"
+    );
+
+const opcionesDuoVirgen =
+    document.querySelectorAll(
+        ".opcion-duo-virgen"
+    );
+
+const botonAgregarDuoVirgen =
+    document.getElementById(
+        "agregar-duo-virgen"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonDuoVirgen && modalDuoVirgen) {
+
+    botonDuoVirgen.addEventListener("click", () => {
+
+        modalDuoVirgen.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR MODAL CON X
+// ================================
+
+if (cerrarModalDuoVirgen && modalDuoVirgen) {
+
+    cerrarModalDuoVirgen.addEventListener("click", () => {
+
+        modalDuoVirgen.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalDuoVirgen) {
+
+    modalDuoVirgen.addEventListener("click", (e) => {
+
+        if (e.target === modalDuoVirgen) {
+
+            modalDuoVirgen.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// SELECCIONAR COMBINACIÓN
+// ================================
+
+let opcionDuoVirgenSeleccionada = null;
+
+
+opcionesDuoVirgen.forEach(opcion => {
+
+    opcion.addEventListener("click", () => {
+
+        opcionesDuoVirgen.forEach(btn => {
+
+            btn.classList.remove("seleccionado");
+
+        });
+
+        opcion.classList.add("seleccionado");
+
+        opcionDuoVirgenSeleccionada =
+            opcion.dataset.opcion;
+
+    });
+
+});
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarDuoVirgen) {
+
+    botonAgregarDuoVirgen.addEventListener("click", () => {
+
+        // Verificar selección
+
+        if (!opcionDuoVirgenSeleccionada) {
+
+            alert(
+                "Por favor, selecciona una combinación."
+            );
+
+            return;
+
+        }
+
+
+        // Obtener carrito
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        // Agregar Dúo
+
+        carrito.push({
+
+            nombre:
+                `Dúo Virgen del Carmen - ${opcionDuoVirgenSeleccionada}`,
+
+            precio: 55,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalDuoVirgen.style.display = "none";
+
+
+        // Limpiar selección
+
+        opcionesDuoVirgen.forEach(btn => {
+
+            btn.classList.remove("seleccionado");
+
+        });
+
+
+        opcionDuoVirgenSeleccionada = null;
+
+    });
+
+}
+
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
