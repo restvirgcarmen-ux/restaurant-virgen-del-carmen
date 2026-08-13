@@ -2520,6 +2520,126 @@ if (botonAgregarDuoPeruano) {
 
 }
 
+// ================================
+// TRÍO VIRGEN DEL CARMEN
+// ================================
+
+const botonTrioVirgen =
+    document.querySelector(
+        '[data-plato="trio-virgen"]'
+    );
+
+const modalTrioVirgen =
+    document.getElementById(
+        "modal-trio-virgen"
+    );
+
+const cerrarModalTrioVirgen =
+    document.querySelector(
+        ".cerrar-modal-trio-virgen"
+    );
+
+const botonAgregarTrioVirgen =
+    document.getElementById(
+        "agregar-trio-virgen"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonTrioVirgen && modalTrioVirgen) {
+
+    botonTrioVirgen.addEventListener("click", () => {
+
+        modalTrioVirgen.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (cerrarModalTrioVirgen && modalTrioVirgen) {
+
+    cerrarModalTrioVirgen.addEventListener("click", () => {
+
+        modalTrioVirgen.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalTrioVirgen) {
+
+    modalTrioVirgen.addEventListener("click", (e) => {
+
+        if (e.target === modalTrioVirgen) {
+
+            modalTrioVirgen.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarTrioVirgen) {
+
+    botonAgregarTrioVirgen.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Trío Virgen del Carmen",
+
+            precio: 70,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalTrioVirgen.style.display = "none";
+
+    });
+
+}
+
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
