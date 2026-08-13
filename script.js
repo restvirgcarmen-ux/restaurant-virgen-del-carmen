@@ -2035,6 +2035,129 @@ if (botonAgregarPataconesAcevichados) {
 
 }
 
+// ================================
+// MODAL TORTILLA DE LANGOSTINOS
+// ================================
+
+const botonTortillaLangostinos =
+    document.querySelector(
+        ".boton-especial[data-plato='tortilla-langostinos']"
+    );
+
+const modalTortillaLangostinos =
+    document.getElementById(
+        "modal-tortilla-langostinos"
+    );
+
+const cerrarTortillaLangostinos =
+    document.querySelector(
+        ".cerrar-modal-tortilla-langostinos"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (
+    botonTortillaLangostinos &&
+    modalTortillaLangostinos
+) {
+
+    botonTortillaLangostinos.addEventListener("click", () => {
+
+        modalTortillaLangostinos.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarTortillaLangostinos &&
+    modalTortillaLangostinos
+) {
+
+    cerrarTortillaLangostinos.addEventListener("click", () => {
+
+        modalTortillaLangostinos.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalTortillaLangostinos) {
+
+    modalTortillaLangostinos.addEventListener("click", (e) => {
+
+        if (e.target === modalTortillaLangostinos) {
+
+            modalTortillaLangostinos.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+const botonAgregarTortillaLangostinos =
+    document.getElementById(
+        "agregar-tortilla-langostinos"
+    );
+
+
+if (botonAgregarTortillaLangostinos) {
+
+    botonAgregarTortillaLangostinos.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Tortilla de Langostinos",
+
+            precio: 45,
+
+            cantidad: 1
+
+        });
+
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalTortillaLangostinos.style.display = "none";
+
+    });
+
+}
+
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
