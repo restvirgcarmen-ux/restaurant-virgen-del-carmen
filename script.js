@@ -3483,6 +3483,129 @@ if (botonAgregarSudadoCabrillon) {
 
 }
 
+// ================================
+// CARNE ALIÑADA
+// ================================
+
+const botonCarneAlinada =
+    document.querySelector(
+        '[data-plato="carne-alinada"]'
+    );
+
+const modalCarneAlinada =
+    document.getElementById(
+        "modal-carne-alinada"
+    );
+
+const cerrarModalCarneAlinada =
+    document.querySelector(
+        ".cerrar-modal-carne-alinada"
+    );
+
+const botonAgregarCarneAlinada =
+    document.getElementById(
+        "agregar-carne-alinada"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonCarneAlinada && modalCarneAlinada) {
+
+    botonCarneAlinada.addEventListener("click", () => {
+
+        modalCarneAlinada.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalCarneAlinada &&
+    modalCarneAlinada
+) {
+
+    cerrarModalCarneAlinada.addEventListener("click", () => {
+
+        modalCarneAlinada.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalCarneAlinada) {
+
+    modalCarneAlinada.addEventListener("click", (e) => {
+
+        if (e.target === modalCarneAlinada) {
+
+            modalCarneAlinada.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarCarneAlinada) {
+
+    botonAgregarCarneAlinada.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Carne Aliñada",
+
+            precio: 45,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalCarneAlinada.style.display = "none";
+
+    });
+
+}
+
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
