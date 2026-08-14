@@ -4269,6 +4269,129 @@ if (botonAgregarChaufaMariscos) {
 
 }
 
+// ================================
+// POLLO FRITO
+// ================================
+
+const botonPolloFrito =
+    document.querySelector(
+        '[data-plato="pollo-frito"]'
+    );
+
+const modalPolloFrito =
+    document.getElementById(
+        "modal-pollo-frito"
+    );
+
+const cerrarModalPolloFrito =
+    document.querySelector(
+        ".cerrar-modal-pollo-frito"
+    );
+
+const botonAgregarPolloFrito =
+    document.getElementById(
+        "agregar-pollo-frito"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonPolloFrito && modalPolloFrito) {
+
+    botonPolloFrito.addEventListener("click", () => {
+
+        modalPolloFrito.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalPolloFrito &&
+    modalPolloFrito
+) {
+
+    cerrarModalPolloFrito.addEventListener("click", () => {
+
+        modalPolloFrito.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalPolloFrito) {
+
+    modalPolloFrito.addEventListener("click", (e) => {
+
+        if (e.target === modalPolloFrito) {
+
+            modalPolloFrito.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarPolloFrito) {
+
+    botonAgregarPolloFrito.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Pollo Frito",
+
+            precio: 15,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalPolloFrito.style.display = "none";
+
+    });
+
+}
+
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
