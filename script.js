@@ -4761,6 +4761,129 @@ if (botonAgregarApanadoRes) {
 
 }
 
+// ================================
+// BISTEC FRITO
+// ================================
+
+const botonBistecFrito =
+    document.querySelector(
+        '[data-plato="bistec-frito"]'
+    );
+
+const modalBistecFrito =
+    document.getElementById(
+        "modal-bistec-frito"
+    );
+
+const cerrarModalBistecFrito =
+    document.querySelector(
+        ".cerrar-modal-bistec-frito"
+    );
+
+const botonAgregarBistecFrito =
+    document.getElementById(
+        "agregar-bistec-frito"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonBistecFrito && modalBistecFrito) {
+
+    botonBistecFrito.addEventListener("click", () => {
+
+        modalBistecFrito.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalBistecFrito &&
+    modalBistecFrito
+) {
+
+    cerrarModalBistecFrito.addEventListener("click", () => {
+
+        modalBistecFrito.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalBistecFrito) {
+
+    modalBistecFrito.addEventListener("click", (e) => {
+
+        if (e.target === modalBistecFrito) {
+
+            modalBistecFrito.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarBistecFrito) {
+
+    botonAgregarBistecFrito.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Bistec Frito",
+
+            precio: 16,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalBistecFrito.style.display = "none";
+
+    });
+
+}
+
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
