@@ -4884,6 +4884,129 @@ if (botonAgregarBistecFrito) {
 
 }
 
+// ================================
+// PESCADO FRITO
+// ================================
+
+const botonPescadoFrito =
+    document.querySelector(
+        '[data-plato="pescado-frito"]'
+    );
+
+const modalPescadoFrito =
+    document.getElementById(
+        "modal-pescado-frito"
+    );
+
+const cerrarModalPescadoFrito =
+    document.querySelector(
+        ".cerrar-modal-pescado-frito"
+    );
+
+const botonAgregarPescadoFrito =
+    document.getElementById(
+        "agregar-pescado-frito"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonPescadoFrito && modalPescadoFrito) {
+
+    botonPescadoFrito.addEventListener("click", () => {
+
+        modalPescadoFrito.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalPescadoFrito &&
+    modalPescadoFrito
+) {
+
+    cerrarModalPescadoFrito.addEventListener("click", () => {
+
+        modalPescadoFrito.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalPescadoFrito) {
+
+    modalPescadoFrito.addEventListener("click", (e) => {
+
+        if (e.target === modalPescadoFrito) {
+
+            modalPescadoFrito.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarPescadoFrito) {
+
+    botonAgregarPescadoFrito.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Pescado Frito",
+
+            precio: 15,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalPescadoFrito.style.display = "none";
+
+    });
+
+}
+
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
