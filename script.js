@@ -4392,6 +4392,129 @@ if (botonAgregarPolloFrito) {
 
 }
 
+// ================================
+// LOMO SALTADO
+// ================================
+
+const botonLomoSaltado =
+    document.querySelector(
+        '[data-plato="lomo-saltado"]'
+    );
+
+const modalLomoSaltado =
+    document.getElementById(
+        "modal-lomo-saltado"
+    );
+
+const cerrarModalLomoSaltado =
+    document.querySelector(
+        ".cerrar-modal-lomo-saltado"
+    );
+
+const botonAgregarLomoSaltado =
+    document.getElementById(
+        "agregar-lomo-saltado"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonLomoSaltado && modalLomoSaltado) {
+
+    botonLomoSaltado.addEventListener("click", () => {
+
+        modalLomoSaltado.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalLomoSaltado &&
+    modalLomoSaltado
+) {
+
+    cerrarModalLomoSaltado.addEventListener("click", () => {
+
+        modalLomoSaltado.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalLomoSaltado) {
+
+    modalLomoSaltado.addEventListener("click", (e) => {
+
+        if (e.target === modalLomoSaltado) {
+
+            modalLomoSaltado.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarLomoSaltado) {
+
+    botonAgregarLomoSaltado.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Lomo Saltado",
+
+            precio: 16,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalLomoSaltado.style.display = "none";
+
+    });
+
+}
+
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
