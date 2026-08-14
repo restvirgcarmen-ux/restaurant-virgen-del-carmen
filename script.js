@@ -3729,6 +3729,129 @@ if (botonAgregarCarneSeca) {
 
 }
 
+// ================================
+// COSTILLA DE CERDO
+// ================================
+
+const botonCostillaCerdo =
+    document.querySelector(
+        '[data-plato="costilla-cerdo"]'
+    );
+
+const modalCostillaCerdo =
+    document.getElementById(
+        "modal-costilla-cerdo"
+    );
+
+const cerrarModalCostillaCerdo =
+    document.querySelector(
+        ".cerrar-modal-costilla-cerdo"
+    );
+
+const botonAgregarCostillaCerdo =
+    document.getElementById(
+        "agregar-costilla-cerdo"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonCostillaCerdo && modalCostillaCerdo) {
+
+    botonCostillaCerdo.addEventListener("click", () => {
+
+        modalCostillaCerdo.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalCostillaCerdo &&
+    modalCostillaCerdo
+) {
+
+    cerrarModalCostillaCerdo.addEventListener("click", () => {
+
+        modalCostillaCerdo.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalCostillaCerdo) {
+
+    modalCostillaCerdo.addEventListener("click", (e) => {
+
+        if (e.target === modalCostillaCerdo) {
+
+            modalCostillaCerdo.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarCostillaCerdo) {
+
+    botonAgregarCostillaCerdo.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Costilla de Cerdo",
+
+            precio: 50,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalCostillaCerdo.style.display = "none";
+
+    });
+
+}
+
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
