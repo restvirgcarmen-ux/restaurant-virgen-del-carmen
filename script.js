@@ -3606,6 +3606,129 @@ if (botonAgregarCarneAlinada) {
 
 }
 
+// ================================
+// CARNE SECA
+// ================================
+
+const botonCarneSeca =
+    document.querySelector(
+        '[data-plato="carne-seca"]'
+    );
+
+const modalCarneSeca =
+    document.getElementById(
+        "modal-carne-seca"
+    );
+
+const cerrarModalCarneSeca =
+    document.querySelector(
+        ".cerrar-modal-carne-seca"
+    );
+
+const botonAgregarCarneSeca =
+    document.getElementById(
+        "agregar-carne-seca"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonCarneSeca && modalCarneSeca) {
+
+    botonCarneSeca.addEventListener("click", () => {
+
+        modalCarneSeca.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalCarneSeca &&
+    modalCarneSeca
+) {
+
+    cerrarModalCarneSeca.addEventListener("click", () => {
+
+        modalCarneSeca.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalCarneSeca) {
+
+    modalCarneSeca.addEventListener("click", (e) => {
+
+        if (e.target === modalCarneSeca) {
+
+            modalCarneSeca.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarCarneSeca) {
+
+    botonAgregarCarneSeca.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Carne Seca",
+
+            precio: 45,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalCarneSeca.style.display = "none";
+
+    });
+
+}
+
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
