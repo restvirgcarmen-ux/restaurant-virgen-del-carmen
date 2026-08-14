@@ -3852,6 +3852,212 @@ if (botonAgregarCostillaCerdo) {
 
 }
 
+// ================================
+// ARROZ CON MARISCOS
+// ================================
+
+const botonArrozMariscos =
+    document.querySelector(
+        '[data-plato="arroz-mariscos"]'
+    );
+
+const modalArrozMariscos =
+    document.getElementById(
+        "modal-arroz-mariscos"
+    );
+
+const cerrarModalArrozMariscos =
+    document.querySelector(
+        ".cerrar-modal-arroz-mariscos"
+    );
+
+const preciosArrozMariscos =
+    document.querySelectorAll(
+        ".precio-arroz-mariscos"
+    );
+
+const botonAgregarArrozMariscos =
+    document.getElementById(
+        "agregar-arroz-mariscos"
+    );
+
+let precioArrozMariscosSeleccionado = null;
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (
+    botonArrozMariscos &&
+    modalArrozMariscos
+) {
+
+    botonArrozMariscos.addEventListener("click", () => {
+
+        modalArrozMariscos.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// SELECCIONAR PRECIO
+// ================================
+
+preciosArrozMariscos.forEach(boton => {
+
+    boton.addEventListener("click", () => {
+
+        preciosArrozMariscos.forEach(btn => {
+
+            btn.classList.remove("seleccionado");
+
+        });
+
+
+        boton.classList.add("seleccionado");
+
+
+        precioArrozMariscosSeleccionado =
+            Number(boton.dataset.precio);
+
+    });
+
+});
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalArrozMariscos &&
+    modalArrozMariscos
+) {
+
+    cerrarModalArrozMariscos.addEventListener("click", () => {
+
+        modalArrozMariscos.style.display = "none";
+
+        preciosArrozMariscos.forEach(btn => {
+
+            btn.classList.remove("seleccionado");
+
+        });
+
+        precioArrozMariscosSeleccionado = null;
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalArrozMariscos) {
+
+    modalArrozMariscos.addEventListener("click", (e) => {
+
+        if (e.target === modalArrozMariscos) {
+
+            modalArrozMariscos.style.display = "none";
+
+            preciosArrozMariscos.forEach(btn => {
+
+                btn.classList.remove("seleccionado");
+
+            });
+
+            precioArrozMariscosSeleccionado = null;
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarArrozMariscos) {
+
+    botonAgregarArrozMariscos.addEventListener("click", () => {
+
+        // Verificar precio
+
+        if (
+            precioArrozMariscosSeleccionado === null
+        ) {
+
+            alert(
+                "Por favor, selecciona una opción de precio."
+            );
+
+            return;
+
+        }
+
+
+        // Obtener carrito
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        // Agregar producto
+
+        carrito.push({
+
+            nombre: "Arroz con Mariscos",
+
+            precio:
+                precioArrozMariscosSeleccionado,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar modal
+
+        modalArrozMariscos.style.display = "none";
+
+
+        // Limpiar selección
+
+        preciosArrozMariscos.forEach(btn => {
+
+            btn.classList.remove("seleccionado");
+
+        });
+
+        precioArrozMariscosSeleccionado = null;
+
+    });
+
+}
+
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
