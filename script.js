@@ -4058,6 +4058,217 @@ if (botonAgregarArrozMariscos) {
 
 }
 
+// ================================
+// CHAUFA DE MARISCOS
+// ================================
+
+const botonChaufaMariscos =
+    document.querySelector(
+        '[data-plato="chaufa-mariscos"]'
+    );
+
+const modalChaufaMariscos =
+    document.getElementById(
+        "modal-chaufa-mariscos"
+    );
+
+const cerrarModalChaufaMariscos =
+    document.querySelector(
+        ".cerrar-modal-chaufa-mariscos"
+    );
+
+const preciosChaufaMariscos =
+    document.querySelectorAll(
+        ".precio-chaufa-mariscos"
+    );
+
+const botonAgregarChaufaMariscos =
+    document.getElementById(
+        "agregar-chaufa-mariscos"
+    );
+
+let precioChaufaMariscosSeleccionado = null;
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (
+    botonChaufaMariscos &&
+    modalChaufaMariscos
+) {
+
+    botonChaufaMariscos.addEventListener("click", () => {
+
+        modalChaufaMariscos.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// SELECCIONAR PRECIO
+// ================================
+
+preciosChaufaMariscos.forEach(boton => {
+
+    boton.addEventListener("click", () => {
+
+        preciosChaufaMariscos.forEach(btn => {
+
+            btn.classList.remove("seleccionado");
+
+        });
+
+
+        boton.classList.add("seleccionado");
+
+
+        precioChaufaMariscosSeleccionado =
+            Number(boton.dataset.precio);
+
+    });
+
+});
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalChaufaMariscos &&
+    modalChaufaMariscos
+) {
+
+    cerrarModalChaufaMariscos.addEventListener("click", () => {
+
+        modalChaufaMariscos.style.display = "none";
+
+
+        preciosChaufaMariscos.forEach(btn => {
+
+            btn.classList.remove("seleccionado");
+
+        });
+
+
+        precioChaufaMariscosSeleccionado = null;
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalChaufaMariscos) {
+
+    modalChaufaMariscos.addEventListener("click", (e) => {
+
+        if (e.target === modalChaufaMariscos) {
+
+            modalChaufaMariscos.style.display = "none";
+
+
+            preciosChaufaMariscos.forEach(btn => {
+
+                btn.classList.remove("seleccionado");
+
+            });
+
+
+            precioChaufaMariscosSeleccionado = null;
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarChaufaMariscos) {
+
+    botonAgregarChaufaMariscos.addEventListener("click", () => {
+
+        // Verificar precio
+
+        if (
+            precioChaufaMariscosSeleccionado === null
+        ) {
+
+            alert(
+                "Por favor, selecciona una opción de precio."
+            );
+
+            return;
+
+        }
+
+
+        // Obtener carrito
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        // Agregar producto
+
+        carrito.push({
+
+            nombre: "Chaufa de Mariscos",
+
+            precio:
+                precioChaufaMariscosSeleccionado,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar modal
+
+        modalChaufaMariscos.style.display = "none";
+
+
+        // Limpiar selección
+
+        preciosChaufaMariscos.forEach(btn => {
+
+            btn.classList.remove("seleccionado");
+
+        });
+
+
+        precioChaufaMariscosSeleccionado = null;
+
+    });
+
+}
+
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
