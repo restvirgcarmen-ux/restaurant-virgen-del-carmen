@@ -4638,6 +4638,129 @@ if (botonAgregarMilanesaPollo) {
 
 }
 
+// ================================
+// APANADO DE RES
+// ================================
+
+const botonApanadoRes =
+    document.querySelector(
+        '[data-plato="apanado-res"]'
+    );
+
+const modalApanadoRes =
+    document.getElementById(
+        "modal-apanado-res"
+    );
+
+const cerrarModalApanadoRes =
+    document.querySelector(
+        ".cerrar-modal-apanado-res"
+    );
+
+const botonAgregarApanadoRes =
+    document.getElementById(
+        "agregar-apanado-res"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonApanadoRes && modalApanadoRes) {
+
+    botonApanadoRes.addEventListener("click", () => {
+
+        modalApanadoRes.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalApanadoRes &&
+    modalApanadoRes
+) {
+
+    cerrarModalApanadoRes.addEventListener("click", () => {
+
+        modalApanadoRes.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalApanadoRes) {
+
+    modalApanadoRes.addEventListener("click", (e) => {
+
+        if (e.target === modalApanadoRes) {
+
+            modalApanadoRes.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarApanadoRes) {
+
+    botonAgregarApanadoRes.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Apanado de Res",
+
+            precio: 16,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalApanadoRes.style.display = "none";
+
+    });
+
+}
+
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
