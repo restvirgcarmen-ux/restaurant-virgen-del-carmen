@@ -3360,6 +3360,129 @@ if (botonAgregarJaleaPiurana) {
 
 }
 
+// ================================
+// SUDADO DE CABRILLÓN
+// ================================
+
+const botonSudadoCabrillon =
+    document.querySelector(
+        '[data-plato="sudado-cabrillon"]'
+    );
+
+const modalSudadoCabrillon =
+    document.getElementById(
+        "modal-sudado-cabrillon"
+    );
+
+const cerrarModalSudadoCabrillon =
+    document.querySelector(
+        ".cerrar-modal-sudado-cabrillon"
+    );
+
+const botonAgregarSudadoCabrillon =
+    document.getElementById(
+        "agregar-sudado-cabrillon"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonSudadoCabrillon && modalSudadoCabrillon) {
+
+    botonSudadoCabrillon.addEventListener("click", () => {
+
+        modalSudadoCabrillon.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalSudadoCabrillon &&
+    modalSudadoCabrillon
+) {
+
+    cerrarModalSudadoCabrillon.addEventListener("click", () => {
+
+        modalSudadoCabrillon.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalSudadoCabrillon) {
+
+    modalSudadoCabrillon.addEventListener("click", (e) => {
+
+        if (e.target === modalSudadoCabrillon) {
+
+            modalSudadoCabrillon.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarSudadoCabrillon) {
+
+    botonAgregarSudadoCabrillon.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Sudado de Cabrillón",
+
+            precio: 65,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalSudadoCabrillon.style.display = "none";
+
+    });
+
+}
+
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
