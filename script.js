@@ -4515,6 +4515,129 @@ if (botonAgregarLomoSaltado) {
 
 }
 
+// ================================
+// MILANESA DE POLLO
+// ================================
+
+const botonMilanesaPollo =
+    document.querySelector(
+        '[data-plato="milanesa-pollo"]'
+    );
+
+const modalMilanesaPollo =
+    document.getElementById(
+        "modal-milanesa-pollo"
+    );
+
+const cerrarModalMilanesaPollo =
+    document.querySelector(
+        ".cerrar-modal-milanesa-pollo"
+    );
+
+const botonAgregarMilanesaPollo =
+    document.getElementById(
+        "agregar-milanesa-pollo"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonMilanesaPollo && modalMilanesaPollo) {
+
+    botonMilanesaPollo.addEventListener("click", () => {
+
+        modalMilanesaPollo.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalMilanesaPollo &&
+    modalMilanesaPollo
+) {
+
+    cerrarModalMilanesaPollo.addEventListener("click", () => {
+
+        modalMilanesaPollo.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalMilanesaPollo) {
+
+    modalMilanesaPollo.addEventListener("click", (e) => {
+
+        if (e.target === modalMilanesaPollo) {
+
+            modalMilanesaPollo.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarMilanesaPollo) {
+
+    botonAgregarMilanesaPollo.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Milanesa de Pollo",
+
+            precio: 15,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalMilanesaPollo.style.display = "none";
+
+    });
+
+}
+
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
