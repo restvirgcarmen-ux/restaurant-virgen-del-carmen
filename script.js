@@ -5379,6 +5379,756 @@ if (botonAgregarBistecPobre) {
 
 }
 
+// ================================
+// CHICHA MORADA JARRA
+// ================================
+
+const botonChichaMoradaJarra =
+    document.querySelector(
+        '[data-plato="chicha-morada-jarra"]'
+    );
+
+const modalChichaMoradaJarra =
+    document.getElementById(
+        "modal-chicha-morada-jarra"
+    );
+
+const cerrarModalChichaMoradaJarra =
+    document.querySelector(
+        ".cerrar-modal-chicha-morada-jarra"
+    );
+
+const botonAgregarChichaMoradaJarra =
+    document.getElementById(
+        "agregar-chicha-morada-jarra"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (
+    botonChichaMoradaJarra &&
+    modalChichaMoradaJarra
+) {
+
+    botonChichaMoradaJarra.addEventListener("click", () => {
+
+        modalChichaMoradaJarra.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalChichaMoradaJarra &&
+    modalChichaMoradaJarra
+) {
+
+    cerrarModalChichaMoradaJarra.addEventListener("click", () => {
+
+        modalChichaMoradaJarra.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalChichaMoradaJarra) {
+
+    modalChichaMoradaJarra.addEventListener("click", (e) => {
+
+        if (e.target === modalChichaMoradaJarra) {
+
+            modalChichaMoradaJarra.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarChichaMoradaJarra) {
+
+    botonAgregarChichaMoradaJarra.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Chicha Morada Jarra",
+
+            precio: 12,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalChichaMoradaJarra.style.display = "none";
+
+    });
+
+}
+
+// ================================
+// MARACUYÁ JARRA
+// ================================
+
+const botonMaracuyaJarra =
+    document.querySelector(
+        '[data-plato="maracuya-jarra"]'
+    );
+
+const modalMaracuyaJarra =
+    document.getElementById(
+        "modal-maracuya-jarra"
+    );
+
+const cerrarModalMaracuyaJarra =
+    document.querySelector(
+        ".cerrar-modal-maracuya-jarra"
+    );
+
+const botonAgregarMaracuyaJarra =
+    document.getElementById(
+        "agregar-maracuya-jarra"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (
+    botonMaracuyaJarra &&
+    modalMaracuyaJarra
+) {
+
+    botonMaracuyaJarra.addEventListener("click", () => {
+
+        modalMaracuyaJarra.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalMaracuyaJarra &&
+    modalMaracuyaJarra
+) {
+
+    cerrarModalMaracuyaJarra.addEventListener("click", () => {
+
+        modalMaracuyaJarra.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalMaracuyaJarra) {
+
+    modalMaracuyaJarra.addEventListener("click", (e) => {
+
+        if (e.target === modalMaracuyaJarra) {
+
+            modalMaracuyaJarra.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarMaracuyaJarra) {
+
+    botonAgregarMaracuyaJarra.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Maracuyá Jarra",
+
+            precio: 12,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalMaracuyaJarra.style.display = "none";
+
+    });
+
+}
+
+// ================================
+// CLARITO HELADO JARRA
+// ================================
+
+const botonClaritoHeladoJarra =
+    document.querySelector(
+        '[data-plato="clarito-helado-jarra"]'
+    );
+
+const modalClaritoHeladoJarra =
+    document.getElementById(
+        "modal-clarito-helado-jarra"
+    );
+
+const cerrarModalClaritoHeladoJarra =
+    document.querySelector(
+        ".cerrar-modal-clarito-helado-jarra"
+    );
+
+const botonAgregarClaritoHeladoJarra =
+    document.getElementById(
+        "agregar-clarito-helado-jarra"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (
+    botonClaritoHeladoJarra &&
+    modalClaritoHeladoJarra
+) {
+
+    botonClaritoHeladoJarra.addEventListener("click", () => {
+
+        modalClaritoHeladoJarra.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalClaritoHeladoJarra &&
+    modalClaritoHeladoJarra
+) {
+
+    cerrarModalClaritoHeladoJarra.addEventListener("click", () => {
+
+        modalClaritoHeladoJarra.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalClaritoHeladoJarra) {
+
+    modalClaritoHeladoJarra.addEventListener("click", (e) => {
+
+        if (e.target === modalClaritoHeladoJarra) {
+
+            modalClaritoHeladoJarra.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarClaritoHeladoJarra) {
+
+    botonAgregarClaritoHeladoJarra.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Clarito Helado Jarra",
+
+            precio: 12,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalClaritoHeladoJarra.style.display = "none";
+
+    });
+
+}
+
+// ================================
+// CERVEZA CRISTAL
+// ================================
+
+const botonCervezaCristal =
+    document.querySelector(
+        '[data-plato="cerveza-cristal"]'
+    );
+
+const modalCervezaCristal =
+    document.getElementById(
+        "modal-cerveza-cristal"
+    );
+
+const cerrarModalCervezaCristal =
+    document.querySelector(
+        ".cerrar-modal-cerveza-cristal"
+    );
+
+const botonAgregarCervezaCristal =
+    document.getElementById(
+        "agregar-cerveza-cristal"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (
+    botonCervezaCristal &&
+    modalCervezaCristal
+) {
+
+    botonCervezaCristal.addEventListener("click", () => {
+
+        modalCervezaCristal.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalCervezaCristal &&
+    modalCervezaCristal
+) {
+
+    cerrarModalCervezaCristal.addEventListener("click", () => {
+
+        modalCervezaCristal.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalCervezaCristal) {
+
+    modalCervezaCristal.addEventListener("click", (e) => {
+
+        if (e.target === modalCervezaCristal) {
+
+            modalCervezaCristal.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarCervezaCristal) {
+
+    botonAgregarCervezaCristal.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Cerveza Cristal",
+
+            precio: 10,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalCervezaCristal.style.display = "none";
+
+    });
+
+}
+
+// ================================
+// GASEOSA 2 L
+// ================================
+
+const botonGaseosa2L =
+    document.querySelector(
+        '[data-plato="gaseosa-2l"]'
+    );
+
+const modalGaseosa2L =
+    document.getElementById(
+        "modal-gaseosa-2l"
+    );
+
+const cerrarModalGaseosa2L =
+    document.querySelector(
+        ".cerrar-modal-gaseosa-2l"
+    );
+
+const botonAgregarGaseosa2L =
+    document.getElementById(
+        "agregar-gaseosa-2l"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonGaseosa2L && modalGaseosa2L) {
+
+    botonGaseosa2L.addEventListener("click", () => {
+
+        modalGaseosa2L.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalGaseosa2L &&
+    modalGaseosa2L
+) {
+
+    cerrarModalGaseosa2L.addEventListener("click", () => {
+
+        modalGaseosa2L.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalGaseosa2L) {
+
+    modalGaseosa2L.addEventListener("click", (e) => {
+
+        if (e.target === modalGaseosa2L) {
+
+            modalGaseosa2L.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarGaseosa2L) {
+
+    botonAgregarGaseosa2L.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Gaseosa 2 L",
+
+            precio: 14,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalGaseosa2L.style.display = "none";
+
+    });
+
+}
+
+// ================================
+// GASEOSA 1 1/2 L
+// ================================
+
+const botonGaseosa15L =
+    document.querySelector(
+        '[data-plato="gaseosa-15l"]'
+    );
+
+const modalGaseosa15L =
+    document.getElementById(
+        "modal-gaseosa-15l"
+    );
+
+const cerrarModalGaseosa15L =
+    document.querySelector(
+        ".cerrar-modal-gaseosa-15l"
+    );
+
+const botonAgregarGaseosa15L =
+    document.getElementById(
+        "agregar-gaseosa-15l"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonGaseosa15L && modalGaseosa15L) {
+
+    botonGaseosa15L.addEventListener("click", () => {
+
+        modalGaseosa15L.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalGaseosa15L &&
+    modalGaseosa15L
+) {
+
+    cerrarModalGaseosa15L.addEventListener("click", () => {
+
+        modalGaseosa15L.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalGaseosa15L) {
+
+    modalGaseosa15L.addEventListener("click", (e) => {
+
+        if (e.target === modalGaseosa15L) {
+
+            modalGaseosa15L.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarGaseosa15L) {
+
+    botonAgregarGaseosa15L.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Gaseosa 1 1/2 L",
+
+            precio: 13,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalGaseosa15L.style.display = "none";
+
+    });
+
+}
+
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
