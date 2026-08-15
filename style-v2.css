@@ -2808,3 +2808,28 @@ LIGHTBOX GALERÍA
     }
 
 }
+
+/* =========================================================
+   AJUSTE DEL BOTÓN MI PEDIDO
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .carrito-pedido {
+        right: 12px !important;
+        bottom: 82px !important;
+    }
+
+    .boton-carrito {
+        padding: 11px 15px !important;
+        font-size: 14px !important;
+        border-radius: 28px !important;
+    }
+
+    .boton-carrito span {
+        min-width: 23px !important;
+        height: 23px !important;
+        font-size: 13px !important;
+    }
+
+}
