@@ -2779,3 +2779,32 @@ LIGHTBOX GALERÍA
         font-size: 18px;
     }
 }
+
+/* =========================================================
+   AJUSTE FINAL - CARTA EN CELULAR
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    /* Más espacio debajo del menú fijo */
+    .carta {
+        padding-top: 105px;
+    }
+
+    /* Evitar que el carrito tape los platos */
+    .carrito-pedido {
+        right: 15px !important;
+        bottom: 115px !important;
+        transform: none !important;
+        z-index: 5000 !important;
+    }
+
+    /* WhatsApp más abajo */
+    .whatsapp-float {
+        right: 15px !important;
+        bottom: 25px !important;
+        width: 62px;
+        height: 62px;
+    }
+
+}
