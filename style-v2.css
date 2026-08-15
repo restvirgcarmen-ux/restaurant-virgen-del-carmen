@@ -2833,3 +2833,13 @@ LIGHTBOX GALERÍA
     }
 
 }
+
+/* =========================================================
+   IMAGEN DE RESPALDO
+   ========================================================= */
+
+.imagen-respaldo {
+    object-fit: contain !important;
+    object-position: center !important;
+    background: #f2bd2f !important;
+}
