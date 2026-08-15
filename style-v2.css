@@ -2255,3 +2255,237 @@ LIGHTBOX GALERÍA
 
     cursor: pointer;
 }
+
+/* =========================================================
+   ESTILO UNIFICADO PARA TODOS LOS BOTONES DE LA CARTA
+   IGUAL AL ESTILO DE CHICHARRONES
+   ========================================================= */
+
+.carta .boton-plato,
+.carta .boton-chicharron,
+.carta .boton-especial,
+.carta .boton-ronda,
+.carta .boton-jalea,
+.carta .boton-carne,
+.carta .boton-arroz,
+.carta .boton-almuerzo,
+.carta .boton-bebida,
+.carta .boton-guarnicion {
+
+    display: block;
+
+    width: 100%;
+    max-width: 404px;
+
+    margin: 0 auto 24px auto;
+
+    padding: 16px 20px;
+
+    border: none;
+    border-radius: 14px;
+
+    background: #20d463;
+    color: #ffffff;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+/* AL PASAR EL DEDO / MOUSE */
+
+.carta .boton-plato:hover,
+.carta .boton-chicharron:hover,
+.carta .boton-especial:hover,
+.carta .boton-ronda:hover,
+.carta .boton-jalea:hover,
+.carta .boton-carne:hover,
+.carta .boton-arroz:hover,
+.carta .boton-almuerzo:hover,
+.carta .boton-bebida:hover,
+.carta .boton-guarnicion:hover {
+
+    background: #1fc95d;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 22px rgba(0, 0, 0, 0.16);
+}
+
+
+/* AL TOCAR */
+
+.carta .boton-plato:active,
+.carta .boton-chicharron:active,
+.carta .boton-especial:active,
+.carta .boton-ronda:active,
+.carta .boton-jalea:active,
+.carta .boton-carne:active,
+.carta .boton-arroz:active,
+.carta .boton-almuerzo:active,
+.carta .boton-bebida:active,
+.carta .boton-guarnicion:active {
+
+    transform: scale(0.98);
+}
+
+
+/* =========================================================
+   PRECIOS DE LOS PLATOS
+   ========================================================= */
+
+.precios-ceviche,
+.precios-chicharron,
+.precios-especial {
+
+    display: flex;
+
+    gap: 12px;
+
+    margin: 18px 0;
+
+    flex-wrap: wrap;
+}
+
+
+.precio-ceviche,
+.precio-chicharron,
+.precio-especial {
+
+    flex: 1;
+
+    min-width: 120px;
+
+    padding: 13px 18px;
+
+    border: 2px solid #20d463;
+
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    color: #168f43;
+
+    font-size: 18px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,.08);
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+
+/* PRECIO AL TOCAR */
+
+.precio-ceviche:hover,
+.precio-chicharron:hover,
+.precio-especial:hover {
+
+    background: #20d463;
+
+    color: #ffffff;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 15px rgba(32,211,99,.25);
+}
+
+
+/* PRECIO SELECCIONADO */
+
+.precio-ceviche.seleccionado,
+.precio-chicharron.seleccionado,
+.precio-especial.seleccionado {
+
+    background: #20d463;
+
+    border-color: #20d463;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 6px 15px rgba(32,211,99,.30);
+}
+
+
+/* =========================================================
+   BOTÓN AGREGAR AL PEDIDO
+   ========================================================= */
+
+.agregar-pedido {
+
+    min-height: 52px;
+
+    border-radius: 14px;
+
+    font-size: 18px;
+
+    box-shadow:
+        0 7px 16px rgba(37,211,102,.25);
+
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .carta .boton-plato,
+    .carta .boton-chicharron,
+    .carta .boton-especial,
+    .carta .boton-ronda,
+    .carta .boton-jalea,
+    .carta .boton-carne,
+    .carta .boton-arroz,
+    .carta .boton-almuerzo,
+    .carta .boton-bebida,
+    .carta .boton-guarnicion {
+
+        max-width: 404px;
+
+        min-height: 58px;
+
+        margin-bottom: 18px;
+
+        padding: 14px 12px;
+
+        font-size: 18px;
+
+        border-radius: 14px;
+    }
+
+
+    .precio-ceviche,
+    .precio-chicharron,
+    .precio-especial {
+
+        min-height: 48px;
+
+        padding: 11px 14px;
+
+        font-size: 17px;
+
+        border-radius: 11px;
+    }
+
+}
