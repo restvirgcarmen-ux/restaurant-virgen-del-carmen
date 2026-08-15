@@ -2489,3 +2489,131 @@ LIGHTBOX GALERÍA
     }
 
 }
+
+/* =========================================================
+   PRECIOS SELECCIONADOS — ROJO
+   ========================================================= */
+
+.precio-ceviche.seleccionado,
+.precio-chicharron.seleccionado,
+.precio-especial.seleccionado {
+    background: #b3262d !important;
+    border-color: #b3262d !important;
+    color: #ffffff !important;
+    box-shadow: 0 6px 15px rgba(179, 38, 45, 0.30);
+}
+
+
+/* =========================================================
+   PRECIOS SIN SELECCIONAR
+   ========================================================= */
+
+.precio-ceviche,
+.precio-chicharron,
+.precio-especial {
+    background: #ffffff;
+    color: #188c45;
+    border: 2px solid #20d463;
+}
+
+
+/* Al tocar un precio */
+
+.precio-ceviche:hover,
+.precio-chicharron:hover,
+.precio-especial:hover {
+    background: #b3262d;
+    border-color: #b3262d;
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   OPCIONES DE DÚOS Y TRÍOS
+   ========================================================= */
+
+.opciones-duo-virgen,
+.opciones-duo-peruano {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 18px 0;
+}
+
+
+/* Cada combinación */
+
+.opcion-duo-virgen,
+.opcion-duo-peruano {
+    width: 100%;
+    padding: 13px 15px;
+
+    border: 2px solid #e3b52b;
+    border-radius: 12px;
+
+    background: #fffaf0;
+    color: #333;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    text-align: left;
+    line-height: 1.4;
+
+    cursor: pointer;
+
+    box-shadow: 0 3px 8px rgba(0,0,0,.07);
+
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        color .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+
+/* Al tocar una combinación */
+
+.opcion-duo-virgen:hover,
+.opcion-duo-peruano:hover {
+    background: #fff2c7;
+    border-color: #d49d00;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 12px rgba(0,0,0,.10);
+}
+
+
+/* Combinación seleccionada */
+
+.opcion-duo-virgen.seleccionado,
+.opcion-duo-peruano.seleccionado {
+    background: #b3262d !important;
+    border-color: #b3262d !important;
+    color: #ffffff !important;
+
+    box-shadow:
+        0 6px 15px rgba(179,38,45,.25);
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .opcion-duo-virgen,
+    .opcion-duo-peruano {
+        padding: 12px 13px;
+        font-size: 14px;
+        border-radius: 11px;
+    }
+
+    .precio-ceviche,
+    .precio-chicharron,
+    .precio-especial {
+        min-height: 48px;
+        font-size: 17px;
+    }
+}
