@@ -5130,6 +5130,132 @@ if (botonAgregarLomoPobre) {
 
 }
 
+// ================================
+// CARNE FRITA ALIÑADA
+// ================================
+
+const botonCarneFritaAlinada =
+    document.querySelector(
+        '[data-plato="carne-frita-alinada"]'
+    );
+
+const modalCarneFritaAlinada =
+    document.getElementById(
+        "modal-carne-frita-alinada"
+    );
+
+const cerrarModalCarneFritaAlinada =
+    document.querySelector(
+        ".cerrar-modal-carne-frita-alinada"
+    );
+
+const botonAgregarCarneFritaAlinada =
+    document.getElementById(
+        "agregar-carne-frita-alinada"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (
+    botonCarneFritaAlinada &&
+    modalCarneFritaAlinada
+) {
+
+    botonCarneFritaAlinada.addEventListener("click", () => {
+
+        modalCarneFritaAlinada.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalCarneFritaAlinada &&
+    modalCarneFritaAlinada
+) {
+
+    cerrarModalCarneFritaAlinada.addEventListener("click", () => {
+
+        modalCarneFritaAlinada.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalCarneFritaAlinada) {
+
+    modalCarneFritaAlinada.addEventListener("click", (e) => {
+
+        if (e.target === modalCarneFritaAlinada) {
+
+            modalCarneFritaAlinada.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarCarneFritaAlinada) {
+
+    botonAgregarCarneFritaAlinada.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Carne Frita Aliñada",
+
+            precio: 16,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalCarneFritaAlinada.style.display = "none";
+
+    });
+
+}
+
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
