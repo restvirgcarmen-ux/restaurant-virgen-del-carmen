@@ -2617,3 +2617,165 @@ LIGHTBOX GALERÍA
         font-size: 17px;
     }
 }
+
+/* =========================================================
+   ACABADO VISUAL DE LA CARTA
+   PASO 1 - CATEGORÍAS Y ESPACIADO
+   ========================================================= */
+
+.carta {
+    padding-top: 70px;
+    padding-bottom: 100px;
+}
+
+/* Títulos de categorías */
+
+.carta .categoria-menu {
+    max-width: 900px;
+    margin: 0 auto 55px;
+}
+
+.carta .categoria-menu h3 {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    margin: 0 0 25px;
+
+    color: #b71c1c;
+
+    font-size: clamp(27px, 5vw, 36px);
+    font-weight: 800;
+
+    line-height: 1.2;
+
+    text-align: center;
+}
+
+/* Pequeña línea decorativa debajo del título */
+
+.carta .categoria-menu h3::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -10px;
+
+    width: 55px;
+    height: 3px;
+
+    transform: translateX(-50%);
+
+    background: #f2bd2f;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   ESPACIADO DE LOS PLATOS
+   ========================================================= */
+
+.carta .platos-menu {
+    display: flex;
+    flex-direction: column;
+
+    gap: 0;
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   BOTONES - MANTENER EL VERDE APROBADO
+   ========================================================= */
+
+.carta .boton-plato,
+.carta .boton-chicharron,
+.carta .boton-especial,
+.carta .boton-ronda,
+.carta .boton-jalea,
+.carta .boton-carne,
+.carta .boton-arroz,
+.carta .boton-almuerzo,
+.carta .boton-bebida,
+.carta .boton-guarnicion {
+
+    margin-top: 0;
+    margin-bottom: 18px;
+
+    max-width: 440px;
+
+    min-height: 54px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+/* Último botón de cada categoría */
+
+.carta .platos-menu button:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .carta {
+        padding-top: 55px;
+        padding-left: 14px;
+        padding-right: 14px;
+        padding-bottom: 90px;
+    }
+
+    .carta .categoria-menu {
+        margin-bottom: 45px;
+    }
+
+    .carta .categoria-menu h3 {
+        font-size: 27px;
+        margin-bottom: 25px;
+    }
+
+    .carta .categoria-menu h3::after {
+        width: 45px;
+        height: 3px;
+        bottom: -9px;
+    }
+
+    .carta .boton-plato,
+    .carta .boton-chicharron,
+    .carta .boton-especial,
+    .carta .boton-ronda,
+    .carta .boton-jalea,
+    .carta .boton-carne,
+    .carta .boton-arroz,
+    .carta .boton-almuerzo,
+    .carta .boton-bebida,
+    .carta .boton-guarnicion {
+
+        width: 100%;
+
+        max-width: 440px;
+
+        min-height: 54px;
+
+        margin-bottom: 16px;
+
+        padding: 12px 10px;
+
+        font-size: 18px;
+    }
+}
