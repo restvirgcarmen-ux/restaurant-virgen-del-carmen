@@ -5007,6 +5007,129 @@ if (botonAgregarPescadoFrito) {
 
 }
 
+// ================================
+// LOMO A LO POBRE
+// ================================
+
+const botonLomoPobre =
+    document.querySelector(
+        '[data-plato="lomo-pobre"]'
+    );
+
+const modalLomoPobre =
+    document.getElementById(
+        "modal-lomo-pobre"
+    );
+
+const cerrarModalLomoPobre =
+    document.querySelector(
+        ".cerrar-modal-lomo-pobre"
+    );
+
+const botonAgregarLomoPobre =
+    document.getElementById(
+        "agregar-lomo-pobre"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonLomoPobre && modalLomoPobre) {
+
+    botonLomoPobre.addEventListener("click", () => {
+
+        modalLomoPobre.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalLomoPobre &&
+    modalLomoPobre
+) {
+
+    cerrarModalLomoPobre.addEventListener("click", () => {
+
+        modalLomoPobre.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalLomoPobre) {
+
+    modalLomoPobre.addEventListener("click", (e) => {
+
+        if (e.target === modalLomoPobre) {
+
+            modalLomoPobre.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarLomoPobre) {
+
+    botonAgregarLomoPobre.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Lomo a lo Pobre",
+
+            precio: 17,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalLomoPobre.style.display = "none";
+
+    });
+
+}
+
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
