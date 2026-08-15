@@ -2843,3 +2843,46 @@ LIGHTBOX GALERÍA
     object-position: center !important;
     background: #f2bd2f !important;
 }
+
+/* =========================================================
+   AJUSTE DE ALTURA DE FOTOS EN LOS MODALES
+   La ventana se adapta a la proporción real de cada imagen
+   ========================================================= */
+
+.contenido-modal-plato {
+    height: auto !important;
+    max-height: calc(100vh - 30px) !important;
+    overflow-y: auto;
+}
+
+.contenido-modal-plato > img {
+    display: block;
+
+    width: 100% !important;
+    height: auto !important;
+
+    max-height: none !important;
+
+    object-fit: contain !important;
+    object-position: center center !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* En celulares */
+
+@media (max-width: 600px) {
+
+    .contenido-modal-plato {
+        max-height: calc(100vh - 20px) !important;
+    }
+
+    .contenido-modal-plato > img {
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+    }
+
+}
