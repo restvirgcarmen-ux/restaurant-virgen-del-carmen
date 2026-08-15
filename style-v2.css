@@ -1,0 +1,1106 @@
+
+/* =========================================================
+   style-v2.css
+   Restaurant & Picantería Virgen del Carmen
+   ========================================================= */
+
+:root{
+    --rojo:#b3262d;
+    --rojo-oscuro:#8f1d23;
+    --amarillo:#f2bd2f;
+    --crema:#fffaf0;
+    --blanco:#ffffff;
+    --texto:#242424;
+    --gris:#666;
+    --borde:#ddd2c5;
+    --sombra:0 8px 25px rgba(0,0,0,.12);
+}
+
+*{box-sizing:border-box}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    color:var(--texto);
+    background:var(--crema);
+    font-family:'Poppins',Arial,sans-serif;
+    overflow-x:hidden;
+}
+
+img{
+    max-width:100%;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button,
+input{
+    font:inherit;
+}
+
+/* =========================================================
+   ENCABEZADO
+   ========================================================= */
+
+.hero{
+    min-height:640px;
+    color:#fff;
+    background:
+        linear-gradient(rgba(55,12,12,.70),rgba(55,12,12,.78)),
+        url("imagenes/fachada.png") center/cover no-repeat;
+    position:relative;
+}
+
+.navbar{
+    width:min(1180px,94%);
+    margin:auto;
+    padding:14px 0;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo-menu img{
+    width:78px;
+    height:78px;
+    object-fit:contain;
+    border-radius:50%;
+}
+
+.menu{
+    list-style:none;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:22px;
+    margin:0;
+    padding:0;
+}
+
+.menu a{
+    font-weight:600;
+    transition:.2s;
+}
+
+.menu a:hover{
+    color:var(--amarillo);
+}
+
+.hero-content{
+    width:min(1000px,92%);
+    margin:75px auto 0;
+    text-align:center;
+}
+
+.titulo-superior{
+    font-size:clamp(22px,4vw,38px);
+    font-weight:500;
+}
+
+.titulo-principal{
+    font-size:clamp(40px,7vw,70px);
+    font-weight:800;
+    color:var(--amarillo);
+}
+
+.subtitulo{
+    font-size:clamp(18px,3vw,26px);
+    margin:10px 0;
+}
+
+.frase{
+    max-width:720px;
+    margin:15px auto 28px;
+    line-height:1.7;
+}
+
+.btn-principal{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:48px;
+    padding:11px 22px;
+    border-radius:28px;
+    background:var(--rojo);
+    color:#fff;
+    font-weight:700;
+    transition:.2s;
+}
+
+.btn-principal:hover{
+    background:var(--rojo-oscuro);
+    transform:translateY(-2px);
+}
+
+.hero-destacados{
+    display:flex;
+    justify-content:center;
+    gap:55px;
+    margin-top:45px;
+}
+
+.hero-destacados div{
+    text-align:center;
+    font-size:28px;
+}
+
+.hero-destacados span{
+    display:block;
+    margin-top:6px;
+    font-size:14px;
+}
+
+/* =========================================================
+   HISTORIA
+   ========================================================= */
+
+.historia{
+    width:min(1100px,92%);
+    margin:70px auto;
+    display:grid;
+    grid-template-columns:360px 1fr;
+    gap:55px;
+    align-items:center;
+}
+
+.historia-imagen{
+    text-align:center;
+}
+
+.historia-imagen img{
+    width:100%;
+    max-width:330px;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    border-radius:50%;
+    border:8px solid var(--amarillo);
+    box-shadow:var(--sombra);
+}
+
+.historia-imagen h3{
+    color:var(--rojo);
+    margin:15px 0 3px;
+}
+
+.fechas,
+.fundadora{
+    margin:3px;
+    color:var(--gris);
+}
+
+.historia-texto h2,
+.contacto h2,
+.platos h2,
+.porque h2,
+.galeria h2,
+.clientes h2,
+.carta h2{
+    color:var(--rojo);
+    text-align:center;
+    font-size:clamp(28px,5vw,42px);
+    margin:0 0 12px;
+}
+
+.historia-texto p{
+    line-height:1.8;
+}
+
+/* =========================================================
+   ESTADÍSTICAS
+   ========================================================= */
+
+.estadisticas{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:25px;
+}
+
+.card-info{
+    text-align:center;
+    padding:18px 10px;
+    background:#fff;
+    border-radius:15px;
+    box-shadow:var(--sombra);
+}
+
+.card-info h3{
+    margin:0;
+    color:var(--rojo);
+    font-size:28px;
+}
+
+.card-info p{
+    margin:5px 0 0;
+}
+
+/* =========================================================
+   CONTACTO
+   ========================================================= */
+
+.contacto{
+    padding:70px 5%;
+    background:#f5ead8;
+}
+
+.sub-contacto,
+.descripcion-platos,
+.sub-porque,
+.subtitulo-carta,
+.subtitulo-clientes{
+    text-align:center;
+    color:var(--gris);
+}
+
+.contacto-contenedor{
+    width:min(1100px,100%);
+    margin:35px auto 0;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.info-contacto,
+.mapa{
+    background:#fff;
+    border-radius:18px;
+    padding:28px;
+    box-shadow:var(--sombra);
+}
+
+.info-contacto h3{
+    color:var(--rojo);
+    margin-bottom:4px;
+}
+
+.info-contacto p{
+    line-height:1.7;
+}
+
+.botones-contacto{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:20px;
+}
+
+.btn-wsp{
+    background:#20b858;
+}
+
+.btn-mapa{
+    background:#555;
+}
+
+.mapa iframe{
+    width:100%;
+    min-height:350px;
+    border:0;
+    border-radius:12px;
+}
+
+.whatsapp-float{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:68px;
+    height:68px;
+    z-index:8000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:#25d366;
+    color:#fff;
+    font-size:32px;
+    box-shadow:0 6px 20px rgba(0,0,0,.25);
+}
+
+/* =========================================================
+   PLATOS DESTACADOS
+   ========================================================= */
+
+.platos,
+.porque,
+.galeria,
+.clientes{
+    padding:70px 5%;
+}
+
+.contenedor-platos{
+    width:min(1100px,100%);
+    margin:35px auto 0;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.plato{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:var(--sombra);
+}
+
+.plato img{
+    display:block;
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.info-plato{
+    padding:20px;
+}
+
+.info-plato h3{
+    color:var(--rojo);
+    margin-top:0;
+}
+
+.info-plato p{
+    color:var(--gris);
+    line-height:1.6;
+}
+
+.precio{
+    display:block;
+    margin:12px 0;
+    color:var(--rojo);
+    font-size:21px;
+    font-weight:800;
+}
+
+.btn-plato{
+    display:block;
+    padding:11px;
+    text-align:center;
+    border-radius:10px;
+    background:var(--rojo);
+    color:#fff;
+    font-weight:700;
+}
+
+/* =========================================================
+   POR QUÉ ELEGIRNOS
+   ========================================================= */
+
+.porque{
+    background:#f5ead8;
+}
+
+.contenedor-porque{
+    width:min(1100px,100%);
+    margin:35px auto 0;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.porque-card{
+    background:#fff;
+    padding:25px 18px;
+    border-radius:16px;
+    text-align:center;
+    box-shadow:var(--sombra);
+}
+
+.porque-card i{
+    color:var(--rojo);
+    font-size:34px;
+}
+
+.porque-card h3{
+    color:var(--rojo);
+}
+
+/* =========================================================
+   GALERÍA
+   ========================================================= */
+
+.contenedor-galeria{
+    width:min(1100px,100%);
+    margin:35px auto 0;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+}
+
+.contenedor-galeria img{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+    border-radius:14px;
+    cursor:pointer;
+}
+
+.lightbox{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:9998;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    background:rgba(0,0,0,.85);
+}
+
+.lightbox img{
+    max-width:92vw;
+    max-height:88vh;
+    object-fit:contain;
+}
+
+.cerrar{
+    position:absolute;
+    top:20px;
+    right:25px;
+    color:#fff;
+    font-size:45px;
+    cursor:pointer;
+}
+
+/* =========================================================
+   CLIENTES / SLIDER
+   ========================================================= */
+
+.slider-clientes{
+    width:min(900px,100%);
+    margin:30px auto 0;
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.contenedor-slider{
+    flex:1;
+    overflow:hidden;
+    border-radius:18px;
+}
+
+.slider{
+    display:flex;
+    transition:transform .4s ease;
+}
+
+.slider img{
+    flex:0 0 100%;
+    width:100%;
+    aspect-ratio:16/9;
+    object-fit:cover;
+}
+
+.prev,
+.next{
+    width:42px;
+    height:42px;
+    border:0;
+    border-radius:50%;
+    background:var(--rojo);
+    color:#fff;
+    cursor:pointer;
+}
+
+.indicadores{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    margin-top:15px;
+}
+
+.indicadores span{
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    background:#bbb;
+}
+
+.indicadores .activo{
+    background:var(--rojo);
+}
+
+/* =========================================================
+   CARTA
+   ========================================================= */
+
+.carta{
+    padding:65px 4% 120px;
+    background:#fffdf8;
+}
+
+.carta h2{
+    margin-bottom:5px;
+}
+
+.categoria-menu{
+    width:min(900px,100%);
+    margin:45px auto;
+}
+
+.categoria-menu h3{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    margin:0 0 18px;
+    color:var(--rojo);
+    font-size:clamp(26px,5vw,38px);
+    font-weight:800;
+}
+
+.platos-menu{
+    display:flex;
+    flex-direction:column;
+    gap:11px;
+}
+
+.boton-plato,
+.boton-chicharron,
+.boton-especial,
+.boton-ronda,
+.boton-jalea,
+.boton-carne,
+.boton-arroz,
+.boton-almuerzo,
+.boton-bebida,
+.boton-guarnicion{
+    width:100%;
+    min-height:43px;
+    padding:8px 14px;
+    border:1px solid #bdbdbd;
+    border-radius:4px;
+    background:#f2f2f2;
+    color:#222;
+    cursor:pointer;
+    font-size:16px;
+    transition:.2s;
+}
+
+.boton-plato:hover,
+.boton-chicharron:hover,
+.boton-especial:hover,
+.boton-ronda:hover,
+.boton-jalea:hover,
+.boton-carne:hover,
+.boton-arroz:hover,
+.boton-almuerzo:hover,
+.boton-bebida:hover,
+.boton-guarnicion:hover{
+    background:#f8e6a9;
+    border-color:#c89b22;
+    transform:translateY(-1px);
+}
+
+/* =========================================================
+   MODALES DE PLATOS
+   ========================================================= */
+
+.modal-plato{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:10000;
+    align-items:center;
+    justify-content:center;
+    padding:14px;
+    background:rgba(0,0,0,.70);
+}
+
+.contenido-modal-plato{
+    position:relative;
+    width:min(94vw,520px);
+    max-height:92vh;
+    overflow:auto;
+    background:#fff;
+    border-radius:20px;
+    box-shadow:0 15px 50px rgba(0,0,0,.35);
+}
+
+.contenido-modal-plato>img{
+    display:block;
+    width:100%;
+    max-height:330px;
+    object-fit:cover;
+}
+
+.info-modal-plato{
+    padding:22px;
+}
+
+.info-modal-plato h3{
+    margin:0 0 8px;
+    color:var(--rojo);
+    font-size:26px;
+}
+
+.info-modal-plato p{
+    color:var(--gris);
+    line-height:1.6;
+}
+
+.contenido-modal-plato [class*="cerrar-modal-"]{
+    position:absolute;
+    top:10px;
+    right:10px;
+    z-index:3;
+    width:40px;
+    height:40px;
+    border:0;
+    border-radius:50%;
+    background:rgba(0,0,0,.65);
+    color:#fff;
+    font-size:28px;
+    cursor:pointer;
+}
+
+.precios-ceviche,
+.precios-chicharron,
+.precios-especial{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:16px 0;
+}
+
+.precio-ceviche,
+.precio-chicharron,
+.precio-especial,
+.precio-arroz-mariscos,
+.precio-chaufa-mariscos{
+    flex:1;
+    min-width:120px;
+    padding:13px;
+    border:0;
+    border-radius:10px;
+    background:var(--amarillo);
+    color:#222;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.agregar-pedido{
+    width:100%;
+    min-height:50px;
+    border:0;
+    border-radius:12px;
+    background:var(--rojo);
+    color:#fff;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.opciones-duo-virgen,
+.opciones-duo-peruano{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    margin:15px 0;
+}
+
+.opcion-duo-virgen,
+.opcion-duo-peruano{
+    padding:12px;
+    border:1px solid var(--borde);
+    border-radius:10px;
+    background:#fffaf0;
+    text-align:left;
+    cursor:pointer;
+}
+
+/* =========================================================
+   CARRITO
+   ========================================================= */
+
+.carrito-pedido{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    z-index:9000;
+}
+
+.boton-carrito{
+    border:0;
+    border-radius:32px;
+    padding:14px 20px;
+    background:var(--rojo);
+    color:#fff;
+    font-weight:700;
+    box-shadow:0 6px 22px rgba(0,0,0,.25);
+    cursor:pointer;
+}
+
+.boton-carrito span{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:25px;
+    height:25px;
+    margin-left:5px;
+    padding:0 6px;
+    border-radius:50%;
+    background:#fff;
+    color:var(--rojo);
+}
+
+.panel-carrito{
+    display:none;
+    position:absolute;
+    right:0;
+    bottom:62px;
+    width:min(94vw,390px);
+    max-height:80vh;
+    overflow:auto;
+    padding:18px;
+    background:#fff;
+    border-radius:18px;
+    box-shadow:0 12px 45px rgba(0,0,0,.3);
+}
+
+.cabecera-carrito{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid #eee;
+    padding-bottom:10px;
+}
+
+.cabecera-carrito h3{
+    margin:0;
+    color:var(--rojo);
+}
+
+.cerrar-carrito,
+.cerrar-yape{
+    border:0;
+    background:transparent;
+    font-size:30px;
+    cursor:pointer;
+}
+
+.lista-carrito{
+    padding:10px 0;
+}
+
+.carrito-vacio{
+    text-align:center;
+    color:#777;
+}
+
+.total-carrito{
+    display:flex;
+    justify-content:space-between;
+    padding:14px 0;
+    border-top:1px solid #eee;
+    border-bottom:1px solid #eee;
+    font-size:19px;
+}
+
+.tipo-pedido{
+    margin-top:15px;
+}
+
+.tipo-pedido h4,
+.datos-pedido h4{
+    margin:8px 0;
+    color:var(--rojo);
+}
+
+.tipo-pedido label{
+    display:block;
+    padding:7px 0;
+}
+
+.datos-pedido{
+    display:none;
+    margin-top:10px;
+}
+
+.datos-pedido input{
+    width:100%;
+    margin:5px 0;
+    padding:11px;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+.boton-realizar-pedido{
+    width:100%;
+    margin-top:15px;
+    padding:13px;
+    border:0;
+    border-radius:10px;
+    background:#1eaa55;
+    color:#fff;
+    font-weight:700;
+    cursor:pointer;
+}
+
+/* =========================================================
+   YAPE
+   ========================================================= */
+
+.modal-yape{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:11000;
+    align-items:center;
+    justify-content:center;
+    padding:15px;
+    background:rgba(0,0,0,.75);
+}
+
+.contenido-yape{
+    position:relative;
+    width:min(92vw,420px);
+    padding:25px;
+    text-align:center;
+    background:#fff;
+    border-radius:20px;
+}
+
+.qr-yape{
+    width:min(80vw,280px);
+    display:block;
+    margin:20px auto;
+}
+
+.nombre-yape{
+    font-weight:700;
+}
+
+.boton-confirmar-yape{
+    width:100%;
+    padding:13px;
+    border:0;
+    border-radius:10px;
+    background:#7423a8;
+    color:#fff;
+    font-weight:700;
+}
+
+/* =========================================================
+   PIE DE PÁGINA
+   ========================================================= */
+
+footer{
+    padding:35px 20px;
+    text-align:center;
+    background:#3a1717;
+    color:#fff;
+}
+
+footer p{
+    margin:7px;
+}
+
+.redes{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    margin-top:18px;
+}
+
+.redes a{
+    width:42px;
+    height:42px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:var(--rojo);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width:800px){
+
+    .hero{
+        min-height:570px;
+    }
+
+    .navbar{
+        flex-direction:column;
+    }
+
+    .menu{
+        gap:10px 15px;
+        font-size:14px;
+    }
+
+    .hero-content{
+        margin-top:45px;
+    }
+
+    .hero-destacados{
+        gap:20px;
+        margin-top:30px;
+    }
+
+    .hero-destacados div{
+        font-size:22px;
+    }
+
+    .historia,
+    .contacto-contenedor{
+        grid-template-columns:1fr;
+    }
+
+    .historia{
+        text-align:center;
+    }
+
+    .contenedor-platos{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .contenedor-porque{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media (max-width:600px){
+
+    .hero{
+        min-height:500px;
+    }
+
+    .navbar{
+        padding:8px 0;
+    }
+
+    .logo-menu img{
+        width:68px;
+        height:68px;
+    }
+
+    .menu{
+        gap:8px 12px;
+        font-size:13px;
+    }
+
+    .hero-content{
+        margin-top:30px;
+    }
+
+    .hero-destacados{
+        gap:8px;
+    }
+
+    .hero-destacados div{
+        font-size:18px;
+    }
+
+    .hero-destacados span{
+        font-size:11px;
+    }
+
+    .historia,
+    .contacto,
+    .platos,
+    .porque,
+    .galeria,
+    .clientes,
+    .carta{
+        padding-top:45px;
+        padding-bottom:45px;
+    }
+
+    .estadisticas{
+        grid-template-columns:1fr;
+    }
+
+    .contenedor-platos{
+        grid-template-columns:1fr;
+    }
+
+    .contenedor-porque{
+        grid-template-columns:1fr;
+    }
+
+    .contenedor-galeria{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .contenedor-galeria img{
+        height:160px;
+    }
+
+    .categoria-menu{
+        margin:32px auto;
+    }
+
+    .categoria-menu h3{
+        font-size:27px;
+    }
+
+    .platos-menu{
+        gap:10px;
+    }
+
+    .boton-plato,
+    .boton-chicharron,
+    .boton-especial,
+    .boton-ronda,
+    .boton-jalea,
+    .boton-carne,
+    .boton-arroz,
+    .boton-almuerzo,
+    .boton-bebida,
+    .boton-guarnicion{
+        min-height:40px;
+        font-size:15px;
+    }
+
+    .modal-plato{
+        padding:9px;
+    }
+
+    .contenido-modal-plato{
+        width:96vw;
+        border-radius:17px;
+    }
+
+    .contenido-modal-plato>img{
+        max-height:260px;
+    }
+
+    .info-modal-plato{
+        padding:18px;
+    }
+
+    .info-modal-plato h3{
+        font-size:23px;
+    }
+
+    .carrito-pedido{
+        right:12px;
+        bottom:14px;
+    }
+
+    .boton-carrito{
+        padding:13px 17px;
+    }
+
+    .panel-carrito{
+        right:0;
+        bottom:60px;
+    }
+
+    .whatsapp-float{
+        right:14px;
+        bottom:92px;
+        width:58px;
+        height:58px;
+        font-size:27px;
+    }
+}
