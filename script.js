@@ -6624,6 +6624,621 @@ if (botonAgregarAguaMineral) {
 
 }
 
+// ================================
+// YUCAS FRITAS
+// ================================
+
+const botonYucasFritas =
+    document.querySelector(
+        '[data-plato="yucas-fritas"]'
+    );
+
+const modalYucasFritas =
+    document.getElementById(
+        "modal-yucas-fritas"
+    );
+
+const cerrarModalYucasFritas =
+    document.querySelector(
+        ".cerrar-modal-yucas-fritas"
+    );
+
+const botonAgregarYucasFritas =
+    document.getElementById(
+        "agregar-yucas-fritas"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonYucasFritas && modalYucasFritas) {
+
+    botonYucasFritas.addEventListener("click", () => {
+
+        modalYucasFritas.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalYucasFritas &&
+    modalYucasFritas
+) {
+
+    cerrarModalYucasFritas.addEventListener("click", () => {
+
+        modalYucasFritas.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalYucasFritas) {
+
+    modalYucasFritas.addEventListener("click", (e) => {
+
+        if (e.target === modalYucasFritas) {
+
+            modalYucasFritas.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarYucasFritas) {
+
+    botonAgregarYucasFritas.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Yucas Fritas",
+
+            precio: 6,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalYucasFritas.style.display = "none";
+
+    });
+
+}
+
+// ================================
+// PAPAS FRITAS
+// ================================
+
+const botonPapasFritas =
+    document.querySelector(
+        '[data-plato="papas-fritas"]'
+    );
+
+const modalPapasFritas =
+    document.getElementById(
+        "modal-papas-fritas"
+    );
+
+const cerrarModalPapasFritas =
+    document.querySelector(
+        ".cerrar-modal-papas-fritas"
+    );
+
+const botonAgregarPapasFritas =
+    document.getElementById(
+        "agregar-papas-fritas"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonPapasFritas && modalPapasFritas) {
+
+    botonPapasFritas.addEventListener("click", () => {
+
+        modalPapasFritas.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalPapasFritas &&
+    modalPapasFritas
+) {
+
+    cerrarModalPapasFritas.addEventListener("click", () => {
+
+        modalPapasFritas.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalPapasFritas) {
+
+    modalPapasFritas.addEventListener("click", (e) => {
+
+        if (e.target === modalPapasFritas) {
+
+            modalPapasFritas.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarPapasFritas) {
+
+    botonAgregarPapasFritas.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Papas Fritas",
+
+            precio: 5,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalPapasFritas.style.display = "none";
+
+    });
+
+}
+
+// ================================
+// CAMOTES
+// ================================
+
+const botonCamotes =
+    document.querySelector(
+        '[data-plato="camotes"]'
+    );
+
+const modalCamotes =
+    document.getElementById(
+        "modal-camotes"
+    );
+
+const cerrarModalCamotes =
+    document.querySelector(
+        ".cerrar-modal-camotes"
+    );
+
+const botonAgregarCamotes =
+    document.getElementById(
+        "agregar-camotes"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonCamotes && modalCamotes) {
+
+    botonCamotes.addEventListener("click", () => {
+
+        modalCamotes.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalCamotes &&
+    modalCamotes
+) {
+
+    cerrarModalCamotes.addEventListener("click", () => {
+
+        modalCamotes.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalCamotes) {
+
+    modalCamotes.addEventListener("click", (e) => {
+
+        if (e.target === modalCamotes) {
+
+            modalCamotes.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarCamotes) {
+
+    botonAgregarCamotes.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Camotes",
+
+            precio: 5,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalCamotes.style.display = "none";
+
+    });
+
+}
+
+// ================================
+// CHIFLES
+// ================================
+
+const botonChifles =
+    document.querySelector(
+        '[data-plato="chifles"]'
+    );
+
+const modalChifles =
+    document.getElementById(
+        "modal-chifles"
+    );
+
+const cerrarModalChifles =
+    document.querySelector(
+        ".cerrar-modal-chifles"
+    );
+
+const botonAgregarChifles =
+    document.getElementById(
+        "agregar-chifles"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonChifles && modalChifles) {
+
+    botonChifles.addEventListener("click", () => {
+
+        modalChifles.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalChifles &&
+    modalChifles
+) {
+
+    cerrarModalChifles.addEventListener("click", () => {
+
+        modalChifles.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalChifles) {
+
+    modalChifles.addEventListener("click", (e) => {
+
+        if (e.target === modalChifles) {
+
+            modalChifles.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarChifles) {
+
+    botonAgregarChifles.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Chifles",
+
+            precio: 5,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalChifles.style.display = "none";
+
+    });
+
+}
+
+// ================================
+// YUCA SANCOCHADA
+// ================================
+
+const botonYucaSancochada =
+    document.querySelector(
+        '[data-plato="yuca-sancochada"]'
+    );
+
+const modalYucaSancochada =
+    document.getElementById(
+        "modal-yuca-sancochada"
+    );
+
+const cerrarModalYucaSancochada =
+    document.querySelector(
+        ".cerrar-modal-yuca-sancochada"
+    );
+
+const botonAgregarYucaSancochada =
+    document.getElementById(
+        "agregar-yuca-sancochada"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonYucaSancochada && modalYucaSancochada) {
+
+    botonYucaSancochada.addEventListener("click", () => {
+
+        modalYucaSancochada.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalYucaSancochada &&
+    modalYucaSancochada
+) {
+
+    cerrarModalYucaSancochada.addEventListener("click", () => {
+
+        modalYucaSancochada.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalYucaSancochada) {
+
+    modalYucaSancochada.addEventListener("click", (e) => {
+
+        if (e.target === modalYucaSancochada) {
+
+            modalYucaSancochada.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarYucaSancochada) {
+
+    botonAgregarYucaSancochada.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Yuca Sancochada",
+
+            precio: 5,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalYucaSancochada.style.display = "none";
+
+    });
+
+}
+
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
