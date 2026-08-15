@@ -5256,6 +5256,129 @@ if (botonAgregarCarneFritaAlinada) {
 
 }
 
+// ================================
+// BISTEC A LO POBRE
+// ================================
+
+const botonBistecPobre =
+    document.querySelector(
+        '[data-plato="bistec-pobre"]'
+    );
+
+const modalBistecPobre =
+    document.getElementById(
+        "modal-bistec-pobre"
+    );
+
+const cerrarModalBistecPobre =
+    document.querySelector(
+        ".cerrar-modal-bistec-pobre"
+    );
+
+const botonAgregarBistecPobre =
+    document.getElementById(
+        "agregar-bistec-pobre"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonBistecPobre && modalBistecPobre) {
+
+    botonBistecPobre.addEventListener("click", () => {
+
+        modalBistecPobre.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalBistecPobre &&
+    modalBistecPobre
+) {
+
+    cerrarModalBistecPobre.addEventListener("click", () => {
+
+        modalBistecPobre.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalBistecPobre) {
+
+    modalBistecPobre.addEventListener("click", (e) => {
+
+        if (e.target === modalBistecPobre) {
+
+            modalBistecPobre.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarBistecPobre) {
+
+    botonAgregarBistecPobre.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Bistec a lo Pobre",
+
+            precio: 17,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalBistecPobre.style.display = "none";
+
+    });
+
+}
+
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
