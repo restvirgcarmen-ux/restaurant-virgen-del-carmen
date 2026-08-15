@@ -2886,3 +2886,33 @@ LIGHTBOX GALERÍA
     }
 
 }
+
+.contenido-modal-plato > button[class^="cerrar-modal-"]{
+    position:absolute;
+    top:15px;
+    right:15px;
+
+    width:40px;
+    height:40px;
+
+    border:none;
+    border-radius:50%;
+
+    background:rgba(0,0,0,.75);
+    color:#fff;
+
+    font-size:25px;
+    line-height:40px;
+
+    text-align:center;
+    cursor:pointer;
+
+    z-index:100;
+
+    transition:.3s;
+}
+
+.contenido-modal-plato > button[class^="cerrar-modal-"]:hover{
+    background:#b71c1c;
+    transform:scale(1.05);
+}
