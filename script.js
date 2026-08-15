@@ -6129,6 +6129,501 @@ if (botonAgregarGaseosa15L) {
 
 }
 
+// ================================
+// GASEOSA 1 L
+// ================================
+
+const botonGaseosa1L =
+    document.querySelector(
+        '[data-plato="gaseosa-1l"]'
+    );
+
+const modalGaseosa1L =
+    document.getElementById(
+        "modal-gaseosa-1l"
+    );
+
+const cerrarModalGaseosa1L =
+    document.querySelector(
+        ".cerrar-modal-gaseosa-1l"
+    );
+
+const botonAgregarGaseosa1L =
+    document.getElementById(
+        "agregar-gaseosa-1l"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonGaseosa1L && modalGaseosa1L) {
+
+    botonGaseosa1L.addEventListener("click", () => {
+
+        modalGaseosa1L.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalGaseosa1L &&
+    modalGaseosa1L
+) {
+
+    cerrarModalGaseosa1L.addEventListener("click", () => {
+
+        modalGaseosa1L.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalGaseosa1L) {
+
+    modalGaseosa1L.addEventListener("click", (e) => {
+
+        if (e.target === modalGaseosa1L) {
+
+            modalGaseosa1L.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarGaseosa1L) {
+
+    botonAgregarGaseosa1L.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Gaseosa 1 L",
+
+            precio: 11,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalGaseosa1L.style.display = "none";
+
+    });
+
+}
+
+// ================================
+// GASEOSA PERSONAL
+// ================================
+
+const botonGaseosaPersonal =
+    document.querySelector(
+        '[data-plato="gaseosa-personal"]'
+    );
+
+const modalGaseosaPersonal =
+    document.getElementById(
+        "modal-gaseosa-personal"
+    );
+
+const cerrarModalGaseosaPersonal =
+    document.querySelector(
+        ".cerrar-modal-gaseosa-personal"
+    );
+
+const botonAgregarGaseosaPersonal =
+    document.getElementById(
+        "agregar-gaseosa-personal"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (
+    botonGaseosaPersonal &&
+    modalGaseosaPersonal
+) {
+
+    botonGaseosaPersonal.addEventListener("click", () => {
+
+        modalGaseosaPersonal.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalGaseosaPersonal &&
+    modalGaseosaPersonal
+) {
+
+    cerrarModalGaseosaPersonal.addEventListener("click", () => {
+
+        modalGaseosaPersonal.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalGaseosaPersonal) {
+
+    modalGaseosaPersonal.addEventListener("click", (e) => {
+
+        if (e.target === modalGaseosaPersonal) {
+
+            modalGaseosaPersonal.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarGaseosaPersonal) {
+
+    botonAgregarGaseosaPersonal.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Gaseosa Personal",
+
+            precio: 3.50,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalGaseosaPersonal.style.display = "none";
+
+    });
+
+}
+
+// ================================
+// SPORADE
+// ================================
+
+const botonSporade =
+    document.querySelector(
+        '[data-plato="sporade"]'
+    );
+
+const modalSporade =
+    document.getElementById(
+        "modal-sporade"
+    );
+
+const cerrarModalSporade =
+    document.querySelector(
+        ".cerrar-modal-sporade"
+    );
+
+const botonAgregarSporade =
+    document.getElementById(
+        "agregar-sporade"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonSporade && modalSporade) {
+
+    botonSporade.addEventListener("click", () => {
+
+        modalSporade.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalSporade &&
+    modalSporade
+) {
+
+    cerrarModalSporade.addEventListener("click", () => {
+
+        modalSporade.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalSporade) {
+
+    modalSporade.addEventListener("click", (e) => {
+
+        if (e.target === modalSporade) {
+
+            modalSporade.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarSporade) {
+
+    botonAgregarSporade.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Sporade",
+
+            precio: 6.50,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalSporade.style.display = "none";
+
+    });
+
+}
+
+// ================================
+// AGUA MINERAL
+// ================================
+
+const botonAguaMineral =
+    document.querySelector(
+        '[data-plato="agua-mineral"]'
+    );
+
+const modalAguaMineral =
+    document.getElementById(
+        "modal-agua-mineral"
+    );
+
+const cerrarModalAguaMineral =
+    document.querySelector(
+        ".cerrar-modal-agua-mineral"
+    );
+
+const botonAgregarAguaMineral =
+    document.getElementById(
+        "agregar-agua-mineral"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonAguaMineral && modalAguaMineral) {
+
+    botonAguaMineral.addEventListener("click", () => {
+
+        modalAguaMineral.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalAguaMineral &&
+    modalAguaMineral
+) {
+
+    cerrarModalAguaMineral.addEventListener("click", () => {
+
+        modalAguaMineral.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalAguaMineral) {
+
+    modalAguaMineral.addEventListener("click", (e) => {
+
+        if (e.target === modalAguaMineral) {
+
+            modalAguaMineral.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarAguaMineral) {
+
+    botonAgregarAguaMineral.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Agua Mineral",
+
+            precio: 3,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalAguaMineral.style.display = "none";
+
+    });
+
+}
+
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
