@@ -7239,6 +7239,621 @@ if (botonAgregarYucaSancochada) {
 
 }
 
+// ================================
+// CANCHA
+// ================================
+
+const botonCancha =
+    document.querySelector(
+        '[data-plato="cancha"]'
+    );
+
+const modalCancha =
+    document.getElementById(
+        "modal-cancha"
+    );
+
+const cerrarModalCancha =
+    document.querySelector(
+        ".cerrar-modal-cancha"
+    );
+
+const botonAgregarCancha =
+    document.getElementById(
+        "agregar-cancha"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonCancha && modalCancha) {
+
+    botonCancha.addEventListener("click", () => {
+
+        modalCancha.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalCancha &&
+    modalCancha
+) {
+
+    cerrarModalCancha.addEventListener("click", () => {
+
+        modalCancha.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalCancha) {
+
+    modalCancha.addEventListener("click", (e) => {
+
+        if (e.target === modalCancha) {
+
+            modalCancha.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarCancha) {
+
+    botonAgregarCancha.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Cancha",
+
+            precio: 6,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalCancha.style.display = "none";
+
+    });
+
+}
+
+// ================================
+// ARROZ BLANCO
+// ================================
+
+const botonArrozBlanco =
+    document.querySelector(
+        '[data-plato="arroz-blanco"]'
+    );
+
+const modalArrozBlanco =
+    document.getElementById(
+        "modal-arroz-blanco"
+    );
+
+const cerrarModalArrozBlanco =
+    document.querySelector(
+        ".cerrar-modal-arroz-blanco"
+    );
+
+const botonAgregarArrozBlanco =
+    document.getElementById(
+        "agregar-arroz-blanco"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonArrozBlanco && modalArrozBlanco) {
+
+    botonArrozBlanco.addEventListener("click", () => {
+
+        modalArrozBlanco.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalArrozBlanco &&
+    modalArrozBlanco
+) {
+
+    cerrarModalArrozBlanco.addEventListener("click", () => {
+
+        modalArrozBlanco.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalArrozBlanco) {
+
+    modalArrozBlanco.addEventListener("click", (e) => {
+
+        if (e.target === modalArrozBlanco) {
+
+            modalArrozBlanco.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarArrozBlanco) {
+
+    botonAgregarArrozBlanco.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Arroz Blanco",
+
+            precio: 6,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalArrozBlanco.style.display = "none";
+
+    });
+
+}
+
+// ================================
+// SARANDAJA
+// ================================
+
+const botonSarandaja =
+    document.querySelector(
+        '[data-plato="sarandaja"]'
+    );
+
+const modalSarandaja =
+    document.getElementById(
+        "modal-sarandaja"
+    );
+
+const cerrarModalSarandaja =
+    document.querySelector(
+        ".cerrar-modal-sarandaja"
+    );
+
+const botonAgregarSarandaja =
+    document.getElementById(
+        "agregar-sarandaja"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonSarandaja && modalSarandaja) {
+
+    botonSarandaja.addEventListener("click", () => {
+
+        modalSarandaja.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalSarandaja &&
+    modalSarandaja
+) {
+
+    cerrarModalSarandaja.addEventListener("click", () => {
+
+        modalSarandaja.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalSarandaja) {
+
+    modalSarandaja.addEventListener("click", (e) => {
+
+        if (e.target === modalSarandaja) {
+
+            modalSarandaja.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarSarandaja) {
+
+    botonAgregarSarandaja.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Sarandaja",
+
+            precio: 7,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalSarandaja.style.display = "none";
+
+    });
+
+}
+
+// ================================
+// PATACONES
+// ================================
+
+const botonPatacones =
+    document.querySelector(
+        '[data-plato="patacones"]'
+    );
+
+const modalPatacones =
+    document.getElementById(
+        "modal-patacones"
+    );
+
+const cerrarModalPatacones =
+    document.querySelector(
+        ".cerrar-modal-patacones"
+    );
+
+const botonAgregarPatacones =
+    document.getElementById(
+        "agregar-patacones"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonPatacones && modalPatacones) {
+
+    botonPatacones.addEventListener("click", () => {
+
+        modalPatacones.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalPatacones &&
+    modalPatacones
+) {
+
+    cerrarModalPatacones.addEventListener("click", () => {
+
+        modalPatacones.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalPatacones) {
+
+    modalPatacones.addEventListener("click", (e) => {
+
+        if (e.target === modalPatacones) {
+
+            modalPatacones.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarPatacones) {
+
+    botonAgregarPatacones.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Patacones",
+
+            precio: 10,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalPatacones.style.display = "none";
+
+    });
+
+}
+
+// ================================
+// TEQUEÑOS
+// ================================
+
+const botonTequenos =
+    document.querySelector(
+        '[data-plato="tequenos"]'
+    );
+
+const modalTequenos =
+    document.getElementById(
+        "modal-tequenos"
+    );
+
+const cerrarModalTequenos =
+    document.querySelector(
+        ".cerrar-modal-tequenos"
+    );
+
+const botonAgregarTequenos =
+    document.getElementById(
+        "agregar-tequenos"
+    );
+
+
+// ================================
+// ABRIR MODAL
+// ================================
+
+if (botonTequenos && modalTequenos) {
+
+    botonTequenos.addEventListener("click", () => {
+
+        modalTequenos.style.display = "flex";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR CON X
+// ================================
+
+if (
+    cerrarModalTequenos &&
+    modalTequenos
+) {
+
+    cerrarModalTequenos.addEventListener("click", () => {
+
+        modalTequenos.style.display = "none";
+
+    });
+
+}
+
+
+// ================================
+// CERRAR TOCANDO FUERA
+// ================================
+
+if (modalTequenos) {
+
+    modalTequenos.addEventListener("click", (e) => {
+
+        if (e.target === modalTequenos) {
+
+            modalTequenos.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+// ================================
+// AGREGAR AL PEDIDO
+// ================================
+
+if (botonAgregarTequenos) {
+
+    botonAgregarTequenos.addEventListener("click", () => {
+
+        let carrito =
+            JSON.parse(
+                localStorage.getItem("carrito")
+            ) || [];
+
+
+        carrito.push({
+
+            nombre: "Tequeños",
+
+            precio: 12,
+
+            cantidad: 1
+
+        });
+
+
+        // Guardar carrito
+
+        localStorage.setItem(
+            "carrito",
+            JSON.stringify(carrito)
+        );
+
+
+        // Actualizar contador
+
+        actualizarContadorPedido();
+
+
+        // Cerrar ventana
+
+        modalTequenos.style.display = "none";
+
+    });
+
+    }
+
 // ========================================
 // FUNCIÓN PARA ABRIR Y CERRAR MODALES
 // ========================================
