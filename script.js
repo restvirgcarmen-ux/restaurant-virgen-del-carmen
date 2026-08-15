@@ -8568,3 +8568,50 @@ document.addEventListener("click", (e) => {
     panelCarrito.style.display = "none";
 
 });
+
+// =========================================================
+// IMAGEN DE RESPALDO
+// Si una foto de plato no existe, muestra logo-amarillo.png
+// =========================================================
+
+const IMAGEN_RESPALDO = "imagenes/logo-amarillo.png";
+
+function activarImagenesDeRespaldo() {
+
+    const imagenes = document.querySelectorAll("img");
+
+    imagenes.forEach((imagen) => {
+
+        function colocarRespaldo() {
+
+            // Evitar un ciclo infinito
+            if (imagen.dataset.respaldo === "true") {
+                return;
+            }
+
+            imagen.dataset.respaldo = "true";
+
+            imagen.src = IMAGEN_RESPALDO;
+
+            imagen.classList.add("imagen-respaldo");
+        }
+
+        imagen.addEventListener("error", colocarRespaldo);
+
+        // Detectar imágenes que ya hayan fallado
+        if (
+            imagen.complete &&
+            imagen.naturalWidth === 0 &&
+            !imagen.src.includes("logo-amarillo.png")
+        ) {
+            colocarRespaldo();
+        }
+    });
+}
+
+
+// Ejecutar cuando cargue la página
+document.addEventListener(
+    "DOMContentLoaded",
+    activarImagenesDeRespaldo
+);
