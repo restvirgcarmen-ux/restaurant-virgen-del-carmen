@@ -2916,3 +2916,31 @@ LIGHTBOX GALERÍA
     background:#b71c1c;
     transform:scale(1.05);
 }
+
+.precio-arroz-mariscos,
+.precio-chaufa-mariscos {
+    width: 100%;
+    padding: 14px 20px;
+    border: 2px solid #2ecc71;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #27864d;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-sizing: border-box;
+}
+
+.precio-arroz-mariscos:hover,
+.precio-chaufa-mariscos:hover {
+    background: #f5fff8;
+    transform: translateY(-1px);
+}
+
+.precio-arroz-mariscos.seleccionado,
+.precio-chaufa-mariscos.seleccionado {
+    background: #b71c1c;
+    border-color: #b71c1c;
+    color: #ffffff;
+}
