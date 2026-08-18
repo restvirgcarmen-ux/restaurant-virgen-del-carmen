@@ -2944,3 +2944,137 @@ LIGHTBOX GALERÍA
     border-color: #b71c1c;
     color: #ffffff;
 }
+
+/* PASO 2 — ESTILOS DEL SEGUIMIENTO DEL PEDIDO */
+/* Agregar al final de style-v2.css. No reemplazar el CSS existente. */
+
+.modal-estado-pedido {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.72);
+  z-index: 10000;
+}
+
+.contenido-estado-pedido {
+  position: relative;
+  width: 100%;
+  max-width: 430px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 28px 24px;
+  background: #fff;
+  border-radius: 22px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.cerrar-estado-pedido {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  background: #222;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.icono-estado-pedido {
+  font-size: 46px;
+  margin: 4px 0 8px;
+}
+
+.contenido-estado-pedido h3 {
+  margin: 0 0 8px;
+  color: #b71c1c;
+  font-size: 27px;
+}
+
+.mensaje-estado-pedido {
+  margin: 0 0 22px;
+  color: #555;
+  font-size: 16px;
+}
+
+.estado-pedido-pasos {
+  text-align: left;
+  margin: 10px 0 22px;
+}
+
+.estado-paso {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.estado-paso:last-child {
+  border-bottom: 0;
+}
+
+.estado-paso > span {
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #eee;
+  color: #777;
+  font-weight: 700;
+}
+
+.estado-paso.activo > span {
+  background: #25d366;
+  color: #fff;
+}
+
+.estado-paso strong,
+.estado-paso small {
+  display: block;
+}
+
+.estado-paso strong {
+  color: #333;
+  font-size: 16px;
+}
+
+.estado-paso small {
+  margin-top: 3px;
+  color: #777;
+  line-height: 1.4;
+}
+
+.boton-volver-menu-estado {
+  width: 100%;
+  padding: 14px;
+  border: 0;
+  border-radius: 12px;
+  background: #b71c1c;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .modal-estado-pedido {
+    padding: 12px;
+  }
+
+  .contenido-estado-pedido {
+    max-width: 100%;
+    padding: 25px 18px;
+    border-radius: 20px;
+  }
+}
