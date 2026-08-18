@@ -8425,17 +8425,98 @@ if (botonRealizarPedido) {
 window.mensajePedidoWhatsApp = mensaje;
 
 
-// Mostrar el modal
+// ================================
+// MOSTRAR RESUMEN PARA CONFIRMAR
+// ================================
 
-if (modalYape) {
+if (resumenPedidoConfirmacion) {
 
-    modalYape.style.display = "flex";
+    let resumen = "";
 
-} 
+    carrito.forEach(producto => {
+        const precio = Number(producto.precio) || 0;
+        const cantidad = Number(producto.cantidad) || 1;
+        const subtotal = precio * cantidad;
+
+        resumen +=
+            `<div class="item-resumen-pedido">` +
+            `<strong>${producto.nombre}</strong><br>` +
+            `<span>${cantidad} × S/ ${precio.toFixed(2)}</span>` +
+            `<strong>S/ ${subtotal.toFixed(2)}</strong>` +
+            `</div>`;
+    });
+
+    resumen +=
+        `<div class="total-resumen-pedido">` +
+        `<strong>TOTAL</strong>` +
+        `<strong>S/ ${total.toFixed(2)}</strong>` +
+        `</div>`;
+
+    resumen += `<div class="datos-resumen-pedido">${mensajeDatos.replace(/\n/g, "<br>")}</div>`;
+
+    resumenPedidoConfirmacion.innerHTML = resumen;
+}
+
+// Mostrar primero el resumen; Yape queda para el siguiente paso
+if (modalConfirmacionPedido) {
+    modalConfirmacionPedido.style.display = "flex";
+}
+
         
     });
 
 }
+
+// ================================
+// MODAL REVISAR Y CONFIRMAR PEDIDO
+// ================================
+
+const modalConfirmacionPedido =
+    document.getElementById("modal-confirmar-pedido");
+
+const cerrarConfirmacionPedido =
+    document.getElementById("cerrar-confirmacion-pedido");
+
+const editarPedidoConfirmacion =
+    document.getElementById("editar-pedido-confirmacion");
+
+const continuarPagoConfirmacion =
+    document.getElementById("continuar-pago-confirmacion");
+
+const resumenPedidoConfirmacion =
+    document.getElementById("resumen-pedido-confirmacion");
+
+
+function cerrarModalConfirmacionPedido() {
+    if (modalConfirmacionPedido) {
+        modalConfirmacionPedido.style.display = "none";
+    }
+}
+
+if (cerrarConfirmacionPedido) {
+    cerrarConfirmacionPedido.addEventListener("click", () => {
+        cerrarModalConfirmacionPedido();
+    });
+}
+
+if (editarPedidoConfirmacion) {
+    editarPedidoConfirmacion.addEventListener("click", () => {
+        cerrarModalConfirmacionPedido();
+        if (panelCarrito) {
+            panelCarrito.classList.add("activo");
+            panelCarrito.style.display = "block";
+        }
+    });
+}
+
+if (modalConfirmacionPedido) {
+    modalConfirmacionPedido.addEventListener("click", (e) => {
+        if (e.target === modalConfirmacionPedido) {
+            cerrarModalConfirmacionPedido();
+        }
+    });
+}
+
 
 // ================================
 // MODAL DE PAGO YAPE
@@ -8448,6 +8529,18 @@ const cerrarYape =
 
 const confirmarPagoYape =
     document.getElementById("confirmar-pago-yape");
+
+
+// CONTINUAR AL PAGO DESDE LA CONFIRMACIÓN
+if (continuarPagoConfirmacion) {
+    continuarPagoConfirmacion.addEventListener("click", () => {
+        cerrarModalConfirmacionPedido();
+
+        if (modalYape) {
+            modalYape.style.display = "flex";
+        }
+    });
+}
 
 
 // CERRAR CON X
