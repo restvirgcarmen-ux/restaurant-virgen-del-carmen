@@ -8508,56 +8508,8 @@ if (confirmarPagoYape) {
 
         window.open(url, "_blank");
 
-        // ================================
-        // PASO 2A: ESTADO DEL PEDIDO
-        // ================================
-        localStorage.setItem("pedidoPendiente", "true");
-        localStorage.setItem("pedidoPendienteFecha", new Date().toISOString());
-
-        const modalEstadoPedido =
-            document.getElementById("modal-estado-pedido");
-
-        if (modalEstadoPedido) {
-            modalEstadoPedido.style.display = "flex";
-        }
-
     });
 
-}
-
-// ================================
-// MODAL ESTADO DEL PEDIDO - PASO 2A
-// ================================
-
-const modalEstadoPedido =
-    document.getElementById("modal-estado-pedido");
-
-const cerrarEstadoPedido =
-    document.getElementById("cerrar-estado-pedido");
-
-const cerrarYVolverMenu =
-    document.getElementById("cerrar-y-volver-menu");
-
-function cerrarModalEstadoPedido() {
-    if (modalEstadoPedido) {
-        modalEstadoPedido.style.display = "none";
-    }
-}
-
-if (cerrarEstadoPedido) {
-    cerrarEstadoPedido.addEventListener("click", cerrarModalEstadoPedido);
-}
-
-if (cerrarYVolverMenu) {
-    cerrarYVolverMenu.addEventListener("click", cerrarModalEstadoPedido);
-}
-
-if (modalEstadoPedido) {
-    modalEstadoPedido.addEventListener("click", (e) => {
-        if (e.target === modalEstadoPedido) {
-            cerrarModalEstadoPedido();
-        }
-    });
 }
 
 // ========================================
