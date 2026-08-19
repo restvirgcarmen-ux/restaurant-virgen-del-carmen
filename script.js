@@ -8601,6 +8601,8 @@ if (confirmarPagoYape) {
 
         window.open(url, "_blank");
 
+        mostrarEstadoPedidoEnviado();
+
     });
 
 }
