@@ -4138,6 +4138,53 @@ Conoce algunos de nuestros platos y nuestro restaurante.
     </div>
 
 </div>
+
+<!-- PASO 2 — SEGUIMIENTO DEL PEDIDO -->
+<!-- Agregar dentro del <body>, junto a los otros modales del carrito/pedido. -->
+
+<div id="modal-estado-pedido" class="modal-estado-pedido">
+    <div class="contenido-estado-pedido">
+        <button id="cerrar-estado-pedido" class="cerrar-estado-pedido">&times;</button>
+
+        <div class="icono-estado-pedido">🕐</div>
+
+        <h3>Pedido enviado</h3>
+
+        <p class="mensaje-estado-pedido">
+            Tu pedido fue enviado al restaurante.
+        </p>
+
+        <div class="estado-pedido-pasos">
+            <div class="estado-paso activo">
+                <span>✓</span>
+                <div>
+                    <strong>Pedido enviado</strong>
+                    <small>El pedido fue enviado por WhatsApp.</small>
+                </div>
+            </div>
+
+            <div class="estado-paso pendiente">
+                <span>2</span>
+                <div>
+                    <strong>Esperando confirmación</strong>
+                    <small>El restaurante revisará tu pedido.</small>
+                </div>
+            </div>
+
+            <div class="estado-paso pendiente">
+                <span>3</span>
+                <div>
+                    <strong>Pedido confirmado</strong>
+                    <small>Te avisaremos cuando esté confirmado.</small>
+                </div>
+            </div>
+        </div>
+
+        <button id="volver-menu-estado-pedido" class="boton-volver-menu-estado">
+            🍽️ Volver al menú
+        </button>
+    </div>
+</div>
     
 <footer>
 
