@@ -8607,6 +8607,80 @@ if (confirmarPagoYape) {
 
 }
 
+// ================================
+// PASO 2 — ESTADO DEL PEDIDO
+// ================================
+
+const modalEstadoPedido =
+    document.getElementById("modal-estado-pedido");
+
+const cerrarEstadoPedido =
+    document.getElementById("cerrar-estado-pedido");
+
+const volverMenuEstadoPedido =
+    document.getElementById("volver-menu-estado-pedido");
+
+
+function mostrarEstadoPedidoEnviado() {
+
+    if (!modalEstadoPedido) {
+        console.warn("No se encontró #modal-estado-pedido.");
+        return;
+    }
+
+    localStorage.setItem("estadoPedido", "enviado");
+
+    modalEstadoPedido.style.display = "flex";
+}
+
+
+// CERRAR CON X
+
+if (cerrarEstadoPedido && modalEstadoPedido) {
+
+    cerrarEstadoPedido.addEventListener("click", () => {
+
+        modalEstadoPedido.style.display = "none";
+
+    });
+
+}
+
+
+// VOLVER AL MENÚ
+
+if (volverMenuEstadoPedido && modalEstadoPedido) {
+
+    volverMenuEstadoPedido.addEventListener("click", () => {
+
+        modalEstadoPedido.style.display = "none";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    });
+
+}
+
+
+// CERRAR TOCANDO FUERA
+
+if (modalEstadoPedido) {
+
+    modalEstadoPedido.addEventListener("click", (e) => {
+
+        if (e.target === modalEstadoPedido) {
+
+            modalEstadoPedido.style.display = "none";
+
+        }
+
+    });
+
+}
+
 // ========================================
 // CERRAR CARRITO AL TOCAR FUERA
 // ========================================
