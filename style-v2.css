@@ -3087,3 +3087,35 @@ LIGHTBOX GALERÍA
     height: auto;
     margin: 12px auto 4px;
 }
+
+/* =========================================
+   BANNER NOCTURNO - CARNES, PARRILLAS Y TRAGOS
+   ========================================= */
+
+.banner-nocturno {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+    overflow: hidden;
+    background: #111;
+}
+
+.banner-nocturno img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/* =========================================
+   FOOTER A TODO EL ANCHO
+   ========================================= */
+
+footer {
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+}
