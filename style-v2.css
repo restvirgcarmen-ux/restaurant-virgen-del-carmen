@@ -3089,16 +3089,18 @@ LIGHTBOX GALERÍA
 }
 
 /* =========================================
-   BANNER NOCTURNO
+   BANNER NOCTURNO - ANCHO COMPLETO
    ========================================= */
 
 .banner-nocturno {
     width: 100vw;
-    margin: 0 0 20px 0;
+    margin-left: calc((100% - 100vw) / 2);
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 20px;
     padding: 0;
     line-height: 0;
     overflow: hidden;
-    background: #111;
 }
 
 .banner-nocturno img {
@@ -3112,11 +3114,12 @@ LIGHTBOX GALERÍA
 
 
 /* =========================================
-   FOOTER A TODO EL ANCHO
+   FOOTER - ANCHO COMPLETO
    ========================================= */
 
 footer {
     width: 100vw;
-    margin: 0;
+    margin-left: calc((100% - 100vw) / 2);
+    margin-right: 0;
     box-sizing: border-box;
 }
