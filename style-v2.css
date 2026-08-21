@@ -3078,3 +3078,12 @@ LIGHTBOX GALERÍA
     border-radius: 20px;
   }
 }
+
+/* Imagen final de pedido enviado */
+.imagen-pedido-enviado {
+    display: block;
+    width: 180px;
+    max-width: 60%;
+    height: auto;
+    margin: 12px auto 4px;
+}
