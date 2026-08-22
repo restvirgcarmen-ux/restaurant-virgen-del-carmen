@@ -3123,3 +3123,15 @@ footer {
     margin-right: 0;
     box-sizing: border-box;
 }
+
+/* =========================================
+   PORTADA - COMPUTADORA
+   ========================================= */
+
+@media (min-width: 992px) {
+
+    .hero {
+        min-height: 100vh;
+    }
+
+}
