@@ -3135,3 +3135,31 @@ footer {
     }
 
 }
+
+/* =========================================
+   NAVBAR - COMPUTADORA
+   ========================================= */
+
+@media (min-width: 992px) {
+
+    .navbar {
+        padding: 12px 6%;
+        height: 90px;
+        background: rgba(0, 0, 0, 0.45);
+    }
+
+    .logo-menu img {
+        width: 82px;
+    }
+
+    .menu {
+        gap: 34px;
+        align-items: center;
+    }
+
+    .menu a {
+        font-size: 17px;
+        font-weight: 600;
+    }
+
+}
