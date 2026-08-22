@@ -3175,3 +3175,23 @@ footer {
     }
 
 }
+
+/* =========================================
+   TÍTULOS DE PORTADA - COMPUTADORA
+   ========================================= */
+
+@media (min-width: 992px) {
+
+    .hero-content h1 {
+        font-size: 50px;
+    }
+
+    .titulo-superior {
+        font-size: 0.68em;
+    }
+
+    .titulo-principal {
+        font-size: 1.10em;
+    }
+
+}
