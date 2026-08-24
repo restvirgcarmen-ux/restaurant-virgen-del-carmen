@@ -3268,3 +3268,33 @@ footer {
     }
 
 }
+
+/* =========================================
+   CONTACTO - COMPUTADORA
+   ========================================= */
+
+@media (min-width: 992px) {
+
+    .contacto-contenedor {
+        max-width: 1150px;
+        margin: 0 auto;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 35px;
+        align-items: stretch;
+    }
+
+    .info-contacto {
+        padding: 32px;
+    }
+
+    .mapa {
+        display: flex;
+        align-items: stretch;
+    }
+
+    .mapa iframe {
+        height: 100%;
+        min-height: 420px;
+    }
+
+}
