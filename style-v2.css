@@ -3379,3 +3379,21 @@ footer {
     }
 
 }
+
+/* =========================================
+   GALERÍA - COMPUTADORA
+   ========================================= */
+
+@media (min-width: 992px) {
+
+    .contenedor-galeria {
+        max-width: 1150px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+
+    .contenedor-galeria img {
+        height: 250px;
+    }
+
+}
