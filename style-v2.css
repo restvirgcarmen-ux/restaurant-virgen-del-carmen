@@ -3219,3 +3219,32 @@ footer {
     }
 
 }
+
+/* =========================================
+   HISTORIA - COMPUTADORA
+   ========================================= */
+
+@media (min-width: 992px) {
+
+    .historia {
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        gap: 55px;
+        padding: 70px 8%;
+    }
+
+    .historia-imagen {
+        flex: 0 0 340px;
+        padding-top: 5px;
+    }
+
+    .historia-imagen img {
+        transform: scale(.78);
+    }
+
+    .historia-texto {
+        flex: 0 1 700px;
+        padding-top: 5px;
+    }
+
+}
