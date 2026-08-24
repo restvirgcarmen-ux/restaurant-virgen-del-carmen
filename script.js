@@ -8724,7 +8724,9 @@ document.addEventListener("click", (e) => {
     // Si tocamos el botón "Mi pedido",
     // NO cerrar aquí
 
-   
+    if (abrirCarrito.contains(e.target)) {
+        return;
+     }
 
 
     // Cualquier otro lugar de la pantalla:
