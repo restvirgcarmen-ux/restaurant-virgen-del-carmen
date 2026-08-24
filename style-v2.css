@@ -3470,3 +3470,15 @@ footer {
     }
 
 }
+
+/* =========================================
+   CLIENTES - TÍTULO EN COMPUTADORA
+   ========================================= */
+
+@media (min-width: 992px) {
+
+    .clientes {
+        padding-top: 120px;
+    }
+
+}
