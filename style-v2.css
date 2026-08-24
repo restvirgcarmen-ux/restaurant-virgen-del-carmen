@@ -3298,3 +3298,40 @@ footer {
     }
 
 }
+
+/* =========================================
+   CONTACTO - TARJETA MÁS COMPACTA EN PC
+   ========================================= */
+
+@media (min-width: 992px) {
+
+    .info-contacto {
+        padding: 30px 34px;
+    }
+
+    .info-contacto h3 {
+        margin-top: 14px;
+        margin-bottom: 6px;
+    }
+
+    .info-contacto h3:first-child {
+        margin-top: 0;
+    }
+
+    .info-contacto p {
+        margin-bottom: 24px;
+        line-height: 1.5;
+    }
+
+    .botones-contacto {
+        gap: 12px;
+        margin-top: 18px;
+    }
+
+    .btn-wsp,
+    .btn-mapa {
+        padding: 14px 24px;
+        font-size: 16px;
+    }
+
+}
