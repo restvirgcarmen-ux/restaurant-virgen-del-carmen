@@ -3335,3 +3335,47 @@ footer {
     }
 
 }
+
+/* =========================================
+   PLATOS DESTACADOS - COMPUTADORA
+   ========================================= */
+
+@media (min-width: 992px) {
+
+    .contenedor-platos {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+    }
+
+    .plato {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .plato img {
+        height: 300px;
+    }
+
+    .info-plato {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        padding: 20px;
+    }
+
+    .info-plato h3 {
+        min-height: 62px;
+        margin-bottom: 12px;
+    }
+
+    .info-plato p {
+        min-height: 82px;
+        margin-bottom: 20px;
+    }
+
+    .btn-plato {
+        margin-top: auto;
+    }
+
+}
