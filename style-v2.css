@@ -3397,3 +3397,40 @@ footer {
     }
 
 }
+
+/* =========================================
+   ¿POR QUÉ ELEGIRNOS? - COMPUTADORA
+   ========================================= */
+
+@media (min-width: 992px) {
+
+    .contenedor-porque {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+        max-width: 1150px;
+        margin: 0 auto;
+    }
+
+    .porque-card {
+        padding: 28px 20px;
+        min-height: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .porque-card i {
+        font-size: 44px;
+        margin-bottom: 16px;
+    }
+
+    .porque-card h3 {
+        margin-bottom: 12px;
+    }
+
+    .porque-card p {
+        margin: 0;
+        line-height: 1.5;
+    }
+
+}
