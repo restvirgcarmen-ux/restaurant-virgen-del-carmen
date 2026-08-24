@@ -3248,3 +3248,23 @@ footer {
     }
 
 }
+
+/* =========================================
+   ESTADÍSTICAS - TARJETAS MÁS COMPACTAS EN PC
+   ========================================= */
+
+@media (min-width: 992px) {
+
+    .estadisticas {
+        display: flex;
+        gap: 18px;
+        justify-content: flex-start;
+    }
+
+    .card-info {
+        flex: 0 1 190px;
+        min-height: 125px;
+        padding: 18px 12px;
+    }
+
+}
