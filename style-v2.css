@@ -3564,3 +3564,49 @@ footer {
     }
 
 }
+
+/* =========================================
+   CARRITO HORIZONTAL - COMPUTADORA
+   ========================================= */
+
+@media (min-width: 992px) {
+
+    .panel-carrito {
+        width: 850px;
+        max-width: calc(100vw - 50px);
+        max-height: 78vh;
+        padding: 28px;
+    }
+
+    .item-carrito {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto auto;
+        align-items: center;
+        gap: 20px;
+        padding: 14px 0;
+    }
+
+    .item-carrito-info {
+        min-width: 0;
+    }
+
+    .item-carrito-info strong {
+        font-size: 16px;
+        line-height: 1.35;
+    }
+
+    .controles-cantidad {
+        justify-content: center;
+        white-space: nowrap;
+    }
+
+    .total-carrito {
+        margin-top: 12px;
+        padding: 18px 0;
+    }
+
+    .tipo-pedido {
+        margin-top: 14px;
+    }
+
+}
