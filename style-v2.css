@@ -3434,3 +3434,33 @@ footer {
     }
 
 }
+
+/* =========================================
+   CARRUSEL CLIENTES - COMPUTADORA
+   ========================================= */
+
+@media (min-width: 992px) {
+
+    .slider-clientes {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .contenedor-slider {
+        max-width: 760px;
+    }
+
+    .slider img {
+        width: 520px;
+        height: 330px;
+    }
+
+    .prev {
+        left: 40px;
+    }
+
+    .next {
+        right: 40px;
+    }
+
+}
