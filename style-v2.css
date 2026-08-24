@@ -3564,17 +3564,3 @@ footer {
     }
 
 }
-
-/* =========================================
-   CARRITO - POSICIÓN EN COMPUTADORA
-   ========================================= */
-
-@media (min-width: 992px) {
-
-    .panel-carrito {
-        bottom: 85px;
-        max-height: calc(100vh - 150px);
-        box-sizing: border-box;
-    }
-
-}
