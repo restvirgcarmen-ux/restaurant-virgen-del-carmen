@@ -3482,3 +3482,44 @@ footer {
     }
 
 }
+
+/* =========================================
+   CARTA - COMPUTADORA
+   ========================================= */
+
+@media (min-width: 992px) {
+
+    .carta {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .categoria-menu {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .carta .platos-menu {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px 28px;
+        width: 100%;
+    }
+
+    .carta .boton-plato,
+    .carta .boton-chicharron,
+    .carta .boton-especial,
+    .carta .boton-ronda,
+    .carta .boton-jalea,
+    .carta .boton-carne,
+    .carta .boton-arroz,
+    .carta .boton-almuerzo,
+    .carta .boton-bebida,
+    .carta .boton-guarnicion {
+        width: 100%;
+        max-width: none;
+        margin-bottom: 0;
+    }
+
+}
