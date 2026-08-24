@@ -3523,3 +3523,127 @@ footer {
     }
 
 }
+
+/* =========================================
+   CARRITO HORIZONTAL - COMPUTADORA
+   ========================================= */
+
+@media (min-width: 992px) {
+
+    /* PANEL PRINCIPAL */
+    .panel-carrito {
+        position: absolute;
+        right: 0;
+        bottom: 65px;
+
+        width: 900px;
+        max-width: calc(100vw - 50px);
+
+        max-height: calc(100vh - 120px);
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        box-sizing: border-box;
+
+        padding: 28px;
+
+        background: #fff;
+        border-radius: 20px;
+
+        box-shadow: 0 15px 45px rgba(0,0,0,.25);
+
+        overscroll-behavior: contain;
+    }
+
+    /* CABECERA */
+    .panel-carrito .cabecera-carrito {
+        grid-column: 1 / -1;
+    }
+
+    /* CONVERTIMOS EL CONTENIDO EN DOS COLUMNAS */
+    .panel-carrito {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 28px;
+        align-items: start;
+    }
+
+    /* IZQUIERDA: PEDIDOS */
+    .panel-carrito .lista-carrito {
+        grid-column: 1;
+    }
+
+    .panel-carrito .total-carrito {
+        grid-column: 1;
+
+        margin-top: 10px;
+        padding: 18px 0;
+
+        border-top: 2px solid #eee;
+    }
+
+    /* DERECHA: FORMA DE RECEPCIÓN */
+    .panel-carrito .tipo-pedido {
+        grid-column: 2;
+        grid-row: 2;
+
+        margin-top: 0;
+    }
+
+    /* DATOS DEL CLIENTE */
+    .panel-carrito .datos-pedido {
+        grid-column: 2;
+        grid-row: 3;
+
+        margin-top: 20px;
+    }
+
+    /* BOTÓN FINAL */
+    .panel-carrito .boton-realizar-pedido {
+        grid-column: 2;
+        grid-row: 4;
+
+        margin-top: 20px;
+    }
+
+    /* ITEMS DEL PEDIDO */
+    .panel-carrito .item-carrito {
+        gap: 12px;
+        padding: 14px 0;
+    }
+
+    .panel-carrito .item-carrito-info {
+        min-width: 0;
+    }
+
+    .panel-carrito .item-carrito-info strong {
+        line-height: 1.35;
+    }
+
+    /* OPCIONES DE ENTREGA */
+    .panel-carrito .tipo-pedido label {
+        padding: 12px;
+        margin-bottom: 9px;
+    }
+
+    /* EVITA QUE EL SCROLL SE ESCAPE DEL CARRITO */
+    .panel-carrito {
+        overscroll-behavior-y: contain;
+    }
+
+}
+
+
+/* =========================================
+   BLOQUEAR SCROLL DE LA PÁGINA
+   CUANDO EL CARRITO ESTÁ ABIERTO
+   ========================================= */
+
+@media (min-width: 992px) {
+
+    body:has(.panel-carrito.activo) {
+        overflow: hidden;
+    }
+
+}
