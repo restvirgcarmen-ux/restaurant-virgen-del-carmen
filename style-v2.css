@@ -3530,7 +3530,6 @@ footer {
 
 @media (min-width: 992px) {
 
-    /* PANEL PRINCIPAL */
     .panel-carrito {
         position: absolute;
         right: 0;
@@ -3538,7 +3537,6 @@ footer {
 
         width: 900px;
         max-width: calc(100vw - 50px);
-
         max-height: calc(100vh - 120px);
 
         overflow-y: auto;
@@ -3554,6 +3552,23 @@ footer {
         box-shadow: 0 15px 45px rgba(0,0,0,.25);
 
         overscroll-behavior: contain;
+
+        /* IMPORTANTE:
+           permanece oculto hasta pulsar Mi pedido */
+        display: none;
+
+        /* Dos columnas */
+        grid-template-columns: 1fr 1fr;
+        column-gap: 28px;
+
+        align-items: start;
+
+        position: relative;
+    }
+
+    /* SOLO SE MUESTRA AL ABRIR EL CARRITO */
+    .panel-carrito.activo {
+        display: grid;
     }
 
     /* CABECERA */
@@ -3561,15 +3576,7 @@ footer {
         grid-column: 1 / -1;
     }
 
-    /* CONVERTIMOS EL CONTENIDO EN DOS COLUMNAS */
-    .panel-carrito {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        column-gap: 28px;
-        align-items: start;
-    }
-
-    /* IZQUIERDA: PEDIDOS */
+    /* PEDIDOS */
     .panel-carrito .lista-carrito {
         grid-column: 1;
     }
@@ -3583,7 +3590,7 @@ footer {
         border-top: 2px solid #eee;
     }
 
-    /* DERECHA: FORMA DE RECEPCIÓN */
+    /* PARTE DERECHA */
     .panel-carrito .tipo-pedido {
         grid-column: 2;
         grid-row: 2;
@@ -3591,7 +3598,6 @@ footer {
         margin-top: 0;
     }
 
-    /* DATOS DEL CLIENTE */
     .panel-carrito .datos-pedido {
         grid-column: 2;
         grid-row: 3;
@@ -3599,7 +3605,6 @@ footer {
         margin-top: 20px;
     }
 
-    /* BOTÓN FINAL */
     .panel-carrito .boton-realizar-pedido {
         grid-column: 2;
         grid-row: 4;
@@ -3607,7 +3612,7 @@ footer {
         margin-top: 20px;
     }
 
-    /* ITEMS DEL PEDIDO */
+    /* ITEMS */
     .panel-carrito .item-carrito {
         gap: 12px;
         padding: 14px 0;
@@ -3627,13 +3632,28 @@ footer {
         margin-bottom: 9px;
     }
 
-    /* EVITA QUE EL SCROLL SE ESCAPE DEL CARRITO */
+    /* LÍNEA VERTICAL ENTRE LAS DOS PARTES */
+    .panel-carrito::after {
+        content: "";
+        position: absolute;
+
+        top: 75px;
+        bottom: 28px;
+
+        left: 50%;
+
+        width: 1px;
+
+        background: #e5e5e5;
+    }
+
+    /* IMPIDE QUE EL SCROLL DEL CARRITO
+       SALGA HACIA LA PÁGINA */
     .panel-carrito {
         overscroll-behavior-y: contain;
     }
 
 }
-
 
 /* =========================================
    BLOQUEAR SCROLL DE LA PÁGINA
