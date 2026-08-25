@@ -3828,3 +3828,99 @@ footer {
     }
 
 }
+
+/* =========================================
+   MODALES DE PLATOS - COMPUTADORA
+   FORMATO HORIZONTAL
+   ========================================= */
+
+@media (min-width: 992px) {
+
+    /* Fondo del modal */
+    .modal-plato {
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    /* Ventana horizontal */
+    .contenido-modal-plato {
+        width: 900px;
+        max-width: calc(100vw - 60px);
+        max-height: 82vh;
+
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+
+        overflow: hidden;
+
+        border-radius: 22px;
+    }
+
+    /* FOTO - COLUMNA IZQUIERDA */
+    .contenido-modal-plato > img {
+        width: 100%;
+        height: 100%;
+
+        min-height: 430px;
+        max-height: none;
+
+        object-fit: cover;
+        object-position: center;
+    }
+
+    /* INFORMACIÓN - COLUMNA DERECHA */
+    .info-modal-plato {
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .info-modal-plato h3 {
+        margin: 0 0 12px;
+        font-size: 26px;
+        line-height: 1.2;
+    }
+
+    .info-modal-plato p {
+        margin: 0 0 22px;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    /* CONTENEDORES DE PRECIOS */
+    .precios-ceviche,
+    .precios-especial {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 12px;
+        width: 100%;
+        margin: 0 0 20px;
+    }
+
+    /* TODOS LOS BOTONES DE PRECIO */
+    .precios-ceviche button,
+    .precios-especial button {
+        flex: 1 1 0;
+        min-width: 0;
+
+        margin: 0;
+
+        padding: 12px 10px;
+
+        box-sizing: border-box;
+
+        border-radius: 12px;
+
+        font-size: 17px;
+        font-weight: 700;
+    }
+
+    /* BOTÓN AGREGAR */
+    .info-modal-plato .agregar-pedido {
+        width: 100%;
+        margin-top: 4px;
+    }
+
+}
