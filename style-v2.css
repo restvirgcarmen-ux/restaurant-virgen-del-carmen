@@ -4076,3 +4076,17 @@ footer {
     }
 
 }
+
+@media (min-width: 992px) {
+
+    #modal-duo-virgen .contenido-modal-plato {
+        align-items: center;
+    }
+
+    #modal-duo-virgen .contenido-modal-plato > img {
+        align-self: center;
+        justify-self: center;
+        object-position: center center;
+    }
+
+}
