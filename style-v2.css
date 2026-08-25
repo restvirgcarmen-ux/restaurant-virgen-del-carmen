@@ -4192,3 +4192,15 @@ footer {
     }
 
 }
+
+@media (min-width: 992px) {
+
+    #panel-carrito .datos-pedido {
+        transform: translateY(-150px);
+    }
+
+    #panel-carrito .boton-realizar-pedido {
+        transform: translateY(-150px);
+    }
+
+}
