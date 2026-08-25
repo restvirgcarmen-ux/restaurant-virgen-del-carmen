@@ -3561,13 +3561,13 @@ footer {
         right: 50px !important;
         left: auto !important;
 
-        transform: translateY(-80%) !important;
+        transform: translateY(-85%) !important;
 
         width: 900px !important;
         max-width: calc(100vw - 60px) !important;
 
         height: auto !important;
-        min-height: 520px !important;
+        min-height: 600px !important;
         max-height: 88vh !important;
 
         overflow-y: auto !important;
