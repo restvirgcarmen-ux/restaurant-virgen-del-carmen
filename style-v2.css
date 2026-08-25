@@ -3836,17 +3836,30 @@ footer {
 
 @media (min-width: 992px) {
 
-    /* Fondo del modal */
+    /* ================================
+       FONDO DEL MODAL
+       ================================ */
+
     .modal-plato {
         align-items: center;
         justify-content: center;
         padding: 20px;
+
+        overflow: hidden;
+        overscroll-behavior: contain;
     }
 
-    /* Ventana horizontal */
+
+    /* ================================
+       VENTANA
+       ================================ */
+
     .contenido-modal-plato {
-        width: 900px;
+
+        width: 880px;
         max-width: calc(100vw - 60px);
+
+        height: 560px;
         max-height: 82vh;
 
         display: grid;
@@ -3855,72 +3868,148 @@ footer {
         overflow: hidden;
 
         border-radius: 22px;
+        background: #fff;
+
+        box-shadow: 0 20px 60px rgba(0,0,0,.40);
     }
 
-    /* FOTO - COLUMNA IZQUIERDA */
+
+    /* ================================
+       FOTO
+       CENTRADA + FRANJAS NEGRAS
+       ================================ */
+
     .contenido-modal-plato > img {
+
         width: 100%;
         height: 100%;
 
-        min-height: 430px;
-        max-height: none;
-
-        object-fit: cover;
+        object-fit: contain;
         object-position: center;
+
+        background: #000;
+
+        min-height: 0;
+        max-height: none;
     }
 
-    /* INFORMACIÓN - COLUMNA DERECHA */
+
+    /* ================================
+       INFORMACIÓN DERECHA
+       ================================ */
+
     .info-modal-plato {
-        padding: 30px;
+
+        padding: 24px;
+
         display: flex;
         flex-direction: column;
         justify-content: center;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        overscroll-behavior: contain;
     }
+
 
     .info-modal-plato h3 {
-        margin: 0 0 12px;
-        font-size: 26px;
+
+        margin: 0 0 10px;
+
+        font-size: 24px;
         line-height: 1.2;
+
+        color: #b71c1c;
     }
+
 
     .info-modal-plato p {
-        margin: 0 0 22px;
-        font-size: 16px;
-        line-height: 1.5;
+
+        margin: 0 0 16px;
+
+        color: #666;
+
+        font-size: 15px;
+        line-height: 1.4;
     }
 
-    /* CONTENEDORES DE PRECIOS */
+
+    /* ================================
+       PRECIOS
+       ================================ */
+
     .precios-ceviche,
     .precios-especial {
+
         display: flex;
         flex-wrap: nowrap;
-        gap: 12px;
+
+        gap: 10px;
+
         width: 100%;
-        margin: 0 0 20px;
+
+        margin: 0 0 16px;
     }
 
-    /* TODOS LOS BOTONES DE PRECIO */
+
     .precios-ceviche button,
     .precios-especial button {
+
         flex: 1 1 0;
+
         min-width: 0;
 
         margin: 0;
 
-        padding: 12px 10px;
+        padding: 11px 8px;
 
         box-sizing: border-box;
 
         border-radius: 12px;
 
-        font-size: 17px;
+        font-size: 15px;
         font-weight: 700;
     }
 
-    /* BOTÓN AGREGAR */
+
+    /* ================================
+       BOTÓN AGREGAR
+       ================================ */
+
     .info-modal-plato .agregar-pedido {
+
         width: 100%;
-        margin-top: 4px;
+
+        margin-top: 2px;
+
+        padding: 13px;
+
+        font-size: 16px;
+    }
+
+
+    /* ================================
+       SCROLL INTERNO
+       ================================ */
+
+    .contenido-modal-plato {
+
+        overscroll-behavior-y: contain;
+    }
+
+}
+
+
+/* =========================================
+   BLOQUEAR SCROLL DE LA PÁGINA
+   MIENTRAS HAY UN MODAL ABIERTO
+   ========================================= */
+
+@media (min-width: 992px) {
+
+    body:has(.modal-plato[style*="display: flex"]) {
+        overflow: hidden !important;
     }
 
 }
