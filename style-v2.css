@@ -3698,3 +3698,61 @@ footer {
         overflow: hidden !important;
     }
 }
+
+/* =========================================
+   CARRITO PC - COLUMNA DERECHA
+   ========================================= */
+
+@media (min-width: 992px) {
+
+    #panel-carrito .tipo-pedido {
+        grid-column: 2;
+        grid-row: 2;
+        align-self: start;
+        padding: 0;
+        margin: 0;
+    }
+
+    #panel-carrito .tipo-pedido h4 {
+        margin: 0 0 14px;
+    }
+
+    #panel-carrito .tipo-pedido label {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px 14px;
+        margin-bottom: 9px;
+    }
+
+    #panel-carrito .datos-pedido {
+        grid-column: 2;
+        grid-row: 3;
+        align-self: start;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 18px 0 0;
+        padding: 0;
+    }
+
+    #panel-carrito .datos-pedido h4 {
+        margin: 0 0 12px;
+    }
+
+    #panel-carrito .datos-pedido input {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 11px 12px;
+        margin-bottom: 9px;
+    }
+
+    #panel-carrito .boton-realizar-pedido {
+        grid-column: 2;
+        grid-row: 4;
+        align-self: start;
+        width: 100%;
+        margin: 18px 0 0;
+    }
+
+}
