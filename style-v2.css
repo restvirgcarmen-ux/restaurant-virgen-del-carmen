@@ -4013,3 +4013,66 @@ footer {
     }
 
 }
+
+/* =========================================
+   DÚO VIRGEN DEL CARMEN - PC
+   ========================================= */
+
+@media (min-width: 992px) {
+
+    #modal-duo-virgen .contenido-modal-plato > img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center center;
+        background: #000;
+    }
+
+    #modal-duo-virgen .info-modal-plato {
+        padding: 20px;
+    }
+
+    #modal-duo-virgen .info-modal-plato h3 {
+        font-size: 22px;
+        line-height: 1.2;
+        margin-bottom: 8px;
+    }
+
+    #modal-duo-virgen .info-modal-plato > p {
+        font-size: 14px;
+        line-height: 1.35;
+        margin-bottom: 12px;
+    }
+
+    #modal-duo-virgen .opciones-duo-virgen {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #modal-duo-virgen .opcion-duo-virgen {
+        width: 100%;
+        padding: 9px 12px;
+        font-size: 14px;
+        line-height: 1.3;
+        box-sizing: border-box;
+    }
+
+    #modal-duo-virgen .precios-especial {
+        margin-top: 12px;
+        margin-bottom: 10px;
+    }
+
+    #modal-duo-virgen .precio-especial {
+        width: 100%;
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    #modal-duo-virgen .agregar-pedido {
+        margin-top: 2px;
+        padding: 12px;
+        font-size: 15px;
+    }
+
+}
