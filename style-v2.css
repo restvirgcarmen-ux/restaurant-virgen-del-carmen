@@ -3756,3 +3756,75 @@ footer {
     }
 
 }
+
+/* =========================================
+   MODALES DE PLATOS - COMPUTADORA
+   ========================================= */
+
+@media (min-width: 992px) {
+
+    /* CONTENEDOR DEL MODAL */
+    .contenido-modal-plato {
+        width: 100%;
+        max-width: 460px;
+        max-height: 84vh;
+        overflow-y: auto;
+        border-radius: 18px;
+    }
+
+    /* IMAGEN MÁS COMPACTA */
+    .contenido-modal-plato > img {
+        max-height: 300px;
+        object-fit: cover;
+    }
+
+    /* INFORMACIÓN */
+    .info-modal-plato {
+        padding: 20px;
+    }
+
+    .info-modal-plato h3 {
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+
+    .info-modal-plato p {
+        font-size: 15px;
+        line-height: 1.45;
+        margin-bottom: 16px;
+    }
+
+    /* BOTONES DE PRECIO */
+    .info-modal-plato > button:not(.agregar-pedido) {
+        display: inline-flex;
+        width: calc(50% - 7px);
+        min-height: 48px;
+        margin: 0 10px 12px 0;
+        box-sizing: border-box;
+
+        align-items: center;
+        justify-content: center;
+
+        border: 2px solid #25D366;
+        border-radius: 12px;
+
+        background: #fff;
+        color: #087d3e;
+
+        font-size: 17px;
+        font-weight: 700;
+    }
+
+    .info-modal-plato > button:not(.agregar-pedido):nth-last-child(2) {
+        margin-right: 0;
+    }
+
+    /* BOTÓN AGREGAR */
+    .info-modal-plato .agregar-pedido {
+        width: 100%;
+        margin-top: 4px;
+        padding: 13px;
+        font-size: 16px;
+    }
+
+}
