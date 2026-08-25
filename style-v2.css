@@ -3567,7 +3567,7 @@ footer {
         max-width: calc(100vw - 60px) !important;
 
         height: auto !important;
-        min-height: 700px !important;
+        min-height: 520px !important;
         max-height: 88vh !important;
 
         overflow-y: auto !important;
