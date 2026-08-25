@@ -3525,12 +3525,16 @@ footer {
 }
 
 /* =========================================
-   CARRITO HORIZONTAL - COMPUTADORA
+   CARRITO - PC
+   VENTANA HORIZONTAL EN DOS COLUMNAS
    ========================================= */
 
 @media (min-width: 992px) {
 
-    /* Mantiene el botón en su posición original */
+    /* -------------------------------------------------
+       BOTÓN ORIGINAL
+       ------------------------------------------------- */
+
     .carrito-pedido {
         position: fixed;
         right: 25px;
@@ -3538,29 +3542,38 @@ footer {
         z-index: 5000;
     }
 
-    /* Ocultar botón mientras el carrito está abierto */
+    /* -------------------------------------------------
+       OCULTAR BOTÓN CUANDO EL PANEL ESTÁ ABIERTO
+       ------------------------------------------------- */
+
     body:has(.panel-carrito.activo) #abrir-carrito {
-        display: none;
+        display: none !important;
     }
 
-    /* =========================================
+    /* -------------------------------------------------
        PANEL
-       ========================================= */
+       ------------------------------------------------- */
 
-    .panel-carrito {
-        position: fixed;
+    #panel-carrito {
+        position: fixed !important;
 
-        left: 50%;
-        top: 50%;
+        top: 50% !important;
+        left: 50% !important;
+        right: auto !important;
+        bottom: auto !important;
 
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%) !important;
 
-        width: 900px;
-        max-width: calc(100vw - 60px);
-        max-height: 82vh;
+        width: 900px !important;
+        max-width: calc(100vw - 60px) !important;
 
-        overflow-y: auto;
-        overflow-x: hidden;
+        height: auto !important;
+        max-height: 82vh !important;
+
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+
+        display: none !important;
 
         box-sizing: border-box;
 
@@ -3573,13 +3586,14 @@ footer {
         box-shadow: 0 20px 60px rgba(0,0,0,.30);
 
         overscroll-behavior: contain;
-
-        display: none;
     }
 
-    /* Se muestra solamente al pulsar Mi pedido */
-    .panel-carrito.activo {
-        display: grid;
+    /* -------------------------------------------------
+       SOLO SE MUESTRA AL ABRIR
+       ------------------------------------------------- */
+
+    #panel-carrito.activo {
+        display: grid !important;
 
         grid-template-columns: 1fr 1fr;
 
@@ -3588,11 +3602,11 @@ footer {
         align-items: start;
     }
 
-    /* =========================================
+    /* -------------------------------------------------
        CABECERA
-       ========================================= */
+       ------------------------------------------------- */
 
-    .panel-carrito .cabecera-carrito {
+    #panel-carrito .cabecera-carrito {
         grid-column: 1 / -1;
 
         display: flex;
@@ -3606,114 +3620,81 @@ footer {
         border-bottom: 1px solid #e5e5e5;
     }
 
-    .panel-carrito .cabecera-carrito h3 {
+    #panel-carrito .cabecera-carrito h3 {
         margin: 0;
-
-        color: #333;
-
         font-size: 25px;
+        color: #333;
     }
 
-    /* =========================================
+    /* -------------------------------------------------
        PEDIDOS - IZQUIERDA
-       ========================================= */
+       ------------------------------------------------- */
 
-    .panel-carrito .lista-carrito {
+    #panel-carrito .lista-carrito {
         grid-column: 1;
         grid-row: 2;
-
         min-width: 0;
     }
 
-    .panel-carrito .item-carrito {
-        gap: 12px;
-        padding: 14px 0;
-    }
-
-    .panel-carrito .item-carrito-info {
-        min-width: 0;
-    }
-
-    .panel-carrito .item-carrito-info strong {
-        line-height: 1.35;
-    }
-
-    /* TOTAL - IZQUIERDA */
-
-    .panel-carrito .total-carrito {
+    #panel-carrito .total-carrito {
         grid-column: 1;
         grid-row: 3;
 
         margin-top: 10px;
-
         padding: 18px 0;
 
         border-top: 2px solid #eee;
     }
 
-    /* =========================================
+    /* -------------------------------------------------
        RECEPCIÓN - DERECHA
-       ========================================= */
+       ------------------------------------------------- */
 
-    .panel-carrito .tipo-pedido {
+    #panel-carrito .tipo-pedido {
         grid-column: 2;
         grid-row: 2;
 
         margin: 0;
     }
 
-    .panel-carrito .tipo-pedido label {
-        padding: 12px;
-        margin-bottom: 9px;
-    }
-
-    /* DATOS */
-
-    .panel-carrito .datos-pedido {
+    #panel-carrito .datos-pedido {
         grid-column: 2;
         grid-row: 3;
 
         margin-top: 18px;
     }
 
-    /* BOTÓN FINAL */
-
-    .panel-carrito .boton-realizar-pedido {
+    #panel-carrito .boton-realizar-pedido {
         grid-column: 2;
         grid-row: 4;
 
         margin-top: 18px;
     }
 
-    /* =========================================
-       DIVISIÓN VERTICAL
-       ========================================= */
+    /* -------------------------------------------------
+       LÍNEA VERTICAL
+       ------------------------------------------------- */
 
-    .panel-carrito::after {
+    #panel-carrito::after {
         content: "";
 
         position: absolute;
 
-        top: 80px;
+        top: 82px;
         bottom: 28px;
 
         left: 50%;
 
         width: 1px;
 
-        background: #e2e2e2;
+        background: #e3e3e3;
     }
 
-    /* =========================================
-       SCROLL INTERNO
-       ========================================= */
+    /* -------------------------------------------------
+       BLOQUEAR SCROLL DE LA PÁGINA
+       ------------------------------------------------- */
 
     body:has(.panel-carrito.activo) {
-        overflow: hidden;
+        overflow: hidden !important;
     }
-
-    .panel-carrito {
-        overscroll-behavior-y: contain;
-    }
-
 }
