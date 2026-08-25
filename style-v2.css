@@ -4098,3 +4098,86 @@ footer {
     }
 
 }
+
+/* =========================================
+   CARRITO PC - FILAS DE PRODUCTOS
+   ========================================= */
+
+@media (min-width: 992px) {
+
+    /* Cada producto queda organizado en columnas */
+    #panel-carrito .item-carrito {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 88px 72px 28px;
+        align-items: center;
+        column-gap: 10px;
+
+        padding: 11px 0;
+    }
+
+    /* Nombre y precio unitario */
+    #panel-carrito .item-carrito-info {
+        min-width: 0;
+    }
+
+    #panel-carrito .item-carrito-info strong {
+        font-size: 14px;
+        line-height: 1.25;
+        margin-bottom: 2px;
+    }
+
+    #panel-carrito .item-carrito-info span {
+        font-size: 13px;
+        line-height: 1.2;
+    }
+
+    /* Cantidad */
+    #panel-carrito .controles-cantidad {
+        width: 88px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+
+        flex-shrink: 0;
+    }
+
+    #panel-carrito .controles-cantidad button {
+        width: 28px;
+        height: 28px;
+        min-width: 28px;
+
+        padding: 0;
+
+        font-size: 15px;
+    }
+
+    #panel-carrito .controles-cantidad span {
+        min-width: 14px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    /* Precio total del producto */
+    #panel-carrito .item-carrito > span {
+        font-size: 14px;
+        font-weight: 500;
+        text-align: right;
+        white-space: nowrap;
+    }
+
+    /* Papelera */
+    #panel-carrito .item-carrito > button {
+        width: 26px;
+        height: 26px;
+
+        padding: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+}
