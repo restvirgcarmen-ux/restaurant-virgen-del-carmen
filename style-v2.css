@@ -3530,43 +3530,55 @@ footer {
 
 @media (min-width: 992px) {
 
+    /* CONTENEDOR DEL CARRITO CUANDO ESTÁ ABIERTO */
+    body:has(.panel-carrito.activo) .carrito-pedido {
+        position: fixed;
+        top: 50%;
+        right: 50%;
+        bottom: auto;
+        transform: translate(50%, -50%);
+        width: auto;
+        z-index: 5000;
+    }
+
+    /* OCULTAR EL BOTÓN MIENTRAS EL PANEL ESTÁ ABIERTO */
+    body:has(.panel-carrito.activo) #abrir-carrito {
+        display: none;
+    }
+
+    /* PANEL */
     .panel-carrito {
-        position: absolute;
-        right: 0;
-        bottom: 65px;
+        position: relative;
+        right: auto;
+        bottom: auto;
 
         width: 900px;
-        max-width: calc(100vw - 50px);
-        max-height: calc(100vh - 120px);
+        max-width: calc(100vw - 60px);
+        max-height: 82vh;
 
         overflow-y: auto;
         overflow-x: hidden;
 
         box-sizing: border-box;
 
-        padding: 28px;
+        padding: 26px 28px;
 
         background: #fff;
-        border-radius: 20px;
+        border-radius: 22px;
 
-        box-shadow: 0 15px 45px rgba(0,0,0,.25);
+        box-shadow: 0 20px 60px rgba(0,0,0,.30);
 
         overscroll-behavior: contain;
 
-        /* IMPORTANTE:
-           permanece oculto hasta pulsar Mi pedido */
         display: none;
 
-        /* Dos columnas */
         grid-template-columns: 1fr 1fr;
-        column-gap: 28px;
+        column-gap: 30px;
 
         align-items: start;
-
-        position: relative;
     }
 
-    /* SOLO SE MUESTRA AL ABRIR EL CARRITO */
+    /* SOLO CUANDO ESTÁ ABIERTO */
     .panel-carrito.activo {
         display: grid;
     }
@@ -3574,15 +3586,44 @@ footer {
     /* CABECERA */
     .panel-carrito .cabecera-carrito {
         grid-column: 1 / -1;
+
+        padding-bottom: 16px;
+        margin-bottom: 8px;
+
+        border-bottom: 1px solid #e5e5e5;
     }
 
-    /* PEDIDOS */
+    .panel-carrito .cabecera-carrito h3 {
+        font-size: 25px;
+        color: #333;
+        margin: 0;
+    }
+
+    /* LISTA DE PEDIDOS */
     .panel-carrito .lista-carrito {
         grid-column: 1;
+        grid-row: 2;
+
+        min-width: 0;
     }
 
+    .panel-carrito .item-carrito {
+        gap: 12px;
+        padding: 13px 0;
+    }
+
+    .panel-carrito .item-carrito-info {
+        min-width: 0;
+    }
+
+    .panel-carrito .item-carrito-info strong {
+        line-height: 1.35;
+    }
+
+    /* TOTAL */
     .panel-carrito .total-carrito {
         grid-column: 1;
+        grid-row: 3;
 
         margin-top: 10px;
         padding: 18px 0;
@@ -3595,72 +3636,44 @@ footer {
         grid-column: 2;
         grid-row: 2;
 
-        margin-top: 0;
+        margin: 0;
+        padding-left: 10px;
     }
 
     .panel-carrito .datos-pedido {
         grid-column: 2;
         grid-row: 3;
 
-        margin-top: 20px;
+        margin-top: 18px;
+        padding-left: 10px;
     }
 
     .panel-carrito .boton-realizar-pedido {
         grid-column: 2;
         grid-row: 4;
 
-        margin-top: 20px;
+        margin-top: 18px;
+        margin-left: 10px;
     }
 
-    /* ITEMS */
-    .panel-carrito .item-carrito {
-        gap: 12px;
-        padding: 14px 0;
-    }
-
-    .panel-carrito .item-carrito-info {
-        min-width: 0;
-    }
-
-    .panel-carrito .item-carrito-info strong {
-        line-height: 1.35;
-    }
-
-    /* OPCIONES DE ENTREGA */
-    .panel-carrito .tipo-pedido label {
-        padding: 12px;
-        margin-bottom: 9px;
-    }
-
-    /* LÍNEA VERTICAL ENTRE LAS DOS PARTES */
+    /* LÍNEA VERTICAL CENTRAL */
     .panel-carrito::after {
         content: "";
         position: absolute;
 
-        top: 75px;
+        top: 82px;
         bottom: 28px;
-
         left: 50%;
 
         width: 1px;
 
-        background: #e5e5e5;
+        background: #e3e3e3;
     }
 
-    /* IMPIDE QUE EL SCROLL DEL CARRITO
-       SALGA HACIA LA PÁGINA */
+    /* IMPIDE QUE EL SCROLL SE ESCAPE */
     .panel-carrito {
         overscroll-behavior-y: contain;
     }
-
-}
-
-/* =========================================
-   BLOQUEAR SCROLL DE LA PÁGINA
-   CUANDO EL CARRITO ESTÁ ABIERTO
-   ========================================= */
-
-@media (min-width: 992px) {
 
     body:has(.panel-carrito.activo) {
         overflow: hidden;
