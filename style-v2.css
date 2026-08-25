@@ -4181,3 +4181,14 @@ footer {
     }
 
 }
+
+@media (min-width: 992px) {
+
+    #panel-carrito .item-carrito-info span {
+        display: block;
+        margin-top: 2px;
+        font-size: 12px;
+        line-height: 1.2;
+    }
+
+}
